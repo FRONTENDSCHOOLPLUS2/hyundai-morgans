@@ -1,3 +1,3 @@
 # hyundai-morgans
-GeniniSu
-www.hyundaimorgans.com
+GenisiSu
+www.hyundaimorgans-genisisu.com
