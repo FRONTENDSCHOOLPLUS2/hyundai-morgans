@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("./fonts.css");
+@import url("./basic.css");
+
+
+@layer components {
+  .cs-active {
+    @apply font-bold;
+  }
+}

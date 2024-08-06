@@ -1,9 +1,10 @@
-import './globals.css';
+import './css/globals.css';
 
 import { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 // server component에서만 사용 가능
 export const metadata: Metadata = {
@@ -22,27 +23,34 @@ export default function RootLayout({
         <meta charSet="UTF-8" />
         <link rel="icon" type="image/x-icon" href="/images/favicon.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>멋쟁이 사자처럼 커뮤니티 - 멋사컴</title>
+        <title>현대모간스</title>
 
-        <meta name="description" content="다양한 주제의 커뮤니티와 활발한 소통을 위한 플랫폼입니다. 관심사에 따라 참여하고, 의견을 나누세요." />
-        <meta name="keywords" content="커뮤니티, 소통, 포럼, 관심사, 온라인 모임, 커뮤니티 서비스" />
-        <meta name="author" content="FESP 2기" />
+        <meta name="description" content="제니시수연 구매 홍보 페이지" />
+        <meta name="keywords" content="제니시수연, 재니시수, 현대모간스, 현대모건스" />
+        <meta name="author" content="김모건, 이수연, 류재준" />
 
-        <meta property="og:title" content="멋사컴에 오신걸 환영합니다." />
+        <meta property="og:title" content="현대모간스 - 제니시수연" />
         <meta property="og:description" content="유용한 정보를 나누고 공유하세요." />
         <meta property="og:image" content="/images/fesp.webp" />
         <meta property="og:url" content="https://community.fesp.shop" />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="멋사컴" />
+        <meta property="og:site_name" content="현대모간스" />
       </head>
       <body>
-        <div id="root">
-          <div className="flex flex-col min-h-screen dark:bg-gray-700 dark:text-gray-200 transition-color duration-500 ease-in-out">
-            <Header />
-            { children }            
-            <Footer />
-          </div>
-        </div>
+
+        <Header/>
+        <ul className="main_pagenation">
+          <li className="on"><a href="#event1"></a></li>
+          <li><a href="#event2"></a></li>
+          <li><a href="#event3"></a></li>
+          <li><a href="#event4"></a></li>
+          <li><a href="#event5"></a></li>
+        </ul>
+
+        {children}
+
+
+        <Footer/>
       </body>
     </html>
   );
