@@ -33,6 +33,7 @@ export default async function RootPage() {
       <article>
         <h2>G70</h2>
         <h3>STANDARD</h3>
+        <button className="mainBtn">VIEW MORE</button>
       </article>
       <section>
         <span className="ev2_prev"></span>
@@ -43,7 +44,7 @@ export default async function RootPage() {
       </section>
       
       <div className="ev2_bg">
-        <button className="mainBtn">VIEW MORE</button>
+        
       </div>
 
     </section>
@@ -56,7 +57,6 @@ export default async function RootPage() {
     </section>
 
     <section id="event4">
-      <span className="ev4_prev"></span>
       <div className="ev4_wrap">
         <article>
           <h2>GENISISUYEON <span>AWARDS</span></h2>
@@ -67,6 +67,12 @@ export default async function RootPage() {
         <figure>
           <img src="" alt=""/>
         </figure>
+        <ul className="ev4_navi">
+          <li className="on"><a href="#none"></a></li>
+          <li><a href="#none"></a></li>
+          <li><a href="#none"></a></li>
+          <li><a href="#none"></a></li>
+        </ul>
       </div>
       <span className="ev4_next"></span>
       <span className="ev4_prev"></span>
