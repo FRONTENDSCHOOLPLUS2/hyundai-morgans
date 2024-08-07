@@ -1,4 +1,6 @@
+import { Metadata } from "next";
 import Link from "next/link";
+
 
 export default async function RootPage() {
   // await new Promise(resolve => setTimeout(resolve, 1000*3));
