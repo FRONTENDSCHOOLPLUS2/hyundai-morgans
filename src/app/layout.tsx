@@ -10,6 +10,12 @@ import Image from 'next/image';
 export const metadata: Metadata = {
   // url 관련 설정시 metadata 사용될 기본 경로 지정
   metadataBase: new URL('https://next.fesp.shop'),
+  title: '현대모건스',
+  openGraph: {
+    title: '현대모건스 - 제니시수연',
+    description: 'Hyundai-morgans GenisiSuyeon',
+    url: '/'
+  }
 };
 
 export default function RootLayout({
@@ -23,9 +29,8 @@ export default function RootLayout({
         <meta charSet="UTF-8" />
         <link rel="icon" type="image/x-icon" href="/images/favicon.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>현대모간스</title>
 
-        <meta name="description" content="제니시수연 구매 홍보 페이지" />
+        {/* <meta name="description" content="제니시수연 구매 홍보 페이지" /> */}
         <meta name="keywords" content="제니시수연, 재니시수, 현대모간스, 현대모건스" />
         <meta name="author" content="김모건, 이수연, 류재준" />
 
