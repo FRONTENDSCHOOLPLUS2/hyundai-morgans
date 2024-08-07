@@ -16,13 +16,13 @@ export default function Footer() {
         <li className="f_skill">
           <h4>SKILL</h4>
           <ul className="footerInfo">
-            <li><a href="#none"># Next.js</a></li>
-            <li><a href="#none"># Api</a></li>
-            <li><a href="#none"># TypeScript</a></li>
-            <li><a href="#none"># Tailwind</a></li>
-            <li><a href="#none"># HTML</a></li>
-            <li><a href="#none"># CSS</a></li>
-            <li><a href="#none"># mongo.db</a></li>
+            <li># Next.js</li>
+            <li># Api</li>
+            <li># TypeScript</li>
+            <li># Tailwind</li>
+            <li># HTML</li>
+            <li># CSS</li>
+            <li># mongo.db</li>
           </ul>
         </li>
         <li className="f_copy">
