@@ -1,5 +1,5 @@
 import { ApiRes, MultiItem, Post, SingleItem } from "@/types";
-import { Product } from "@/types/product";
+import { ModelList, Product } from "@/types/product";
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 const LIMIT = process.env.NEXT_PUBLIC_LIMIT;
@@ -12,7 +12,13 @@ export async function fetchProducts(): Promise<Product[]> {
     params.set('delay', DELAY!);
     const url = `${SERVER}/products?${params.toString()}`;
     // const url = `${SERVER}/products`;
-    const res = await fetch(url);
+    const res = await fetch(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'client-Id': CLIENT,
+        }
+    });
     const resJson: ApiRes<MultiItem<Product>> = await res.json();
     if(!resJson.ok){
         throw new Error('상품 목록 조회 실패');

@@ -1,3 +1,4 @@
+import { StaticImport } from "next/dist/shared/lib/get-img-props"
 import { UserData } from "./user"
 
 interface Image {
@@ -50,6 +51,8 @@ export interface Product {
     seller_id: number,
     price: number,
     quantity: number,
+    show: boolean,
+    active: boolean,
     name: string,
     mainImages: Image[]
     content: string,
@@ -62,4 +65,16 @@ export interface Product {
     }
 }
 
+export interface Thumbnail {
+    title: string,
+    subtitle: string,
+    content: string,
+    image: Image
+}
 
+export interface ModelList extends Omit<Product, 'extra' | 'mainImages'> {
+    extra: {
+        category: string[],
+        models: Thumbnail[]
+    }
+}

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { fetchProduct, fetchProducts } from "@/data/fetch/productFetch";
-import sampleImage from "../../../../../public/images/genesis-kr-gv70-facelift-sport-glossy-colors-uyuni-white-large.png";
+import { fetchProducts } from "@/data/fetch/productFetch";
+
 import ModelCard from "./ModelCard";
 
 export function generateMetadata({ params }: { params: { type: string } }): Metadata {
@@ -20,22 +20,16 @@ export function generateMetadata({ params }: { params: { type: string } }): Meta
 }
 
 export default async function ListPage () {
-    const data = await fetchProduct("1"); // API 서버 호출
-    const productArr = Array(15).fill(1).map((v, i) => v + i);
-    const productCard = productArr.map( product => 
-        <ModelCard key={product} imgLink={sampleImage} />
+    const data = await fetchProducts();
+    console.log(data);
+    const productCard = data?.map((model, index) => 
+        <ModelCard key={index} model={model} />
     );
-
     return (
-        <>
-            <h1>List Page</h1>
-            <h1>List Page</h1>
-            <h1>List Page</h1>
-            <h1>List Page</h1>
-            <h1>List Page</h1>
-            <section className="flex flex-wrap">
+        <main className="bg-black pt-40 pl-28 pr-28">
+            <ul className="grid grid-cols-4 gap-6 text-white">
                 { data && productCard}
-            </section>
-        </>
+            </ul>
+        </main>
     );
 }
