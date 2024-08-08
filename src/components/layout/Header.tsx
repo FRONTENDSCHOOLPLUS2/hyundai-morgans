@@ -4,7 +4,7 @@ import { auth } from "@/auth";
 import MainMenu from "./MainMenu";
 import LoginInfo from "./LoginInfo";
 
-export default async function Header() {
+export default async function Header({ params }: { params: { type: string }}) {
   const session = await auth();
   console.log('session', session);
 

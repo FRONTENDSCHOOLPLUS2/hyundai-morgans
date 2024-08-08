@@ -1,12 +1,12 @@
 import { Metadata } from "next";
-import ListItem from "../ListItem";
 import { fetchProduct, fetchProducts } from "@/data/fetch/productFetch";
-import Image from "next/image";
+import sampleImage from "../../../../../public/images/genesis-kr-gv70-facelift-sport-glossy-colors-uyuni-white-large.png";
+import ModelCard from "./ModelCard";
 
-export function generateMetadata({ params }: { params: { type: string } }): Metadata{
+export function generateMetadata({ params }: { params: { type: string } }): Metadata {
     const boardName = params.type;
     return {
-        title: `${boardName.toUpperCase()} - Gesinisu`,
+        title: `${boardName.toUpperCase()} - Genisisu`,
         description: `${boardName} 목록 페이지`,
         openGraph: {
             title: `${boardName} - Genisisu`,
@@ -21,7 +21,10 @@ export function generateMetadata({ params }: { params: { type: string } }): Meta
 
 export default async function ListPage () {
     const data = await fetchProduct("1"); // API 서버 호출
-    console.log(data);
+    const productArr = Array(15).fill(1).map((v, i) => v + i);
+    const productCard = productArr.map( product => 
+        <ModelCard key={product} imgLink={sampleImage} />
+    );
 
     return (
         <>
@@ -30,10 +33,9 @@ export default async function ListPage () {
             <h1>List Page</h1>
             <h1>List Page</h1>
             <h1>List Page</h1>
-            <h1>List Page</h1>
-            <h1>List Page</h1>
-            { data && <Image src={`${data.extra.detail.view360[0].path}`} alt="" width={500} height={500} />}
-            {JSON.stringify(data)}
+            <section className="flex flex-wrap">
+                { data && productCard}
+            </section>
         </>
     );
 }
