@@ -1,28 +1,33 @@
+'use client'
+
 import './css/globals.css';
 
 import { Metadata } from 'next';
+import HeaderMain from '@/components/layout/HeaderMain';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 
 // server component에서만 사용 가능
-export const metadata: Metadata = {
-  // url 관련 설정시 metadata 사용될 기본 경로 지정
-  metadataBase: new URL('https://next.fesp.shop'),
-  title: '현대모건스',
-  openGraph: {
-    title: '현대모건스 - 제니시수연',
-    description: 'Hyundai-morgans GenisiSuyeon',
-    url: '/'
-  }
-};
+// export const metadata: Metadata = {
+//   // url 관련 설정시 metadata 사용될 기본 경로 지정
+//   metadataBase: new URL('https://next.fesp.shop'),
+//   title: '현대모건스',
+//   openGraph: {
+//     title: '현대모건스 - 제니시수연',
+//     description: 'Hyundai-morgans GenisiSuyeon',
+//     url: '/'
+//   }
+// };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const url = usePathname();
   return (
     <html lang="ko">
       <head>
@@ -42,19 +47,8 @@ export default function RootLayout({
         <meta property="og:site_name" content="현대모간스" />
       </head>
       <body>
-
-        <Header/>
-        <ul className="main_pagenation">
-          <li className="on"><a href="#event1"></a></li>
-          <li><a href="#event2"></a></li>
-          <li><a href="#event3"></a></li>
-          <li><a href="#event4"></a></li>
-          <li><a href="#event5"></a></li>
-        </ul>
-
-        {children}
-
-
+        {url === "/" ? <HeaderMain/> : <Header/>}
+          {children}
         <Footer/>
       </body>
     </html>
