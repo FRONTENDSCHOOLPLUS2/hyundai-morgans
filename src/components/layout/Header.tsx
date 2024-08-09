@@ -45,7 +45,7 @@ export default async function Header() {
         <ul className="gnb">
           <li>
             <ul>
-              <li><a href="/models/list">모델</a></li>
+              <li><a href="/models">모델</a></li>
               <li><a href="#none">전시시승</a></li>
               <li><a href="#none">고객지원</a></li>
               <li><a href="#none">공지사항</a></li>
