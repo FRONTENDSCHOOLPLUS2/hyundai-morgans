@@ -3,11 +3,12 @@ import sampleImage from "../../../../../public/images/genesis-kr-gv70-facelift-s
 import Image, { StaticImageData } from "next/image";
 
 export default function ModelCard({model}:{model: Product}) {
-    const title = model.name.split(' ')[0];
-    const subtitle = model.name.split(' ').filter(word => word !== model.name.split(' ')[0]);
+    const title = model.name.split(' ')[0].toUpperCase();
+    const subtitle = model.name.split(' ').filter(word => word !== model.name.split(' ')[0]).join(' ').toUpperCase();
+    
     return (
         <li className="grid grid-cols-2 gap-y-1 justify-center px-6 py-8 bg-item-background" >
-            <Image src={sampleImage} width={500} height={500} alt="" className="col-span-full"/>
+            <Image src={sampleImage} width={500} height={500} alt="" className="col-span-full transform scale-x-[-1]"/>
             {/* { !model.mainImages 
                 ? (<Image src={sampleImage} width={500} height={500} alt="" className="col-span-full"/>)
                 : (<Image src={model.mainImages[0].path} width={500} height={500} alt="" className="col-span-full"/>)

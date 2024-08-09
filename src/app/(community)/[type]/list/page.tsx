@@ -22,8 +22,9 @@ export function generateMetadata({ params }: { params: { type: string } }): Meta
 export default async function ListPage () {
     const data = await fetchProducts();
     console.log(data);
-    const productCard = data?.map((model, index) => 
-        <ModelCard key={index} model={model} />
+    const productCard = data?.filter(
+        model => !model.extra.category.includes('option')).map(
+            (model, index) => <ModelCard key={index} model={model} />
     );
     return (
         <main className="bg-black pt-40 pl-28 pr-28">
