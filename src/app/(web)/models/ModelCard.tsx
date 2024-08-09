@@ -1,5 +1,5 @@
 import { Product, Thumbnail } from "@/types/product";
-import sampleImage from "../../../../../public/images/genesis-kr-gv70-facelift-sport-glossy-colors-uyuni-white-large.png";
+import sampleImage from "../../../../public/images/genesis-kr-gv70-facelift-sport-glossy-colors-uyuni-white-large.png";
 import Image, { StaticImageData } from "next/image";
 
 export default function ModelCard({model}:{model: Product}) {

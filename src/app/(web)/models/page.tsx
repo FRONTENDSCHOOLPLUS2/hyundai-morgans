@@ -1,17 +1,15 @@
-import { Metadata } from "next";
 import { fetchProducts } from "@/data/fetch/productFetch";
 
 import ModelCard from "./ModelCard";
 
-export function generateMetadata({ params }: { params: { type: string } }): Metadata {
-    const boardName = params.type;
+export function generateMetadata() {
     return {
-        title: `${boardName.toUpperCase()} - Genisisu`,
-        description: `${boardName} 목록 페이지`,
+        title: "모델 - Genisisu",
+        description: "모델 목록 페이지",
         openGraph: {
-            title: `${boardName} - Genisisu`,
-            description: `${boardName} 목록 페이지 입니다.`,
-            url: `/${params.type}`,
+            title: `모델 - Genisisu`,
+            description: `모델 목록 페이지 입니다.`,
+            url: `/models`,
             images: {
             url: '/images/genisisu_logo_b.png'
             }
@@ -21,7 +19,7 @@ export function generateMetadata({ params }: { params: { type: string } }): Meta
 
 export default async function ListPage () {
     const data = await fetchProducts();
-    console.log(data);
+    // console.log(data);
     const productCard = data?.filter(
         model => !model.extra.category.includes('option')).map(
             (model, index) => <ModelCard key={index} model={model} />
