@@ -18,7 +18,7 @@ const config: Config = {
         "item-background": "#191919"
       },
       fontFamily: {
-        "rjjFam": "Hyundal Sans Head Office"
+        "Hyundai-sans": "Hyundai Sans Head Office"
       },
     },
   },
