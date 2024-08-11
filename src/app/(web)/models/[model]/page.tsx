@@ -50,7 +50,7 @@ export default function OrderPage() {
             <li><a href="#none">포레스트뭐시기저시기</a></li>
           </ul>
         </nav>
-        <figure className="absolute right-0">
+        <figure className="absolute top-0 right-[-200px]">
           <img src="/images/detail/defaultCar.png" alt="" />
         </figure>
         <div className="absolute bottom-0 left-0 w-full h-[300px] bg-gradient-to-b from-[#6A6C72] to-[#303135] opacity-30 blur"/>
