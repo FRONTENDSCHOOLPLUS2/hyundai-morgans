@@ -90,7 +90,62 @@ export default function OrderPage() {
       </section>
 
       {/* 여섯번째 섹션(마지막) : 테이블 스펙 */}
-      <section className="bg-indigo-950">마지막 섹션</section>
+      <section className="bg-white text-black px-[160px] py-[200px] box-border flex flex-col items-center gap-y-[270px]">
+        <article className="flex flex-col items-center">
+          <h2 className="text-[50px]">제품 엔진 스펙</h2>
+          <img src="/images/detail/spec_1.png" alt="" />
+          <h3 className="text-[30px] mb-[120px]">가솔린 3.5 터보 48V 일렉트릭 슈퍼차저</h3>
+          <table className="text-[30px]">
+            <tbody className="flex flex-col gap-y-[40px]">
+              <tr className="flex gap-x-[240px]">
+                <th className="w-[300px] text-left">엔진방식</th>
+                <td className="text-left">3.5T-GDie-S/C</td>
+              </tr>
+              <tr className="flex gap-x-[240px]">
+                <th className="w-[300px] text-left">엔진방식11111111</th>
+                <td className="text-left">3.5T-GDie-S/C</td>
+              </tr>
+              <tr className="flex gap-x-[240px]">
+                <th className="w-[300px] text-left">엔진방식</th>
+                <td className="text-left">3.5T-GDie-S/C</td>
+              </tr>
+              <tr className="flex gap-x-[240px]">
+                <th className="w-[300px] text-left">엔진방식11111111</th>
+                <td className="text-left">3.5T-GDie-S/C</td>
+              </tr>
+              <tr className="flex gap-x-[240px]">
+                <th className="w-[300px] text-left">엔진방식</th>
+                <td className="text-left">3.5T-GDie-S/C</td>
+              </tr>
+              <tr className="flex gap-x-[240px]">
+                <th className="w-[300px] text-left">엔진방식11111111</th>
+                <td className="text-left">3.5T-GDie-S/C</td>
+              </tr>
+              <tr className="flex gap-x-[240px]">
+                <th className="w-[300px] text-left">엔진방식</th>
+                <td className="text-left">3.5T-GDie-S/C</td>
+              </tr>
+              <tr className="flex gap-x-[240px]">
+                <th className="w-[300px] text-left">엔진방식11111111</th>
+                <td className="text-left">3.5T-GDie-S/C</td>
+              </tr>
+          
+             
+              
+              
+            </tbody>
+          </table>
+        </article>
+        <article className="flex flex-col items-center">
+          <h2 className="text-[50px] mb-[120px]">제품 외장 스펙</h2>
+          <div className="flex">
+            <img src="/images/detail/spec_2_1.png" alt="" />
+            <img src="/images/detail/spec_2_2.png" alt="" />
+            <img src="/images/detail/spec_2_3.png" alt="" />
+          </div>
+
+        </article>
+      </section>
     </>
   );
 }
