@@ -2,7 +2,7 @@
 
 export default function ModelLnb () {
   return(
-    <ul className="absolute top-[270px] left-[160px] text-[#666666] flex flex-col gap-y-2.5 font-light text-xl z-10">
+    <ul className="absolute top-[270px] left-[160px] text-[#666666] flex flex-col gap-y-2.5 font-light text-xl z-20">
     {/* To.모건 : 활성화된 페이지의 title에 text-white class를 붙여주세요 */}
       <li className="text-white">
         <a href="#none">모델 상세</a>

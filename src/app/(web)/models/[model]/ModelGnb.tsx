@@ -3,7 +3,7 @@
 export default function ModelGnb () {
 
   return(
-      <nav className="flex items-end absolute top-[60px] left-[160px] z-10" >
+      <nav className="flex items-end absolute top-[60px] left-[160px] z-20" >
         <button  className="grid col-auto font-Hyundai-sans w-[230px] h-[70px] pt-[8px] px-[20px]">
           <span className="col-start-1 text-[13px] self-end text-left ">GENISISUYEON</span>
           <span className="col-start-1 text-[22px] self-start text-left font-black">G90 Black</span>
