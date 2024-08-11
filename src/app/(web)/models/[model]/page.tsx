@@ -2,7 +2,7 @@ export default function OrderPage() {
   return (
     <>
       {/* 첫번째 섹션 : 360도 이미지 */}
-      <section className="min-h-screen bg-black relative">
+      <section className="min-h-screen bg-black relative z-10">
         {/* 이미지 영역 */}
         <article className="absolute top-[80px] right-[85px] w-[calc(100vw-300px)] grid grid-cols-1 justify-items-center">
           <figure className="max-h-[500px] overflow-hidden">
@@ -21,19 +21,29 @@ export default function OrderPage() {
       </section>
 
       {/* 두번째 섹션 : 동영상 or 이미지 fixed 후 text 스크롤링 */}
-      <section>두번째섹션</section>
+      <section className="relative w-screen h-[430px] bg-black text-white z-[-1]">
+        <article className="absolute z-10 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[1200px] text-center">
+          <h2 className="text-[40px]">완벽한 <strong>블랙</strong>의 탄생</h2>
+          <p className="text-[20px] font-light">가장 순수한 블랙은 가장 어둡지만, 그렇기에 제네시스의 본질을 돋보이게 합니다. 근본부터 새로운 완벽한 블랙을 구현하기 위해
+서로  다른 질감과 광택의 조화, 반사되고 흡수되는 빛의 양까지 제네시스만의 방식으로 섬세하게 그리고 끊임없이 탐구했습니다. 제네시스의 디자인 철학인
+'역동적인 우아함'으로 재해석한 진정한 블랙의 경험을 제네시스 G90 Black으로 선사합니다.</p>
+        </article>
+        <figure className="w-[100%] h-[100%] overflow-hidden opacity-60">
+          <video className="fixed inset-0 " src="/video/main_video.mp4" muted={true} autoPlay={true} loop={true}/>
+        </figure>
+      </section>
 
       {/* 세번째 섹션 : 색상선택 옵션 */}
       <section className="min-h-screen bg-black">세번째섹션</section>
 
       {/* 네번째 섹션 : 외장디자인 설명 */}
-      <section>네번쩨 섹션</section>
+      <section className="bg-indigo-950">네번쩨 섹션</section>
 
       {/* 다섯번재 섹션 : 내장디자인 설명 */}
       <section>다섯번째 섹션</section>
 
       {/* 여섯번째 섹션(마지막) : 테이블 스펙 */}
-      <section>마지막 섹션</section>
+      <section className="bg-indigo-950">마지막 섹션</section>
     </>
   );
 }
