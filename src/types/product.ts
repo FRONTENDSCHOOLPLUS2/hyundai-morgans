@@ -43,7 +43,7 @@ interface ModelDetails {
     exterior: Subject,
     interior: Subject,
     spec: Spec,
-    view360: Image[]
+    view360Images: Image[]
 }
 
 export interface Product {
@@ -61,6 +61,7 @@ export interface Product {
         isBest: boolean,
         category: string[],
         sort: number,
+        content: string,
         detail: ModelDetails
     }
 }
