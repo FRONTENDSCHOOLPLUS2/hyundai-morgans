@@ -1,10 +1,11 @@
 import { Product } from "@/types/product";
 import sampleImage from "../../../../public/images/genesis-kr-gv70-facelift-sport-glossy-colors-uyuni-white-large.png";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { useModelStore } from "@/zustand/useModel";
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
+// 추후 전역으로 상태 관리
 const modelArray = [
   "g90-black",
   "g90-long-wheel-base",
