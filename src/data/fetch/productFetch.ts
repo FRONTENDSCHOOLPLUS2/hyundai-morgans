@@ -1,5 +1,5 @@
 import { ApiRes, MultiItem, Post, SingleItem } from "@/types";
-import { ModelList, Product } from "@/types/product";
+import { Product } from "@/types/product";
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 const LIMIT = process.env.NEXT_PUBLIC_LIMIT;
@@ -34,7 +34,7 @@ export async function fetchProduct(_id: string){
             'Content-Type': 'application/json',
             'client-Id': CLIENT,
         },
-        // next: { revalidate: 60 } // Revalidate every 60 seconds
+        next: { revalidate: 60 } // Revalidate every 60 seconds
     });
     const resJson: ApiRes<SingleItem<Product>> = await res.json();
     if(!resJson.ok){

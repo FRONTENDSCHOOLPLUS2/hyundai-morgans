@@ -3,11 +3,9 @@ import { ImageViewer } from "./ImageViewer";
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 
-export default async function OrderPage() {
-
-
-  const data = await fetchProduct("1");
-  let imageArray:string[] = [];
+export default async function OrderPage ({ params }: { params: { model: string } }) {
+    const data = await fetchProduct(params.model);
+    let imageArray:string[] = [];
 
   if (data) {
       imageArray = data?.extra.detail.view360Images.map(image => SERVER + image.path);
@@ -49,8 +47,7 @@ export default async function OrderPage() {
         <article className="absolute z-10 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[1200px] text-center">
           <h2 className="text-[40px]">완벽한 <strong>블랙</strong>의 탄생</h2>
           <p className="text-[20px] font-light">가장 순수한 블랙은 가장 어둡지만, 그렇기에 제네시스의 본질을 돋보이게 합니다. 
-          근본부터 새로운 완벽한 블랙을 구현하기 위해 서로  다른 질감과 광택의 조화, 반사되고 흡수되는 빛의 양까지 제네시스만의 방식으로 섬세하게 그리고 끊임없이 탐구했습니다. 
-          제네시스의 디자인 철학인'역동적인 우아함'으로 재해석한 진정한 블랙의 경험을 제네시스 G90 Black으로 선사합니다.</p>
+          근본부터 새로운 완벽한 블랙을 구현하기 위해 서로  다른 질감과 광택의 조화, 반사되고 흡수되는 빛의 양까지 제네시스만의 방식으로 섬세하게 그리고 끊임없이 탐구했습니다. 제네시스의 디자인 철학인 &apos;역동적인 우아함&apos;으로 재해석한 진정한 블랙의 경험을 제네시스 G90 Black으로 선사합니다.</p>
         </article>
         <figure className="w-[100%] h-[100%] overflow-hidden opacity-60">
           <video className="fixed inset-0 w-full" src="/video/main_video.mp4" muted={true} autoPlay={true} loop={true}/>
@@ -89,7 +86,7 @@ export default async function OrderPage() {
         </figure>
         <article className="flex-[1_1_auto] self-center px-[10%]">
             <h3 className="text-[40px] mb-[35px]">새로운 영감을 더하는 블랙</h3>
-            <p className="text-[20px] text-[#888] leading-[1.2]">제네시스의 디자인 철학인 '역동적인 우아함'이 
+            <p className="text-[20px] text-[#888] leading-[1.2]">제네시스의 디자인 철학인 &apos;역동적인 우아함&apos;이 
               블랙을 더 깊이 있게 만들어 줍니다. 
               완벽한 블랙이 파라볼릭 라인1의 우아한 선을 
               뚜렷하게 강조해, 차량을 이루고 있는 
@@ -102,7 +99,7 @@ export default async function OrderPage() {
       <section className="bg-black min-h-[450px] flex">
         <article className="flex-[1_1_auto] self-center px-[10%]">
             <h3 className="text-[40px] mb-[35px]">섬세함에서 드러나는 블랙의 정수</h3>
-            <p className="text-[20px] text-[#888] leading-[1.2]">제네시스의 디자인 철학인 '역동적인 우아함'이 
+            <p className="text-[20px] text-[#888] leading-[1.2]">제네시스의 디자인 철학인 &apos;역동적인 우아함&apos;이 
             세심하게 설계된 실내 요소들에 깊이 있는 블랙을 더해, 차분하면서도 우아한 실내 인테리어 디자인을 완성했습니다. 
             단순히 어둡기만 한 공간이 아닌, 한 차원 더 높은 블랙 공간을 구현하기 위해 각각 다른 톤과 명도를 적용해 입체감이 드러나도록 했습니다. 
             눈길이 잘 닿지 않는 작은 소재까지도 섬세하게 디자인함으로써 차별화된 블랙 경험을 선사합니다.
