@@ -26,7 +26,7 @@ export default function ModelCard({model}:{model: Product}) {
                 : (<Image src={SERVER + model.mainImages[0].path} width={500} height={500} alt="" className="col-span-full"/>)
             }
             <div className="col-span-full flex items-end gap-x-2 mb-4">
-                <h2 className="text-3xl font-rjjFam">{title}</h2>
+                <h2 className="text-3xl font-Hyundai-sans">{title}</h2>
                 <h3 className="">{subtitle}</h3>
             </div>
             <h3 className="col-span-full mb-10">{content}</h3>
