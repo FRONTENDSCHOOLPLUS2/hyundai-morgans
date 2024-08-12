@@ -4,6 +4,7 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
+const modelArray = ["g90-black", "g90-long-wheel-base", "g90", "g80", "g80-electrified", "g70", "g70-shooting-brake", "gv80", "gv80-coupe", "gv70", "gv70-electrified", "gv60", 'neolun-concept'];
 
 export default function ModelCard({model}:{model: Product}) {
     const modelName = model.name;
@@ -13,6 +14,8 @@ export default function ModelCard({model}:{model: Product}) {
     // console.log(model.mainImages[0].path);
     const content = model.extra.content;
     // console.log(content);
+    const index = modelArray.indexOf(modelName) + 1;
+
     
     return (
         <li className="grid grid-cols-2 gap-y-1 justify-center px-6 py-8 bg-item-background" >
@@ -26,12 +29,10 @@ export default function ModelCard({model}:{model: Product}) {
                 <h3 className="">{subtitle}</h3>
             </div>
             <h3 className="col-span-full mb-10">{content}</h3>
-            <button className="justify-self-start text-xs px-4 py-2">
-                <Link href={'/models/' + modelName} >전시시승</Link>
-            </button>
-            <a href="#none" className="justify-self-end self-center flex items-center gap-3">구매하기
+            <button className="justify-self-start text-l px-4 py-2">전시시승</button>
+            <Link href={`/models/${index}`} className="justify-self-end self-center flex items-center gap-3">구매하기
                 <span className="bg-next-btn block bg-no-repeat w-2.5 h-4 bg-contain"></span>
-            </a>
+            </Link>
         </li>
     );
 }
