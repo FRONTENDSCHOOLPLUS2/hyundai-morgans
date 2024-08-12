@@ -9,7 +9,7 @@ button {
 button.mainBtn {background:transparent; border-color:#fff; color:#fff; width:240px; height:60px; font:500 20px/1 "Hyundai Sans Head Office"}
 
 /* 다른페이지가 붙을경우 헤딩 변경 */
-body {position:relative; font-family:'Pretendard';}
+body {position:relative; font-family:'Pretendard'; background:black}
 body.otherPage header::after {opacity:100%;}
 
 /* Header */
