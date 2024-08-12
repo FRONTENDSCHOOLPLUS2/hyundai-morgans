@@ -1,9 +1,10 @@
-import { Product, Thumbnail } from "@/types/product";
+import { Product } from "@/types/product";
 import sampleImage from "../../../../public/images/genesis-kr-gv70-facelift-sport-glossy-colors-uyuni-white-large.png";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
+// 추후 전역으로 상태 관리
 const modelArray = ["g90-black", "g90-long-wheel-base", "g90", "g80", "g80-electrified", "g70", "g70-shooting-brake", "gv80", "gv80-coupe", "gv70", "gv70-electrified", "gv60", 'neolun-concept'];
 
 export default function ModelCard({model}:{model: Product}) {
