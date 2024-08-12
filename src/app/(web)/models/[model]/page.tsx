@@ -3,7 +3,9 @@ import { ImageViewer } from "./ImageViewer";
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 
-export default async function OrderPage() {
+export default async function OrderPage ({ params }: { params: { model: string } }) {
+    const data = await fetchProduct(params.model);
+    let imageArray:string[] = [];
 
 
   const data = await fetchProduct("1");
