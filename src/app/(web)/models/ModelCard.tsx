@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useModelStore } from "@/zustand/useModel";
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
-// 추후 전역으로 상태 관리
 const modelArray = [
   "g90-black",
   "g90-long-wheel-base",
@@ -34,6 +33,7 @@ export default function ModelCard({ model }: { model: Product }) {
   // console.log(model.mainImages[0].path);
   const content = model.extra.content;
   // console.log(content);
+  const index = modelArray.indexOf(modelName) + 1;
 
   return (
     <li className="grid grid-cols-2 gap-y-1 justify-center px-6 py-8 bg-item-background">
@@ -56,20 +56,18 @@ export default function ModelCard({ model }: { model: Product }) {
         />
       )}
       <div className="col-span-full flex items-end gap-x-2 mb-4">
-        <h2 className="text-3xl font-Hyundai-sans">{title}</h2>
+        <h2 className="text-3xl font-rjjFam">{title}</h2>
         <h3 className="">{subtitle}</h3>
       </div>
       <h3 className="col-span-full mb-10">{content}</h3>
-      <button className="justify-self-start text-xs px-4 py-2">
-        <Link href={"/models/" + modelName}>전시시승</Link>
-      </button>
-      <a
-        href="#none"
+      <button className="justify-self-start text-l px-4 py-2">전시시승</button>
+      <Link
+        href={`/models/${index}`}
         className="justify-self-end self-center flex items-center gap-3"
       >
         구매하기
         <span className="bg-next-btn block bg-no-repeat w-2.5 h-4 bg-contain"></span>
-      </a>
+      </Link>
     </li>
   );
 }
