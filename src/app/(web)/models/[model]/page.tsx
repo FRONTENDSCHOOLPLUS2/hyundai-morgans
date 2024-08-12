@@ -15,20 +15,13 @@ export default async function OrderPage ({ params }: { params: { model: string }
 
   return (
     <>
-
-        {/* <main className="bg-black">
-            { data && <ImageViewer images={imageArray} />}
-        </main> */}
-
-
-
-
       {/* 첫번째 섹션 : 360도 이미지 */}
       <section className="min-h-screen bg-black relative z-10">
         {/* 이미지 영역 */}
         <article className="absolute top-[80px] right-[85px] w-[calc(100vw-300px)] grid grid-cols-1 justify-items-center">
-          <figure className="max-h-[500px] overflow-hidden">
-            <img src="/images/detail/defaultCar.png" className="object-cover h-[100%] scale-150 " alt="" />
+          <figure className="max-h-[500px] w-[1000px] overflow-hidden">
+            { data && <ImageViewer images={imageArray} />}
+            {/* <img src="/images/detail/defaultCar.png" className="object-cover h-[100%] scale-150 " alt="" /> */}
           </figure>
           <h2 className="text-[40px] font-Hyundai-sans">G90 Black</h2>
           <h3 className="text-[30px] text-[#a4a4a4]">
