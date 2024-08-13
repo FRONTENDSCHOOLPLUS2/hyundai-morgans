@@ -10,3 +10,7 @@
     @apply font-bold;
   }
 }
+
+img {
+    object-fit: cover;
+}
