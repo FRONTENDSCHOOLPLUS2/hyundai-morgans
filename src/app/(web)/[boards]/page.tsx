@@ -12,11 +12,11 @@ export function generateMetadata({
 }): Metadata {
   const boardName = params.boards;
   return {
-    title: `${boardName} - 멋사컴`,
-    description: `${boardName} 게시판입니다.`,
+    title: `${boardName} - 전시시승`,
+    description: `${boardName} 전시시승 신청 게시판입니다.`,
     openGraph: {
-      title: `${boardName} - 멋사컴`,
-      description: `${boardName} 게시판입니다.`,
+      title: `${boardName} - 전시시승`,
+      description: `${boardName} 전시시승 신청 게시판입니다.`,
       url: `/${params.boards}`,
       images: {
         url: "/images/fesp.webp",
@@ -30,7 +30,7 @@ export default async function Page({ params }: { params: { boards: string } }) {
   const list = data.map((item) => <ListItem key={item._id} item={item} />);
   // const list = [<ListItem key={1} />, <ListItem key={2} />];
   return (
-    <main className="min-w-80 p-10">
+    <main className="min-w-80 py-10 px-40">
       <div className="text-center py-8">
         <h2 className="pb-16 text-6xl font-light text-black">전시시승</h2>
       </div>
