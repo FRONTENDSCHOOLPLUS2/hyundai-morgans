@@ -33,7 +33,8 @@ export async function fetchProduct(_id: string){
         headers: {
             'Content-Type': 'application/json',
             'client-Id': CLIENT,
-        }
+        },
+        // next: { revalidate: 60 } // Revalidate every 60 seconds
     });
     const resJson: ApiRes<SingleItem<Product>> = await res.json();
     if(!resJson.ok){
