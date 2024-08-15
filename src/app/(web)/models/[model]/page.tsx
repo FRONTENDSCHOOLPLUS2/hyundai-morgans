@@ -97,13 +97,11 @@ export default async function OrderPage ({ params }: { params: { model: string }
                 </td>
 
 
-
                 {/* 엔진이 1개일 때 써주세요 */}
                 {/* <td className="col-span-2">
                   <img src="/images/detail/spec_1.png" className="w-full" alt="" />
                   <h3 className="text-[30px] mb-[120px] text-center">가솔린 3.5 터보 48V 일렉트릭 슈퍼차저</h3>
                 </td> */}
-
 
                 {/* 엔진이 2개일때 써주세요 */}
                 {/* <td className="">
@@ -116,7 +114,6 @@ export default async function OrderPage ({ params }: { params: { model: string }
                 </td> */}
 
 
-
                 {/* 엔진이 3개일때 써주세요 */}
                 {/* <td className="">
                   <img src="/images/detail/spec_1.png" className="w-full" alt="" />
@@ -126,7 +123,7 @@ export default async function OrderPage ({ params }: { params: { model: string }
             </tbody>
           </table>
 
-          
+
           <table className="text-[30px]">
             <tbody className="flex flex-col gap-y-[40px]">
               {/* 2번째, 3번째 엔진이 추가될때마다 td를 복사해서 넣어주셔야 합니다*/}
@@ -139,9 +136,7 @@ export default async function OrderPage ({ params }: { params: { model: string }
                 <th className="text-left">엔진방식</th>
                 <td className="text-center">3.5T-GDie-S/C</td>
               </tr>
-        
-              
-              
+
             </tbody>
           </table>
         </article>

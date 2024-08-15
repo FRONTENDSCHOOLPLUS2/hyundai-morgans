@@ -7,23 +7,23 @@ const DELAY = process.env.NEXT_PUBLIC_DELAY;
 const CLIENT = process.env.NEXT_CLIENT_ID;
 
 export async function fetchProducts(): Promise<Product[]> {
-    const params = new URLSearchParams();
-    params.set('limit', LIMIT!);
-    params.set('delay', DELAY!);
-    const url = `${SERVER}/products?${params.toString()}`;
-    // const url = `${SERVER}/products`;
-    const res = await fetch(url, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'client-Id': CLIENT,
-        }
-    });
-    const resJson: ApiRes<MultiItem<Product>> = await res.json();
-    if(!resJson.ok){
-        throw new Error('상품 목록 조회 실패');
-    }
-    return resJson.item;
+  const params = new URLSearchParams();
+  params.set('limit', LIMIT!);
+  params.set('delay', DELAY!);
+  const url = `${SERVER}/products?${params.toString()}`;
+  // const url = `${SERVER}/products`;
+  const res = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'client-Id': CLIENT,
+    },
+  });
+  const resJson: ApiRes<MultiItem<Product>> = await res.json();
+  if (!resJson.ok) {
+    throw new Error('상품 목록 조회 실패');
+  }
+  return resJson.item;
 }
 
 export async function fetchProduct(_id: string){

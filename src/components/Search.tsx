@@ -1,14 +1,14 @@
-import Submit from './Submit';
+import Submit from "./Submit";
 
 export default function Search() {
   return (
     <form action="#">
       <input
-        className="dark:bg-gray-600 bg-gray-100 p-1 rounded"
+        className="dark:bg-blue-200 dark:border-blue-700 dark:border-solid bg-white p-1"
         type="text"
         name="keyword"
       />
       <Submit>검색</Submit>
     </form>
   );
-};
+}
