@@ -1,20 +1,21 @@
-import ModelGnb from './ModelGnb';
-import ModelLnb from './ModelLnb';
+import ModelGnb from "./ModelGnb";
+import ModelLnb from "./ModelLnb";
 
-export default function modelLayout({
-  params,
-  children,
-}: Readonly<{ params: { model: string }; children: React.ReactNode }>) {
-  return (
-    <main className="text-white relative">
-      {/* 상단 가로 드롭다운 메뉴 */}
-      <ModelGnb params={params} />
 
-      {/* 좌측 LNB */}
-      <ModelLnb params={params} />
+export default function modelLayout(
+    { params, children }
+: Readonly <{ params: { model: string }, children: React.ReactNode }>
+) {
+    return (
+        <main className="text-white relative">
+            {/* 상단 가로 드롭다운 메뉴 */}
+            <ModelGnb params={params} />
 
-      {/* 상세보기 ~ 결제하기까지 레이아웃 변경점 */}
-      {children}
-    </main>
-  );
+            {/* 좌측 LNB */}
+            <ModelLnb params={params}/>
+
+            {/* 상세보기 ~ 결제하기까지 레이아웃 변경점 */}
+            {children}
+        </main>
+    );
 }
