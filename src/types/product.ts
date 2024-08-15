@@ -1,6 +1,3 @@
-import { StaticImport } from "next/dist/shared/lib/get-img-props"
-import { UserData } from "./user"
-
 interface Image {
     path: string,
     name: string,
@@ -21,7 +18,7 @@ interface Engine {
 }
 
 interface Subject {
-    titel: string,
+    title: string,
     content: string,
     images: Image[]
 }
@@ -46,7 +43,7 @@ interface ModelDetails {
     view360Images: Image[]
 }
 
-export interface Product {
+export interface Common {
     _id: number,
     seller_id: number,
     price: number,
@@ -54,8 +51,11 @@ export interface Product {
     show: boolean,
     active: boolean,
     name: string,
-    mainImages: Image[]
+    mainImages: Image[],
     content: string,
+}
+
+export interface Product extends Common {
     extra: {
         isNew: boolean,
         isBest: boolean,
@@ -66,16 +66,39 @@ export interface Product {
     }
 }
 
-export interface Thumbnail {
-    title: string,
-    subtitle: string,
-    content: string,
-    image: Image
+interface OptionDetail {
+  name: string,
+  price: number,
+  images: Image[]
 }
 
-export interface ModelList extends Omit<Product, 'extra' | 'mainImages'> {
-    extra: {
-        category: string[],
-        models: Thumbnail[]
-    }
+interface OptionItem {
+  category: string[],
+  topText: string,
+  colors: OptionDetail[]
 }
+
+export interface OptionExterior extends Common {
+  extra: {
+    category: string[],
+    exterior: {
+      title: string,
+      glossy: OptionItem,
+      matte: OptionItem
+    }
+  }
+}
+
+// export interface Thumbnail {
+//     title: string,
+//     subtitle: string,
+//     content: string,
+//     image: Image
+// }
+
+// export interface ModelList extends Omit<Product, 'extra' | 'mainImages'> {
+//     extra: {
+//         category: string[],
+//         models: Thumbnail[]
+//     }
+// }

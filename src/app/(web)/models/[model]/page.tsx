@@ -1,17 +1,14 @@
-import { fetchProduct } from "@/data/fetch/productFetch";
+import { fetchEssentialOption, fetchProduct, fetchProducts } from "@/data/fetch/productFetch";
 import { ImageViewer } from "./ImageViewer";
+import ModelColor from "./ModelColor";
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 
 export default async function OrderPage ({ params }: { params: { model: string } }) {
-    const data = await fetchProduct(params.model);
-    let imageArray:string[] = [];
+  const ModelData = await fetchProduct(params.model);
+  let imageArray = ModelData?.extra.detail.view360Images.map(image => SERVER + image.path) || [];
 
-  if (data) {
-      imageArray = data?.extra.detail.view360Images.map(image => SERVER + image.path);
-      // console.log(imageArray);
-  }
-
+  const optionData = await fetchEssentialOption('17');
 
   return (
     <>
@@ -20,12 +17,12 @@ export default async function OrderPage ({ params }: { params: { model: string }
         {/* 이미지 영역 */}
         <article className="absolute top-[80px] right-[85px] w-[calc(100vw-300px)] grid grid-cols-1 justify-items-center">
           <figure className="max-h-[500px] w-[1000px] overflow-hidden">
-            { data && <ImageViewer images={imageArray} />}
+            { ModelData && <ImageViewer images={imageArray} />}
             {/* <img src="/images/detail/defaultCar.png" className="object-cover h-[100%] scale-150 " alt="" /> */}
           </figure>
-          <h2 className="text-[40px] font-Hyundai-sans">G90 Black</h2>
+          <h2 className="text-[40px] font-Hyundai-sans">{ModelData?.name.split('-').join(' ').toUpperCase()}</h2>
           <h3 className="text-[30px] text-[#a4a4a4]">
-            시작가격 <span className="text-white font-Hyundai-sans">123,123,123</span>
+            시작가격 <span className="text-white font-Hyundai-sans">{ModelData?.price}</span>
             <span className="text-[25px] text-white">원</span>
           </h3>
           <div className="text-[30px] flex gap-x-[60px] mt-[20px]">
@@ -48,29 +45,7 @@ export default async function OrderPage ({ params }: { params: { model: string }
       </section>
 
       {/* 세번째 섹션 : 색상선택 옵션 */}
-      <section className="min-h-screen bg-slate-900 relative p-[160px]">
-        <nav className="text-[#666666] inline-flex flex-col gap-y-[40px]">
-          <ul className="text-[30px] flex gap-x-[24px]">
-            <li><a href="#none" className="text-white">글로시</a></li>
-            <li><a href="#none">매트</a></li>
-          </ul>
-          <ul className="text-[24px] text-[#666666] flex flex-col gap-y-[10px]">
-            <li><a href="#none" className="text-white">포레스트 블루 투톤</a></li>
-            <li><a href="#none">포레스트뭐시기저시기</a></li>
-            <li><a href="#none">포레스트뭐시기저시기</a></li>
-            <li><a href="#none">포레스트뭐시기저시기</a></li>
-            <li><a href="#none">포레스트뭐시기저시기</a></li>
-            <li><a href="#none">포레스트뭐시기저시기</a></li>
-            <li><a href="#none">포레스트뭐시기저시기</a></li>
-            <li><a href="#none">포레스트뭐시기저시기</a></li>
-            <li><a href="#none">포레스트뭐시기저시기</a></li>
-          </ul>
-        </nav>
-        <figure className="absolute top-0">
-          <img src="/images/detail/defaultCar.png" alt="" />
-        </figure>
-        <div className="absolute bottom-0 left-0 w-full h-[300px] bg-gradient-to-b from-[#6A6C72] to-[#303135] opacity-30 blur"/>
-      </section>
+      {optionData && <ModelColor optionData={optionData} />}
 
       {/* 네번째 섹션 : 외장디자인 설명 */}
       <section className="bg-black h-[540px] flex">
@@ -122,13 +97,11 @@ export default async function OrderPage ({ params }: { params: { model: string }
                 </td>
 
 
-
                 {/* 엔진이 1개일 때 써주세요 */}
                 {/* <td className="col-span-2">
                   <img src="/images/detail/spec_1.png" className="w-full" alt="" />
                   <h3 className="text-[30px] mb-[120px] text-center">가솔린 3.5 터보 48V 일렉트릭 슈퍼차저</h3>
                 </td> */}
-
 
                 {/* 엔진이 2개일때 써주세요 */}
                 {/* <td className="">
@@ -141,7 +114,6 @@ export default async function OrderPage ({ params }: { params: { model: string }
                 </td> */}
 
 
-
                 {/* 엔진이 3개일때 써주세요 */}
                 {/* <td className="">
                   <img src="/images/detail/spec_1.png" className="w-full" alt="" />
@@ -151,7 +123,7 @@ export default async function OrderPage ({ params }: { params: { model: string }
             </tbody>
           </table>
 
-          
+
           <table className="text-[30px]">
             <tbody className="flex flex-col gap-y-[40px]">
               {/* 2번째, 3번째 엔진이 추가될때마다 td를 복사해서 넣어주셔야 합니다*/}
@@ -164,9 +136,7 @@ export default async function OrderPage ({ params }: { params: { model: string }
                 <th className="text-left">엔진방식</th>
                 <td className="text-center">3.5T-GDie-S/C</td>
               </tr>
-        
-              
-              
+
             </tbody>
           </table>
         </article>

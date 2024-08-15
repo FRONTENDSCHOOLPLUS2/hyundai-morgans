@@ -3,7 +3,7 @@
 import { NextImageTurntable } from 'next-360-image-viewer';
 
 export const ImageViewer = ({ images }: { images: string[] }) => {
-    const sensitivity = images.length;
+    const sensitivity = 10; // images.length;
     return (
         <div>
             <NextImageTurntable 
