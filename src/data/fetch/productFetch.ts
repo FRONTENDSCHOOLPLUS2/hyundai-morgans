@@ -1,5 +1,5 @@
 import { ApiRes, MultiItem, Post, SingleItem } from "@/types";
-import { Product } from "@/types/product";
+import { OptionExterior, Product } from "@/types/product";
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 const LIMIT = process.env.NEXT_PUBLIC_LIMIT;
@@ -37,6 +37,23 @@ export async function fetchProduct(_id: string){
         next: { revalidate: 60 } // Revalidate every 60 seconds
     });
     const resJson: ApiRes<SingleItem<Product>> = await res.json();
+    if(!resJson.ok){
+        return null;
+    }
+    return resJson.item;
+}
+
+export async function fetchEssentialOption(_id: string){
+    const url = `${SERVER}/products/${_id}`;
+    const res = await fetch(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'client-Id': CLIENT,
+        },
+        next: { revalidate: 60 } // Revalidate every 60 seconds
+    });
+    const resJson: ApiRes<SingleItem<OptionExterior>> = await res.json();
     if(!resJson.ok){
         return null;
     }

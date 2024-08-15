@@ -9,7 +9,7 @@ export default function modelLayout(
     return (
         <main className="text-white relative">
             {/* 상단 가로 드롭다운 메뉴 */}
-            <ModelGnb/>
+            <ModelGnb params={params} />
 
             {/* 좌측 LNB */}
             <ModelLnb params={params}/>
