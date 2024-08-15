@@ -1,40 +1,28 @@
-import { Product } from "@/types/product";
-import sampleImage from "../../../../public/images/genesis-kr-gv70-facelift-sport-glossy-colors-uyuni-white-large.png";
-import Image from "next/image";
-import Link from "next/link";
-import { useModelStore } from "@/zustand/useModel";
+'use client';
+
+import { Product } from '@/types/product';
+import sampleImage from '../../../../public/images/genesis-kr-gv70-facelift-sport-glossy-colors-uyuni-white-large.png';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useModelStore } from '@/zustand/useModel';
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 // 추후 전역으로 상태 관리
-const modelArray = [
-  "g90-black",
-  "g90-long-wheel-base",
-  "g90",
-  "g80",
-  "g80-electrified",
-  "g70",
-  "g70-shooting-brake",
-  "gv80",
-  "gv80-coupe",
-  "gv70",
-  "gv70-electrified",
-  "gv60",
-  "neolun-concept",
-];
 
 export default function ModelCard({ model }: { model: Product }) {
+  const { items } = useModelStore();
   const modelName = model.name;
   // console.log(modelName);
-  const title = modelName.split("-")[0].toUpperCase();
+  const title = modelName.split('-')[0].toUpperCase();
   const subtitle = modelName
-    .split("-")
-    .filter((word) => word !== model.name.split("-")[0])
-    .join(" ")
+    .split('-')
+    .filter((word) => word !== model.name.split('-')[0])
+    .join(' ')
     .toUpperCase();
   // console.log(model.mainImages[0].path);
   const content = model.extra.content;
   // console.log(content);
-  const index = modelArray.indexOf(modelName) + 1;
+  const index = items.indexOf(modelName) + 1;
 
   return (
     <li className="grid grid-cols-2 gap-y-1 justify-center px-6 py-8 bg-item-background">
