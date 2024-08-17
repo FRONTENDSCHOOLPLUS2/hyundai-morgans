@@ -66,7 +66,7 @@ export interface Product extends Common {
     }
 }
 
-interface OptionDetail {
+export interface OptionDetail {
   name: string,
   price: number,
   images: Image[]
@@ -84,7 +84,8 @@ export interface OptionExterior extends Common {
     exterior: {
       title: string,
       glossy: OptionItem,
-      matte: OptionItem
+      matte: OptionItem,
+      [key: string] : any
     }
   }
 }
