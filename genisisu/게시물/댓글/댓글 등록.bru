@@ -1,0 +1,17 @@
+meta {
+  name: 댓글 등록
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{URL}}/posts/{{POST}}/replies
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "content": "아니 분명 아이디에는 86이라고 써있거던여? 근데 왜 85로 조회해야하는거죠?? 뭔데 뭔데 금쪽이도 좀 알려줘바바바."
+  }
+}
