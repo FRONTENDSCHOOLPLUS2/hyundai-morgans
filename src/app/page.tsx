@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
-import MainPagenation from "./(event_component)/MainPagenation";
+import MainPagenation from "../components/MainPagenation";
 
 
 export default async function RootPage() {
