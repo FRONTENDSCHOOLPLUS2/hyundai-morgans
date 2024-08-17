@@ -2,11 +2,16 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
-import MainPagenation from "../components/MainPagenation";
+import MainPagenation from "../components/mainPageComponents/MainPagenation";
+import Event2 from "@/components/mainPageComponents/Event2";
+import { fetchProducts } from "@/data/fetch/productFetch";
 
 
 export default async function RootPage() {
-  // await new Promise(resolve => setTimeout(resolve, 1000*3));
+  const res = await fetchProducts();
+  const modelData = res.filter(test => test.extra.category.includes("promotion"))
+  // const modelImg = data.filter(test => test.extra.category.includes("promotion")).map((modelImage) => modelImage.mainImages[0].path)
+
 
 
 
@@ -39,25 +44,7 @@ export default async function RootPage() {
         </aside>
       </section>
 
-      <section id="event2">
-        <article>
-          <h2>G70</h2>
-          <h3>STANDARD</h3>
-          <button className="mainBtn">VIEW MORE</button>
-        </article>
-        <section>
-          <span className="ev2_prev"></span>
-          <figure>
-            <Image src="/images/g70.png" width={0} height={0} sizes="100vw" alt="G70 car" />
-          </figure>
-          <span className="ev2_next"></span>
-        </section>
-        
-        <div className="ev2_bg">
-          
-        </div>
-
-      </section>
+      <Event2 data={modelData}/>
       <section id="event3">
         <article>
           <h2>GENISISUYEON <span>EVENTS</span></h2>

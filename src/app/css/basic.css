@@ -63,13 +63,16 @@ main.mainPage section#event2>article {font-family:"Hyundai Sans Head Office"; po
 main.mainPage section#event2>article h2 {font-weight:500; font-size:80px;}
 main.mainPage section#event2>article h3 {font-weight:100; font-size:70px;}
 main.mainPage section#event2>article button {margin-top:20px;}
-main.mainPage section#event2>section {position:absolute; right:55px; bottom:130px; z-index:9990; display:flex; gap:10px; align-items: center;}
+main.mainPage section#event2>section {
+  position:absolute; right:55px; bottom:130px; z-index:9990; display:flex; gap:10px; align-items: center;}
 main.mainPage section#event2>section span {cursor: pointer; opacity:30%; display:block; width:35px; height:66px; object-fit: contain; padding-bottom:60px;}
 main.mainPage section#event2>section span:first-child {background:url("/images/btn_prev.png") no-repeat;}
 main.mainPage section#event2>section span:last-child {background:url("/images/btn_next.png") no-repeat;}
 main.mainPage section#event2>section span:first-child:hover,
 main.mainPage section#event2>section span:last-child:hover {transition:all 0.5s; opacity:100%;}
-main.mainPage section#event2>section img {width:100%;}
+main.mainPage section#event2>section .ev2_wrap {max-width:882px; width:880px; height:440px; position:relative; overflow: hidden; }
+main.mainPage section#event2>section .ev2_wrap figure {position:absolute; bottom:0; left: 0%; width:100%; display:flex; transition:cubic-bezier(.17,.67,.83,.67), 0.5s}
+main.mainPage section#event2>section .ev2_wrap figure img {width:100%; object-fit: contain;}
 main.mainPage section#event2 .ev2_bg { position:absolute; width:100%; height:300px; bottom:0px; background: linear-gradient(180deg, rgba(104, 104, 104, 0.4) 0%, rgba(112, 112, 112, 0) 100%);}
 
 
