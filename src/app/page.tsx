@@ -1,18 +1,18 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
+import MainPagenation from "./(event_component)/MainPagenation";
 
 
 export default async function RootPage() {
   // await new Promise(resolve => setTimeout(resolve, 1000*3));
+
+
+
   return ( 
     <>
-      <ul className="main_pagenation">
-        <li className="on"><a href="#event1"></a></li>
-        <li><a href="#event2"></a></li>
-        <li><a href="#event3"></a></li>
-        <li><a href="#event4"></a></li>
-        <li><a href="#event5"></a></li>
-      </ul> 
+      <MainPagenation/>
       <main className="mainPage">
       <section id="event1">
         <article>
@@ -48,7 +48,7 @@ export default async function RootPage() {
         <section>
           <span className="ev2_prev"></span>
           <figure>
-            <img src="/images/g70.png" alt=""/>
+            <Image src="/images/g70.png" width={0} height={0} sizes="100vw" alt="G70 car" />
           </figure>
           <span className="ev2_next"></span>
         </section>
