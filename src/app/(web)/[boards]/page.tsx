@@ -1,7 +1,6 @@
 import Pagination from '@/components/Pagination';
 import Search from '@/components/Search';
 import { Metadata } from 'next';
-import Link from 'next/link';
 import ListItem from './ListItem';
 import { fetchPosts } from '@/data/fetch/postFetch';
 
