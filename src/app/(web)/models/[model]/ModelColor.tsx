@@ -1,6 +1,7 @@
 'use client'
 
 import { OptionDetail, OptionExterior } from "@/types/product";
+import { useModelStore } from "@/zustand/useModel";
 import Image from "next/image";
 import React, { ReactNode, useEffect, useRef, useState } from "react";
 
@@ -8,16 +9,21 @@ const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 
 interface ModelColorProps {
   optionData: OptionExterior;
+  modelIndex: string
 }
 
-const ModelColor: React.FC<ModelColorProps> = ({optionData}) => {
+const ModelColor: React.FC<ModelColorProps> = ({ optionData, modelIndex }) => {
+  const { items } = useModelStore();
+  const modelName = items[Number(modelIndex)-1];
+
   const exterior = optionData!.extra.exterior;
+  // console.log(exterior);
   const [groupName1, groupName2] = [Object.keys(exterior)[1], Object.keys(exterior)[2]];
 
   const defaultGroup = groupName1;
-  const defaultColorText:string = exterior[groupName1].colors[0].name;
+  const defaultColorText:string = exterior[groupName1].colors[modelName][0].name;
   const defaultColor = defaultColorText.substring(0, defaultColorText.indexOf("["));
-  const defaultImage:string = SERVER  + exterior[groupName1].colors[0].images[1].path;
+  const defaultImage:string = SERVER  + exterior[groupName1].colors[modelName][0].images[1].path;
 
   const [colorState, setColorState] = useState<{node:ReactNode, imageSource: string}>({node: null, imageSource: defaultImage});
   const clickedGroupRef = useRef<Set<string>>(new Set([defaultGroup]));
@@ -46,7 +52,7 @@ const ModelColor: React.FC<ModelColorProps> = ({optionData}) => {
     // 클릭한 버튼에 text-white 클래스 추가
     clickedGroupRef.current.clear();
     clickedGroupRef.current.add(groupName);
-    const newImage = exterior[groupName].colors[0].images[1].path
+    const newImage = exterior[groupName].colors[modelName][0].images[1].path
     setColorState((prevState) => ({
       ...prevState, 
       imageSource: SERVER + newImage
@@ -62,7 +68,7 @@ const ModelColor: React.FC<ModelColorProps> = ({optionData}) => {
     // }
     clickedColorRef.current.clear();
     clickedColorRef.current.add(colorName);
-    const newImage = exterior[groupName].colors[colorIndex].images[1].path;
+    const newImage = exterior[groupName].colors[modelName][colorIndex].images[1].path;
     setColorState((prevState) => ({
       node: generateColorButton(groupName),
       imageSource: SERVER + newImage
@@ -71,7 +77,7 @@ const ModelColor: React.FC<ModelColorProps> = ({optionData}) => {
 
 
   const generateColorButton = (groupName: string):ReactNode => {
-    return exterior[groupName].colors.map((color: OptionDetail, colorIndex: number) => {
+    return exterior[groupName].colors[modelName].map((color: OptionDetail, colorIndex: number) => {
       const text = color.name;
       // const colorCode = colorText.substring(colorText.indexOf("[")); // [sss]
       const colorName = text.substring(0, text.indexOf("[")); // 우유니 화이트

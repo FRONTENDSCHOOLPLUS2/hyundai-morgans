@@ -6,6 +6,12 @@ meta {
 
 get {
   url: {{URL}}/posts/{{POST}}/replies
-  body: none
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "content" : ""
+  }
 }

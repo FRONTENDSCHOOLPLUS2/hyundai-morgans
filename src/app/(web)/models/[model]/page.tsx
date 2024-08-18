@@ -5,10 +5,11 @@ import ModelColor from "./ModelColor";
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 
 export default async function OrderPage ({ params }: { params: { model: string } }) {
+  const modelIndex: string = params.model;
   const ModelData = await fetchProduct(params.model);
   let imageArray = ModelData?.extra.detail.view360Images.map(image => SERVER + image.path) || [];
 
-  const optionData = await fetchEssentialOption('17');
+  const optionData = await fetchEssentialOption('20');
 
   return (
     <>
@@ -45,7 +46,7 @@ export default async function OrderPage ({ params }: { params: { model: string }
       </section>
 
       {/* 세번째 섹션 : 색상선택 옵션 */}
-      {optionData && <ModelColor optionData={optionData} />}
+      {optionData && <ModelColor optionData={optionData} modelIndex={modelIndex} />}
 
       {/* 네번째 섹션 : 외장디자인 설명 */}
       <section className="bg-black h-[540px] flex">
