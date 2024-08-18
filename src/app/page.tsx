@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import MainPagenation from "../components/mainPageComponents/MainPagenation";
 import Event2 from "@/components/mainPageComponents/Event2";
 import { fetchProducts } from "@/data/fetch/productFetch";
+import Event4 from "@/components/mainPageComponents/Event4";
 
 
 export default async function RootPage() {
@@ -53,28 +54,7 @@ export default async function RootPage() {
         </article>
       </section>
 
-      <section id="event4">
-        <div className="ev4_wrap">
-          <article>
-            <h2>GENISISUYEON <span>AWARDS</span></h2>
-            <h3>재니시수연의 고유한 감각을 반영한 현대적 공간으로 여러분을 초대합니다.<br/>
-              제네시스에 관한 다양한 체험으로 당신만의 제네시스를 찾는 여정을 지원합니다.</h3>
-            <button className="mainBtn">VIEW MORE</button>
-          </article>
-          <figure>
-            <img src="" alt=""/>
-          </figure>
-          <ul className="ev4_navi">
-            <li className="on"><a href="#none"></a></li>
-            <li><a href="#none"></a></li>
-            <li><a href="#none"></a></li>
-            <li><a href="#none"></a></li>
-          </ul>
-        </div>
-        <span className="ev4_next"></span>
-        <span className="ev4_prev"></span>
-        <div className="bgImg"></div>
-      </section>
+      <Event4/>
 
 
       <section id="event5">
