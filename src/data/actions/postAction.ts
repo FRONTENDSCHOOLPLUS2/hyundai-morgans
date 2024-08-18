@@ -75,7 +75,7 @@ export async function addComment(postId: string, formData: FormData): Promise<Si
   return res.json();
 }
 
-export async function deleteComment(postId: string, formData: FormData){
+export async function deleteComment(postId: string, formData: FormData): Promise<CoreRes>{
   const session = await auth();
 
   const res = await fetch(`${SERVER}/posts/${postId}/replies/${formData.get('_id')}`, {
