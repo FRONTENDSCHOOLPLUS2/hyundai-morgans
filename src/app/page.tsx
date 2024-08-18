@@ -6,6 +6,7 @@ import MainPagenation from "../components/mainPageComponents/MainPagenation";
 import Event2 from "@/components/mainPageComponents/Event2";
 import { fetchProducts } from "@/data/fetch/productFetch";
 import Event4 from "@/components/mainPageComponents/Event4";
+import Event1 from "@/components/mainPageComponents/Event1";
 
 
 export default async function RootPage() {
@@ -20,31 +21,8 @@ export default async function RootPage() {
     <>
       <MainPagenation/>
       <main className="mainPage">
-      <section id="event1">
-        <article>
-          <h2>Hyundai Mogans</h2>
-          <article className="title_item">
-            <h3>
-              GEN<span>I</span>S<span>I</span>SU
-            </h3>
-            <h3 className="suyeon">YEON</h3>
-          </article>
-          <button className="mainBtn">VIEW MORE</button>
-        </article>
 
-        <figure>
-          <video src="/video/main_video.mp4" muted={true} autoPlay={true} loop={true}></video>
-        </figure>
-
-        <aside className="progress_bar">
-          <span>G90 BLACK</span>
-          <div className="timeline">
-            <div></div>
-          </div>
-          <span>CONCEPT CAR</span>
-        </aside>
-      </section>
-
+      <Event1/>
       <Event2 data={modelData}/>
       <section id="event3">
         <article>
