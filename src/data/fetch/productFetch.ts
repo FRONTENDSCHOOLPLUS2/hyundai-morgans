@@ -1,4 +1,4 @@
-import { ApiRes, MultiItem, Post, SingleItem } from "@/types";
+import { ApiRes, MultiItem, SingleItem } from "@/types";
 import { OptionExterior, Product } from "@/types/product";
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
@@ -18,6 +18,7 @@ export async function fetchProducts(): Promise<Product[]> {
       'Content-Type': 'application/json',
       'client-Id': CLIENT,
     },
+    next: { revalidate: 60 } // Revalidate every 60 seconds
   });
   const resJson: ApiRes<MultiItem<Product>> = await res.json();
   if (!resJson.ok) {

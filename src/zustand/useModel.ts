@@ -6,7 +6,7 @@ interface ModelStore {
 }
 
 export const useModelStore = create<ModelStore>((set) => ({
-  items: ["g90-black", "g90-long-wheel-base", "g90", "g80", "g80-electrified", "g70", "g70-shooting-brake", "gv80", "gv80-coupe", "gv70", "gv70-electrified", "gv60", "neolun-concept"],
+  items: ["g90-black", "g90-long-wheel-base", "g90", "g80", "electrified-g80", "g70", "g70-shooting-brake", "gv80", "gv80-coupe", "gv70", "electrified-gv70", "gv60", "neolun-concept"],
   // addItem: (item) => set((state) => ({ items: [...state.items, item] })),
   // removeItem: (index) => set((state) => ({
   //   items: state.items.filter((_, i) => i !== index)
