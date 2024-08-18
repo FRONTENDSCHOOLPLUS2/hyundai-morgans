@@ -1,6 +1,6 @@
-import Submit from "@/components/Submit";
-import { Metadata } from "next";
-import Link from "next/link";
+import Submit from '@/components/Submit';
+import { Metadata } from 'next';
+import Link from 'next/link';
 
 export function generateMetadata({
   params,
@@ -21,7 +21,7 @@ export function generateMetadata({
 
 export default function Page({ params }: { params: { type: string } }) {
   return (
-    <main className="min-w-[320px] p-4">
+    <main className="min-w-[320px] py-4  px-40">
       <div className="text-center py-4">
         <h2 className="text-2xl font-bold text-gray-700 dark:text-gray-200">
           게시글 등록
