@@ -20,7 +20,8 @@ export default function Header({ isMain }: { isMain: string }) {
               <Link href="/models">모델</Link>
             </li>
             <li>
-              <Link href="#none">전시시승</Link>
+              <Link href="/info">전시시승</Link>
+
             </li>
             <li>
               <Link href="#none">고객지원</Link>

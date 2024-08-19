@@ -5,6 +5,7 @@ const LIMIT = process.env.NEXT_PUBLIC_LIMIT;
 const DELAY = process.env.NEXT_PUBLIC_DELAY;
 const CLIENT = process.env.NEXT_CLIENT_ID;
 
+// 게시물 목록 전체 조회
 export async function fetchPosts(
   type: string | undefined,
   page?: string,
@@ -33,6 +34,7 @@ export async function fetchPosts(
   return resJson.item;
 }
 
+// 상세 조회
 export async function fetchPost(_id: string) {
   const url = `${SERVER}/posts/${_id}`;
   const res = await fetch(url, {
@@ -47,3 +49,24 @@ export async function fetchPost(_id: string) {
   }
   return resJson.item;
 }
+
+// // 삭제 API 함수 (댓글)
+// export async function fetchCommentDelete(
+//   postId: string,
+//   commentId: string,
+//   accessToken: string,
+// ) {
+//   // {{URL}}/posts/{{POST}}/replies/1
+//   const res = await fetch(`${SERVER}/posts/${postId}/replies/${commentId}`, {
+//     method: 'DELETE',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       Authorization: `Bearer ${accessToken}`,
+//       'client-Id': CLIENT,
+//     },
+//   });
+//   if (!res.ok) {
+//     throw new Error('댓글 삭제에 실패하였습니다! 뿌잉');
+//   }
+//   return res.json();
+// }
