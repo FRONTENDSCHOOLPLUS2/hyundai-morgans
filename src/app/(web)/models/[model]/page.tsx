@@ -9,7 +9,7 @@ export default async function OrderPage ({ params }: { params: { model: string }
   const ModelData = await fetchProduct(params.model);
   let imageArray = ModelData?.extra.detail.view360Images.map(image => SERVER + image.path) || [];
 
-  const optionData = await fetchEssentialOption('20');
+  const optionData = await fetchEssentialOption('17');
 
   return (
     <>
