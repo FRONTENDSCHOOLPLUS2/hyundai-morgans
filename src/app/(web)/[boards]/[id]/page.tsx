@@ -80,7 +80,7 @@ export default async function Page({
         </form>
       </section>
 
-      <CommentList id={params.id} />
+      <CommentList params={params} />
     </main>
   );
 }
