@@ -8,7 +8,7 @@ const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 const CLIENT = process.env.NEXT_CLIENT_ID;
 
 export async function addPost(
-  formData: FormData,
+  formData: FormData
 ): Promise<ApiRes<SingleItem<Post>>> {
   const session = await auth();
   const postData = {
@@ -30,7 +30,7 @@ export async function addPost(
 }
 
 export async function updatePost(
-  formData: FormData,
+  formData: FormData
 ): Promise<ApiRes<SingleItem<Post>>> {
   const session = await auth();
 
@@ -67,24 +67,33 @@ export async function deletePost(formData: FormData): Promise<CoreRes> {
 }
 
 export async function addComment(
-  postId: string,
-  hello: string,
-  id: number,
-  pwd: string,
-  formData: FormData,
+  formData: FormData
 ): Promise<SingleItem<PostComment>> {
+  const commentData = {
+    content: formData.get('comment') || '',
+  };
+  // FormData에서 데이터 추출
+  const postId = formData.get('postId') as string;
+  // const commentContent = formData.get('commentContent') as string;
+  const boardName = formData.get('boardName');
+  // const comment = formData.get('comment');
   const session = await auth();
 
+  // Fetch 요청
   const res = await fetch(`${SERVER}/posts/${postId}/replies`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${session?.accessToken}`,
+      'client-Id': CLIENT,
     },
-    body: JSON.stringify(formData),
+    body: JSON.stringify(commentData),
   });
 
-  return res.json();
+  // 응답 JSON 파싱
+  const result = await res.json();
+  redirect(`/${boardName}/${postId}`);
+  return result;
 }
 // (formData: FormData): Promise<ApiResWithValidation<SingleItem<UserData>, UserForm>>
 
@@ -93,13 +102,7 @@ export async function deleteComment(formData: FormData): Promise<CoreRes> {
   const boardName = formData.get('boardName');
   const postId = formData.get('postId');
   const commentId = formData.get('commentId');
-
   const session = await auth();
-  // const accessToken =
-  //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEzLCJ0eXBlIjoidXNlciIsIm5hbWUiOiLqsJHrtoDsiJjsl7AiLCJpbWFnZSI6Ii9maWxlcy8wMi1nZW5pc2lzdS91c2VyLW11emkud2VicCIsImlhdCI6MTcyNDAzMTg4MiwiZXhwIjoxNzI0MTE4MjgyLCJpc3MiOiJGRVNQIn0.KH87gOjzHl1rvsM4WykoQHD85Xz2XwQE-rAyihZE-9g';
-
-  // const postId = '1';
-
   const res = await fetch(`${SERVER}/posts/${postId}/replies/${commentId}`, {
     method: 'DELETE',
     headers: {
@@ -108,6 +111,7 @@ export async function deleteComment(formData: FormData): Promise<CoreRes> {
       'client-Id': CLIENT,
     },
   });
+
   // console.log(res);
   redirect(`/${boardName}/${postId}`);
   return res.json();

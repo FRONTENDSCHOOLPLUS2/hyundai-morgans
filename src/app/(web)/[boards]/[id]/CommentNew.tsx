@@ -1,10 +1,21 @@
 import Submit from '@/components/Submit';
+import { addComment } from '@/data/actions/postAction';
 
-export default function CommentNew() {
+export default function CommentNew({
+  boardName,
+  postId,
+}: {
+  postId: string;
+  boardName: string;
+}) {
   return (
-    <div className="p-4 border-gray-200">
+    <div className="p-4 border-gray-200 mb-40">
       {/* <h4 className="mb-4">새로운 댓글을 추가하세요.</h4> */}
-      <form action="#">
+
+      <form action={addComment}>
+        <input type="hidden" name="boardName" value={boardName} />
+        <input type="hidden" name="postId" value={postId} />
+
         <div className="mb-4">
           <textarea
             rows={3}
