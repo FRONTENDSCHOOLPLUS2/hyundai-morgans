@@ -9,7 +9,8 @@ export default function CommentNew() {
           <textarea
             rows={3}
             cols={40}
-            className="block p-2 w-full text-sm border border-gray-300 bg-gray-50 focus:outline-gray-400 focus:ring-2 focus:ring-blue-200 dark:bg-gray-200 dark:placeholder-gray-400 dark:text-white"
+            className="block p-2 w-full text-sm border border-gray-300 bg-gray-50 focus:outline-gray-400 focus:ring-2 focus:ring-blue-200 dark:bg-gray-200 dark:placeholder-gray-400 dark:text-black
+            "
             placeholder="내용을 입력하세요."
             name="comment"
           ></textarea>
