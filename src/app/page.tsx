@@ -11,11 +11,7 @@ import Event1 from "@/components/mainPageComponents/Event1";
 
 export default async function RootPage() {
   const res = await fetchProducts();
-  const modelData = res.filter(test => test.extra.category.includes("promotion"))
-  // const modelImg = data.filter(test => test.extra.category.includes("promotion")).map((modelImage) => modelImage.mainImages[0].path)
-
-
-
+  const modelData = res.filter(item => !item.extra.category.includes("option"))
 
   return ( 
     <>

@@ -7,10 +7,9 @@ const SERVER : string = process.env.NEXT_PUBLIC_API_SERVER;
 
 export default function Event2 ( {data} : {data:Product}) {
   const [index, setIndex] = useState(0);
-
-  const imageData: React.ReactNode[] = data.map((img) => (
-    <figure key={img.name}>
-      <Image src={SERVER + img.mainImages[0].path} width={0} height={0} sizes="100%" alt="G70 car" />
+  const imageData = data.map((image) => (
+    <figure key={image.name}>
+      <Image src={SERVER + (image.mainImages[0].path)} width={0} height={0} sizes="100%" alt="G70 car" />
     </figure>
   ))
   const imgLength = imageData.length
