@@ -2,11 +2,18 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
-import MainPagenation from "./(event_component)/MainPagenation";
+import MainPagenation from "../components/mainPageComponents/MainPagenation";
+import Event2 from "@/components/mainPageComponents/Event2";
+import { fetchProducts } from "@/data/fetch/productFetch";
+import Event4 from "@/components/mainPageComponents/Event4";
+import Event1 from "@/components/mainPageComponents/Event1";
 
 
 export default async function RootPage() {
-  // await new Promise(resolve => setTimeout(resolve, 1000*3));
+  const res = await fetchProducts();
+  const modelData = res.filter(test => test.extra.category.includes("promotion"))
+  // const modelImg = data.filter(test => test.extra.category.includes("promotion")).map((modelImage) => modelImage.mainImages[0].path)
+
 
 
 
@@ -14,50 +21,9 @@ export default async function RootPage() {
     <>
       <MainPagenation/>
       <main className="mainPage">
-      <section id="event1">
-        <article>
-          <h2>Hyundai Mogans</h2>
-          <article className="title_item">
-            <h3>
-              GEN<span>I</span>S<span>I</span>SU
-            </h3>
-            <h3 className="suyeon">YEON</h3>
-          </article>
-          <button className="mainBtn">VIEW MORE</button>
-        </article>
 
-        <figure>
-          <video src="/video/main_video.mp4" muted={true} autoPlay={true} loop={true}></video>
-        </figure>
-
-        <aside className="progress_bar">
-          <span>G90 BLACK</span>
-          <div className="timeline">
-            <div></div>
-          </div>
-          <span>CONCEPT CAR</span>
-        </aside>
-      </section>
-
-      <section id="event2">
-        <article>
-          <h2>G70</h2>
-          <h3>STANDARD</h3>
-          <button className="mainBtn">VIEW MORE</button>
-        </article>
-        <section>
-          <span className="ev2_prev"></span>
-          <figure>
-            <Image src="/images/g70.png" width={0} height={0} sizes="100vw" alt="G70 car" />
-          </figure>
-          <span className="ev2_next"></span>
-        </section>
-        
-        <div className="ev2_bg">
-          
-        </div>
-
-      </section>
+      <Event1/>
+      <Event2 data={modelData}/>
       <section id="event3">
         <article>
           <h2>GENISISUYEON <span>EVENTS</span></h2>
@@ -66,28 +32,7 @@ export default async function RootPage() {
         </article>
       </section>
 
-      <section id="event4">
-        <div className="ev4_wrap">
-          <article>
-            <h2>GENISISUYEON <span>AWARDS</span></h2>
-            <h3>재니시수연의 고유한 감각을 반영한 현대적 공간으로 여러분을 초대합니다.<br/>
-              제네시스에 관한 다양한 체험으로 당신만의 제네시스를 찾는 여정을 지원합니다.</h3>
-            <button className="mainBtn">VIEW MORE</button>
-          </article>
-          <figure>
-            <img src="" alt=""/>
-          </figure>
-          <ul className="ev4_navi">
-            <li className="on"><a href="#none"></a></li>
-            <li><a href="#none"></a></li>
-            <li><a href="#none"></a></li>
-            <li><a href="#none"></a></li>
-          </ul>
-        </div>
-        <span className="ev4_next"></span>
-        <span className="ev4_prev"></span>
-        <div className="bgImg"></div>
-      </section>
+      <Event4/>
 
 
       <section id="event5">

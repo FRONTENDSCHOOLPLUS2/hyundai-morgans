@@ -93,6 +93,7 @@ export async function deleteComment(formData: FormData): Promise<CoreRes> {
   const boardName = formData.get('boardName');
   const postId = formData.get('postId');
   const commentId = formData.get('commentId');
+
   const session = await auth();
   // const accessToken =
   //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEzLCJ0eXBlIjoidXNlciIsIm5hbWUiOiLqsJHrtoDsiJjsl7AiLCJpbWFnZSI6Ii9maWxlcy8wMi1nZW5pc2lzdS91c2VyLW11emkud2VicCIsImlhdCI6MTcyNDAzMTg4MiwiZXhwIjoxNzI0MTE4MjgyLCJpc3MiOiJGRVNQIn0.KH87gOjzHl1rvsM4WykoQHD85Xz2XwQE-rAyihZE-9g';

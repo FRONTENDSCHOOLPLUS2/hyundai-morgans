@@ -21,6 +21,7 @@ export default function Header({ isMain }: { isMain: string }) {
             </li>
             <li>
               <Link href="/info">전시시승</Link>
+
             </li>
             <li>
               <Link href="#none">고객지원</Link>
