@@ -9,7 +9,7 @@ const CLIENT = process.env.NEXT_CLIENT_ID;
 export async function fetchPosts(
   type: string | undefined,
   page?: string,
-  keyword?: string,
+  keyword?: string
 ): Promise<Post[]> {
   const params = new URLSearchParams();
   type && params.set('type', type);
@@ -49,24 +49,3 @@ export async function fetchPost(_id: string) {
   }
   return resJson.item;
 }
-
-// // 삭제 API 함수 (댓글)
-// export async function fetchCommentDelete(
-//   postId: string,
-//   commentId: string,
-//   accessToken: string,
-// ) {
-//   // {{URL}}/posts/{{POST}}/replies/1
-//   const res = await fetch(`${SERVER}/posts/${postId}/replies/${commentId}`, {
-//     method: 'DELETE',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       Authorization: `Bearer ${accessToken}`,
-//       'client-Id': CLIENT,
-//     },
-//   });
-//   if (!res.ok) {
-//     throw new Error('댓글 삭제에 실패하였습니다! 뿌잉');
-//   }
-//   return res.json();
-// }

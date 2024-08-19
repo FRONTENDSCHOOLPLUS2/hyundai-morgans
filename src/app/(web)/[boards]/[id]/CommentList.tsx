@@ -23,8 +23,7 @@ export default async function CommentList({
       </h4>
 
       {list}
-
-      <CommentNew />
+      <CommentNew postId={id} boardName={boards} />
     </section>
   );
 }
