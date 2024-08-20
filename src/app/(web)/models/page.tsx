@@ -1,4 +1,4 @@
-import { fetchProducts } from "@/data/fetch/productFetch";
+import { fetchProducts, fetchVehicles } from "@/data/fetch/productFetch";
 
 import ModelCard from "./ModelCard";
 
@@ -18,12 +18,9 @@ export function generateMetadata() {
 }
 
 export default async function ListPage () {
-    const data = await fetchProducts();
+    const data = await fetchVehicles();
     // console.log(data);
-    const productCard = data?.filter(
-        model => !model.extra.category.includes('option')).map(
-            (model, index) => <ModelCard key={index} model={model} />
-    );
+    const productCard = data.map((model, index) => <ModelCard key={index} model={model} />);
     return (
         <main className="bg-black pt-40 pl-28 pr-28">
             <ul className="grid grid-cols-4 gap-6 text-white">
