@@ -14,6 +14,7 @@ export default function CommentNew({
 
       <form action={addComment}>
         <input type="hidden" name="boardName" value={boardName} />
+
         <input type="hidden" name="postId" value={postId} />
 
         <div className="mb-4">

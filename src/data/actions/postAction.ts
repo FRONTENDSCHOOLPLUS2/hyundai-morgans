@@ -11,6 +11,8 @@ const CLIENT = process.env.NEXT_CLIENT_ID;
 export async function addPost(
   formData: FormData
 ): Promise<ApiRes<SingleItem<Post>>> {
+  const boardName = formData.get('boardName');
+  const postId = formData.get('postId');
   const session = await auth();
   const postData = {
     type: formData.get('type') || 'info',
@@ -28,6 +30,7 @@ export async function addPost(
     body: JSON.stringify(postData),
   });
 
+  redirect(`/${boardName}/${postId}`);
   return res.json();
 }
 
@@ -48,6 +51,7 @@ export async function updatePost(
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${session?.accessToken}`,
+      'client-Id': CLIENT,
     },
     body: JSON.stringify(postData),
   });
@@ -55,6 +59,7 @@ export async function updatePost(
   return res.json();
 }
 
+// 게시물 삭제
 export async function deletePost(formData: FormData): Promise<CoreRes> {
   const session = await auth();
 
