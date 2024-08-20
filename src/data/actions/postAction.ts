@@ -7,6 +7,7 @@ import { redirect } from 'next/navigation';
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 const CLIENT = process.env.NEXT_CLIENT_ID;
 
+// 게시물 등록
 export async function addPost(
   formData: FormData
 ): Promise<ApiRes<SingleItem<Post>>> {
@@ -22,6 +23,7 @@ export async function addPost(
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${session?.accessToken}`,
+      'client-Id': CLIENT,
     },
     body: JSON.stringify(postData),
   });
@@ -29,6 +31,7 @@ export async function addPost(
   return res.json();
 }
 
+// 게시물 수정
 export async function updatePost(
   formData: FormData
 ): Promise<ApiRes<SingleItem<Post>>> {

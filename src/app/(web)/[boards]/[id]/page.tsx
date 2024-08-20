@@ -61,7 +61,7 @@ export default async function Page({
           <div className="flex justify-end my-4">
             <Link
               href={`/${params.boards}`}
-              className="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400"
+              className="bg-black py-1 px-4 text-base text-white font-semibold ml-2"
             >
               목록
             </Link>
@@ -69,7 +69,7 @@ export default async function Page({
               <>
                 <Link
                   href={`/${params.boards}/${params.id}/edit`}
-                  className="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded"
+                  className="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2"
                 >
                   수정
                 </Link>
