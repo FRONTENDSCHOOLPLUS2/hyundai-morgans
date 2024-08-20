@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 export default function Event4 () {
 
   const [index, setIndex] = useState(0);
-  const ulSel = useRef(null)
+  const ulSel = useRef<HTMLUListElement | null >(null)
   let liItem;
 
   const bgUrl = [
@@ -16,7 +16,7 @@ export default function Event4 () {
   ]
 
 
-  const selClass = (index) => {
+  const selClass = (index : number) => {
     if (ulSel.current) {
       liItem = ulSel.current.querySelectorAll('li')
       liItem.forEach((item,i) => {
@@ -58,13 +58,10 @@ export default function Event4 () {
       return prev - 1;
     });
   }
-
-
   return(
     <section id="event4">
       <article>
         <div className="ev4_slide" style={{left:`${-100 * index}%`}}>
-
           <div className="ev4_wrap">
             <article>
               <h2>GENISISUYEON <span>AWARDS</span></h2>
@@ -88,8 +85,6 @@ export default function Event4 () {
               <img src="" alt=""/>
             </figure>
           </div>
-
-
           <div className="ev4_wrap">
             <article>
               <h2>THIRD <span>AWARDS</span></h2>
@@ -101,8 +96,6 @@ export default function Event4 () {
               <img src="" alt=""/>
             </figure>
           </div>
-
-
         <div className="ev4_wrap">
             <article>
               <h2>LAST <span>AWARDS</span></h2>
@@ -114,17 +107,8 @@ export default function Event4 () {
               <img src="" alt=""/>
             </figure>
           </div>
-
-
         </div>
-
-       
-        
-        
       </article>
-  
-      
-  
       <ul className="ev4_navi" ref={ulSel}>
         <li className=""><a href="#none"></a></li>
         <li><a href="#none"></a></li>
