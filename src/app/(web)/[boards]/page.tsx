@@ -3,6 +3,7 @@ import Search from '@/components/Search';
 import { Metadata } from 'next';
 import ListItem from './ListItem';
 import { fetchPosts } from '@/data/fetch/postFetch';
+import Link from 'next/link';
 
 export function generateMetadata({
   params,
@@ -29,20 +30,20 @@ export default async function Page({ params }: { params: { boards: string } }) {
   const list = data.map((item) => <ListItem key={item._id} item={item} />); // 요소를 반복문으로 생성해줄 때 key값 필수
   // const list = [<ListItem key={1} />, <ListItem key={2} />];
   return (
-    <main className="min-w-80 py-10 px-40 dark:bg-white">
+    <main className="min-w-80 py-32 px-40 dark:bg-white">
       <div className="text-center py-4">
-        <h2 className="pb-4 text-2xl font-bold text-gray-700 dark:black">
-          정보 공유
+        <h2 className="pb-20 text-5xl font-medium text-black dark:black">
+          전시시승
         </h2>
       </div>
-      <div className="flex justify-end mr-4">
+      <div className="flex justify-end mr-4 mb-8">
         <Search />
-        {/* <Link
+        <Link
           href={`/${params.boards}/new`}
-          className="bg-orange-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400"
+          className="bg-black py-1 px-4 text-base text-white font-semibold ml-2"
         >
           글작성
-        </Link> */}
+        </Link>
       </div>
       <section className="pt-10">
         <table className="border-collapse w-full table-fixed">
