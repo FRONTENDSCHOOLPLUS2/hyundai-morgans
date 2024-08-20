@@ -27,7 +27,7 @@ export async function fetchPosts(
     next: { revalidate: 60 }, // Revalidate every 60 seconds 캐시가 저장 된 데이타를 돌려주는건데 이거를 저장하지말고 돌려줘! 하는거임
   });
   const resJson: ApiRes<MultiItem<Post>> = await res.json();
-  console.log(resJson);
+  // console.log(resJson);
   if (!resJson.ok) {
     throw new Error('게시물 목록 조회 실패');
   }

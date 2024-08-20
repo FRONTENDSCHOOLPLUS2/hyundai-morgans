@@ -43,8 +43,10 @@ const ModelColor: React.FC<ModelColorProps> = ({ optionData, modelIndex }) => {
         // 클릭한 버튼에 text-white 클래스 추가
     clickedGroupRef.current.clear();
     clickedGroupRef.current.add(groupName);
-    const newImage = SERVER + exterior[groupName].colors[modelName][0].images[1].path;
-    const text = exterior[groupName].colors[modelName][0].name;
+
+    const colorArray = exterior[groupName].colors[modelName]; 
+    const newImage = SERVER + colorArray[0].images[1].path;
+    const text = colorArray[0].name;
     const colorName = text.substring(0, text.indexOf("["));
 
     if (groupName === 'glossy') {
@@ -62,7 +64,7 @@ const ModelColor: React.FC<ModelColorProps> = ({ optionData, modelIndex }) => {
         imageSource: newImage
       });
     }
-  }
+}
 
   const handleColorClick = (colorName: string, groupName: string, colorIndex: number) => {
     // 클릭한 버튼가 text-white 클래스 추가
@@ -79,7 +81,6 @@ const ModelColor: React.FC<ModelColorProps> = ({ optionData, modelIndex }) => {
       imageSource: SERVER + newImage
     }))
   }
-
 
   const generateColorButton = (groupName: string):ReactNode => {
     return exterior[groupName].colors[modelName].map((color: OptionDetail, colorIndex: number) => {
@@ -115,22 +116,31 @@ const ModelColor: React.FC<ModelColorProps> = ({ optionData, modelIndex }) => {
             >
               {groupKR1}
             </li>
-            {groupKR2 !== ''
-            ? 
-              <li
-                className={`cursor-pointer hover:cursor-pointer ${clickedGroupRef.current.has(groupName2) ? 'text-white' : ''}`}
-                onClick={() => handleGroupClick(groupName2)}
-              >
-                {groupKR2}
-              </li> 
-            : null}
+            { exterior[groupName2].colors[modelName].length !== 0 ?
+              (
+                <li
+                  className={`cursor-pointer hover:cursor-pointer ${clickedGroupRef.current.has(groupName2) ? 'text-white' : ''}`}
+                  onClick={() => handleGroupClick(groupName2)}
+                >
+                  {groupKR2}
+                </li> 
+              ):( 
+                null
+              )
+            }
           </ul>
           <ul className="text-[24px] text-[#666666] flex flex-col gap-y-[10px]">
             {colorState.node}
           </ul>
         </nav>
         <figure className="absolute top-0 w-full h-full">
-          <Image className="w-full" fill src={colorState.imageSource} alt="" />
+          {colorState.imageSource !== '' ? 
+          (
+            <Image className="w-full" fill src={colorState.imageSource} alt="" />
+          ):(
+            null
+          )
+          }
         </figure>
         <div className="absolute bottom-0 left-0 w-full h-[300px] bg-gradient-to-b from-[#6A6C72] to-[#303135] opacity-30 blur"/>
       </section>
