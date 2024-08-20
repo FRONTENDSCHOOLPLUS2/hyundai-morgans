@@ -1,25 +1,8 @@
 import Submit from '@/components/Submit';
-import { Metadata } from 'next';
 import Link from 'next/link';
+import { addPost } from '@/data/actions/postAction';
 
-export function generateMetadata({
-  params,
-}: {
-  params: { type: string };
-}): Metadata {
-  const boardName = params.type;
-  return {
-    title: `${boardName} - 게시글 등록`,
-    description: `${boardName} - 게시글을 등록하세요.`,
-    openGraph: {
-      title: `${boardName} - 게시글 등록`,
-      description: `${boardName} - 게시글을 등록하세요.`,
-      url: `/${params.type}/new`,
-    },
-  };
-}
-
-export default function Page({ params }: { params: { type: string } }) {
+export default function Page({ params }: { params: { boards: string } }) {
   return (
     <main className="min-w-80 py-32 px-40 dark:bg-white">
       <div className="text-center py-4">
@@ -28,7 +11,8 @@ export default function Page({ params }: { params: { type: string } }) {
         </h2>
       </div>
       <section className="mb-8 p-4">
-        <form action={`/${params.type}/1`}>
+        {/* <form action={`/${params.boards}/1`}> */}
+        <form action={addPost}>
           <div className="my-4 mb-10">
             <label
               className="block text-xl content-center mb-2"
@@ -68,7 +52,7 @@ export default function Page({ params }: { params: { type: string } }) {
           <hr />
           <div className="flex justify-end my-6">
             <Link
-              href={`/info`}
+              href={`/${params.boards}`}
               className="border-gray-600 border py-1 px-4 text-base text-black font-semibold ml-2"
             >
               취소
