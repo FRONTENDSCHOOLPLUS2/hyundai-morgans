@@ -1,4 +1,4 @@
-import { fetchEssentialOption, fetchProduct, fetchProducts } from "@/data/fetch/productFetch";
+import { fetchOption, fetchProduct, fetchProducts } from "@/data/fetch/productFetch";
 import { ImageViewer } from "./ImageViewer";
 import ModelColor from "./ModelColor";
 
@@ -9,7 +9,9 @@ export default async function OrderPage ({ params }: { params: { model: string }
   const ModelData = await fetchProduct(params.model);
   let imageArray = ModelData?.extra.detail.view360Images.map(image => SERVER + image.path) || [];
 
-  const optionData = await fetchEssentialOption('17');
+  const res = await fetchOption('exterior');
+  const optionData = res && res[0];
+  // console.log(optionData);
 
   return (
     <>

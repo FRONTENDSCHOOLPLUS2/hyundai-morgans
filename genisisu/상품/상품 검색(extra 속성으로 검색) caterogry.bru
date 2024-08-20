@@ -1,0 +1,16 @@
+meta {
+  name: 상품 검색(extra 속성으로 검색) caterogry
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{URL}}/products?custom={"extra.category": "exterior"}&sort={"_id": 1}
+  body: none
+  auth: none
+}
+
+params:query {
+  custom: {"extra.category": "exterior"}
+  sort: {"_id": 1}
+}

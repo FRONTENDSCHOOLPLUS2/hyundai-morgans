@@ -29,7 +29,6 @@ export async function fetchProducts(): Promise<Product[]> {
 
 export async function fetchVehicles(): Promise<Product[]> {
   const params = new URLSearchParams();
-  const query = '?custom={"extra.category": "vehicle"}&sort={"_id": 1}'
   const custom = JSON.stringify({"extra.category": "vehicle"});
   const sort = JSON.stringify({"_id": 1});
   params.set('custom', custom);
@@ -70,8 +69,17 @@ export async function fetchProduct(_id: string){
     return resJson.item;
 }
 
-export async function fetchEssentialOption(_id: string){
-    const url = `${SERVER}/products/${_id}`;
+
+export async function fetchOption(category: string){
+    const params = new URLSearchParams();
+    const custom = JSON.stringify({"extra.category": category});
+    const sort = JSON.stringify({"_id": 1});
+    params.set('custom', custom);
+    params.set('sort', sort);
+    params.set('limit', LIMIT!);
+    params.set('delay', DELAY!);
+
+    const url = `${SERVER}/products?${params.toString()}`;
     const res = await fetch(url, {
         method: 'GET',
         headers: {
@@ -80,7 +88,7 @@ export async function fetchEssentialOption(_id: string){
         },
         next: { revalidate: 60 } // Revalidate every 60 seconds
     });
-    const resJson: ApiRes<SingleItem<OptionExterior>> = await res.json();
+    const resJson: ApiRes<SingleItem<OptionExterior[]>> = await res.json();
     if(!resJson.ok){
         return null;
     }

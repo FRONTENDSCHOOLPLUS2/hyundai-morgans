@@ -18,7 +18,7 @@ export default function ModelCard({model}:{model: Product}) {
     const title = modelName.match(regex)?.[0] || modelName.split('-')[0];
     const subtitle = modelName.split('-').filter(word => word !== title).join(' ');
     // console.log(title + subtitle);
-    console.log(model._id);
+    // console.log(model._id);
     const content = model.extra.content;
     const index = items.indexOf(modelName) + 1;
     const router =  useRouter();
