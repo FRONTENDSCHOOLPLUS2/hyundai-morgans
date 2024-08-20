@@ -15,6 +15,7 @@ interface ModelColorProps {
 const ModelColor: React.FC<ModelColorProps> = ({ optionData, modelIndex }) => {
   const { items } = useModelStore();
   const modelName = items[Number(modelIndex)-1];
+  // console.log(modelName);
 
   const exterior = optionData!.extra.exterior;
   // console.log(exterior);
@@ -22,6 +23,7 @@ const ModelColor: React.FC<ModelColorProps> = ({ optionData, modelIndex }) => {
 
   const defaultGroup = groupName1;
   const defaultColorText:string = exterior[groupName1].colors[modelName][0].name;
+  // console.log(defaultGroup);
   const defaultColor = defaultColorText.substring(0, defaultColorText.indexOf("["));
   const defaultImage:string = SERVER  + exterior[groupName1].colors[modelName][0].images[1].path;
 
@@ -38,25 +40,28 @@ const ModelColor: React.FC<ModelColorProps> = ({ optionData, modelIndex }) => {
   }
 
   const handleGroupClick = (groupName: string) => {
-    if (groupName === 'glossy') {
-      setColorState((prevState) => ({
-        ...prevState, 
-        node: generateColorButton(groupName1)
-      }))
-    } else {
-      setColorState((prevState) => ({
-        ...prevState, 
-        node: generateColorButton(groupName2)
-      }))
-    }
-    // 클릭한 버튼에 text-white 클래스 추가
+        // 클릭한 버튼에 text-white 클래스 추가
     clickedGroupRef.current.clear();
     clickedGroupRef.current.add(groupName);
-    const newImage = exterior[groupName].colors[modelName][0].images[1].path
-    setColorState((prevState) => ({
-      ...prevState, 
-      imageSource: SERVER + newImage
-      }))
+    const newImage = SERVER + exterior[groupName].colors[modelName][0].images[1].path;
+    const text = exterior[groupName].colors[modelName][0].name;
+    const colorName = text.substring(0, text.indexOf("["));
+
+    if (groupName === 'glossy') {
+      clickedColorRef.current.clear();
+      clickedColorRef.current.add(colorName);
+      setColorState({
+        node: generateColorButton(groupName1),
+        imageSource: newImage
+      });
+    } else {
+      clickedColorRef.current.clear();
+      clickedColorRef.current.add(colorName);
+      setColorState({
+        node: generateColorButton(groupName2),
+        imageSource: newImage
+      });
+    }
   }
 
   const handleColorClick = (colorName: string, groupName: string, colorIndex: number) => {
@@ -69,7 +74,7 @@ const ModelColor: React.FC<ModelColorProps> = ({ optionData, modelIndex }) => {
     clickedColorRef.current.clear();
     clickedColorRef.current.add(colorName);
     const newImage = exterior[groupName].colors[modelName][colorIndex].images[1].path;
-    setColorState((prevState) => ({
+    setColorState(( ) => ({
       node: generateColorButton(groupName),
       imageSource: SERVER + newImage
     }))

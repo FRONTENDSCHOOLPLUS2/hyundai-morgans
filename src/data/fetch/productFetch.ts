@@ -27,6 +27,32 @@ export async function fetchProducts(): Promise<Product[]> {
   return resJson.item;
 }
 
+export async function fetchVehicles(): Promise<Product[]> {
+  const params = new URLSearchParams();
+  const query = '?custom={"extra.category": "vehicle"}&sort={"_id": 1}'
+  const custom = JSON.stringify({"extra.category": "vehicle"});
+  const sort = JSON.stringify({"_id": 1});
+  params.set('custom', custom);
+  params.set('sort', sort);
+  params.set('limit', LIMIT!);
+  params.set('delay', DELAY!);
+  const url = `${SERVER}/products?${params.toString()}`;
+  // const url = `${SERVER}/products`;
+  const res = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'client-Id': CLIENT,
+    },
+    next: { revalidate: 60 } // Revalidate every 60 seconds
+  });
+  const resJson: ApiRes<MultiItem<Product>> = await res.json();
+  if (!resJson.ok) {
+    throw new Error('상품 목록 조회 실패');
+  }
+  return resJson.item;
+}
+
 export async function fetchProduct(_id: string){
     const url = `${SERVER}/products/${_id}`;
     const res = await fetch(url, {
