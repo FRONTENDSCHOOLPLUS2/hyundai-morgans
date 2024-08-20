@@ -39,8 +39,8 @@ export default function MainPagenation (){
     useEffect(()=>{
       const liLen = document.querySelectorAll('.main_pagenation li')
       setLiLength(liLen.length);
-      const ev2 : HTMLBodyElement | null  = document.querySelector('#event2')
-      let ev2H = ev2.offsetTop;
+      const ev2 : HTMLSelectElement | null  = document.querySelector('#event2')
+      let ev2H = ev2!.offsetTop;
     
 
       // 마우스 휠에 따른 함수
