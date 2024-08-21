@@ -42,7 +42,7 @@ export default async function Page({ params }: { params: { boards: string } }) {
           href={`/${params.boards}/new`}
           className="bg-black py-1 px-4 text-base text-white font-semibold ml-2"
         >
-          글작성
+          신청하기
         </Link>
       </div>
       <section className="pt-10">
