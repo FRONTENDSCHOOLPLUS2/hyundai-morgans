@@ -1,5 +1,5 @@
-import ModelGnb from "./ModelGnb";
-import ModelLnb from "./ModelLnb";
+import ModelGnb from "../../../../components/navigation/ModelGnb";
+import ModelLnb from "../../../../components/navigation/ModelLnb";
 
 
 export default function modelLayout(

@@ -24,8 +24,8 @@ export default function Event2 ( {data} : {data:Product[]}) {
   const title = nameTitData[index][0].toUpperCase()
   const subTitle = nameTitData[index][1].toUpperCase()
 
-  console.log('젭라나와주세요',title)
-  console.log('젭라나와주세요22222',subTitle)
+  // console.log('젭라나와주세요',title)
+  // console.log('젭라나와주세요22222',subTitle)
 
 
   // const subTitle = data.map((modelName) => modelName.name.split('-').filter((item, index)=>item !== nameTitData[index]).join(' ') || "STANDARD")
@@ -34,7 +34,7 @@ export default function Event2 ( {data} : {data:Product[]}) {
     
   // })
   // console.log('subTitle',subTitle);
-  console.log('nameTitData',nameTitData)
+  // console.log('nameTitData',nameTitData)
 
 
 
