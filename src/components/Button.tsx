@@ -5,11 +5,20 @@ export interface ButtonProps
   size?: 'sm' | 'md' | 'lg' | 'medium';
 }
 
+// button.mainBtn {
+//   background: transparent;
+//   border-color: #fff;
+//   color: #fff;
+//   width: 240px;
+//   height: 60px;
+//   font: 500 20px/1 'Hyundai Sans Head Office';
+// }
+
 const Button: React.FC<ButtonProps> = ({
   children,
   type = 'button',
   bgColor = 'black',
-  size = 'md',
+  size = 'lg',
   ...rest // 남어지
 }) => {
   let btnColor = {
