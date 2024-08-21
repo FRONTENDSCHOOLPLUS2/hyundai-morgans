@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState } from "react";
 const SERVER : string = process.env.NEXT_PUBLIC_API_SERVER;
 
-
 export default function Event2 ( {data} : {data:Product[]}) {
   const regex = /gv?\d{2}/g; // 정규표현식
   const [index, setIndex] = useState(0);
@@ -13,7 +12,6 @@ export default function Event2 ( {data} : {data:Product[]}) {
       <Image src={SERVER + (image.mainImages[2].path)} width={0} height={0} sizes="100%" alt="G70 car" />
     </figure>
   ))
-
   const imgLength = imageData.length
   const nameTitData = data.map(modelName => {
     const titText = modelName.name.match(regex)?.[0] || modelName.name.split('-')[0]
@@ -23,20 +21,6 @@ export default function Event2 ( {data} : {data:Product[]}) {
   })
   const title = nameTitData[index][0].toUpperCase()
   const subTitle = nameTitData[index][1].toUpperCase()
-
-  console.log('젭라나와주세요',title)
-  console.log('젭라나와주세요22222',subTitle)
-
-
-  // const subTitle = data.map((modelName) => modelName.name.split('-').filter((item, index)=>item !== nameTitData[index]).join(' ') || "STANDARD")
-  // const subTitle = data.map((modelName) => {
-  //   (console.log('ffffffffffff',modelName.name))
-    
-  // })
-  // console.log('subTitle',subTitle);
-  console.log('nameTitData',nameTitData)
-
-
 
   const handleIndexNumPlus = () => {
     setIndex((prev) => {
@@ -74,7 +58,6 @@ export default function Event2 ( {data} : {data:Product[]}) {
         <div className="ev2_bg">
           <button className="mainBtn">VIEW MORE</button>
         </div>
-
       </section>
   )
 }
