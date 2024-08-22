@@ -13,7 +13,7 @@ export default function ModelGnb ({params}: { params: { model: string }}) {
   const btnRef = useRef<HTMLButtonElement | null>(null)
   const router = useRouter();
   const [tf, setTf] = useState(false)
-  const [btnWidth, setBtnWidth] = useState();
+  const [btnWidth, setBtnWidth] = useState<number | undefined>(undefined);
   const regex = /gv?\d{2}/g; // 정규표현식
 
   console.log("btnWidth",btnWidth)
@@ -43,9 +43,9 @@ export default function ModelGnb ({params}: { params: { model: string }}) {
     }
   }
   useEffect(()=>{
-    let btnWd;
+    let btnWd :number | undefined = undefined;
     if (btnRef.current) {
-      btnWd = btnRef.current?.offsetWidth;
+      btnWd = btnRef.current.offsetWidth;
     }
     setBtnWidth(btnWd);
   },[])
