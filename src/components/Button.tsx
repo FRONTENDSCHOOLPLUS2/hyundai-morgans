@@ -1,8 +1,7 @@
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   bgColor?: 'gray' | 'black' | 'red';
-  size?: 'sm' | 'md' | 'lg' | 'medium';
+  size?: 'sm' | 'md' | 'lg';
 }
 
 // button.mainBtn {
@@ -18,7 +17,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
   type = 'button',
   bgColor = 'black',
-  size = 'lg',
+  size = 'md',
   ...rest // 남어지
 }) => {
   let btnColor = {
@@ -29,8 +28,7 @@ const Button: React.FC<ButtonProps> = ({
   let btnSize = {
     sm: 'py-1 px-2 text-sm',
     md: 'py-1 px-4 text-base',
-    lg: 'py-2 px-6 text-lg',
-    medium: 'w-14 h-8 text-sm font-light',
+    lg: 'py-2 px-6 text-lg'
   };
 
   return (
