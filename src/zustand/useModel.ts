@@ -33,7 +33,7 @@ export const useModelStore = create<ModelStore>((set) => ({
     'wheel',
     'package',
     'add',
-    'payment',
+    'payments',
   ],
   // addItem: (item) => set((state) => ({ items: [...state.items, item] })),
   // removeItem: (index) => set((state) => ({

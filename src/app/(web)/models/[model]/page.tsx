@@ -1,17 +1,18 @@
 import { fetchOption, fetchProduct } from '@/data/fetch/productFetch';
-import Section1Index from './Section1Index';
-import Section2Intro from './Section2Intro';
-import Section3Color from './Section3Color';
-import Section4Exterior from './Section4Exterior';
-import Section5Interior from './Section5Interior';
-import Section6Spec from './Section6Spec';
+import Section1Index from './(section)/Section1Index';
+import Section2Intro from './(section)/Section2Intro';
+import Section3Color from './(section)/Section3Color';
+import Section4Exterior from './(section)/Section4Exterior';
+import Section5Interior from './(section)/Section5Interior';
+import Section6Spec from './(section)/Section6Spec';
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 
 export default async function OrderPage({ params }: { params: { model: string } }) {
   const modelIndex: string = params.model;
   const modelData = await fetchProduct(params.model);
-  let imageArray = modelData?.extra.detail.view360Images.map((image) => SERVER + image.path) || [];
+  const imageArray =
+    modelData?.extra.detail.view360Images.map((image) => SERVER + image.path) || [];
   const abstract = modelData!.extra.detail.abstract;
   const exterior = modelData!.extra.detail.exterior;
   const interior = modelData!.extra.detail.interior;
@@ -23,7 +24,7 @@ export default async function OrderPage({ params }: { params: { model: string } 
   return (
     <>
       {/* 첫번째 섹션 : 360도 이미지 */}
-      <Section1Index modelData={modelData} imageArray={imageArray} />
+      <Section1Index modelIndex={modelIndex} modelData={modelData} imageArray={imageArray} />
 
       {/* 두번째 섹션 : 동영상 or 이미지 fixed 후 text 스크롤링 */}
       <Section2Intro abstract={abstract} />
