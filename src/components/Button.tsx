@@ -7,6 +7,15 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   custom?: string;
 }
 
+// button.mainBtn {
+//   background: transparent;
+//   border-color: #fff;
+//   color: #fff;
+//   width: 240px;
+//   height: 60px;
+//   font: 500 20px/1 'Hyundai Sans Head Office';
+// }
+
 const Button: React.FC<ButtonProps> = ({
   children,
   type = 'button',

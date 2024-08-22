@@ -28,8 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/components/BodyClassCheck.js",
-    "src/app/(web)/models/[model]/ModelGnbtsx",
-    "src/zustand/useCart.js"
+    "src/app/(web)/models/[model]/ModelGnbtsx"
   ],
   "exclude": ["node_modules"]
 }
