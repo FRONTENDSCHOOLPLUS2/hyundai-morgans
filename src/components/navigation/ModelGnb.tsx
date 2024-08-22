@@ -29,7 +29,7 @@ export default function ModelGnb ({params}: { params: { model: string }}) {
     } else {
       // ulRef.current?.classList.replace('left-[500px]','left-[-900px]');
       if (ulRef.current) {
-        ulRef.current.style.left = '-900px'
+        ulRef.current.style.left = '-1200px'
         ulRef.current?.classList.replace('opacity-1','opacity-0');
       }
       setTf(!tf);
@@ -61,7 +61,7 @@ export default function ModelGnb ({params}: { params: { model: string }}) {
           </div>
         </button>
         <div className="absolute top-0">
-          <ul className="flex absolute max-w-[1200px] overflow-x-scroll overflow-y-hidden transition-all delay-[0.1s] opacity-0" style={{left:'-900px'}} ref={ulRef}>
+          <ul className="flex absolute max-w-[1200px] overflow-x-scroll overflow-y-hidden transition-all delay-[0.1s] opacity-0" style={{left:'-1200px'}} ref={ulRef}>
             {items.map((name,index)=>{
               let titName = name.match(regex)?.[0] || name.split('-')[0]
               let subName = name.split('-').filter((item) => item !== titName).join(' ')
