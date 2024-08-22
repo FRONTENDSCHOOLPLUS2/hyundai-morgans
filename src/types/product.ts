@@ -96,6 +96,11 @@ export interface OptionExterior extends Common {
   };
 }
 
+export interface Cart {
+  model: string;
+  price: number;
+}
+
 // export interface Thumbnail {
 //     title: string,
 //     subtitle: string,
