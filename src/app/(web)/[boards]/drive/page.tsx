@@ -12,7 +12,6 @@ export default function drive({ params }: { params: { boards: string } }) {
           <h2 className="pb-8 text-5xl font-medium text-black dark:text-black">
             전시시승 체험신청
           </h2>
-          {/* 인풋 타입 히든 */}
 
         </div>
         <section className="mb-24 p-4">
