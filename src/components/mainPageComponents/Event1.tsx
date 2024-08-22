@@ -17,7 +17,7 @@ export default function Event1 () {
   return(
     <section id="event1">
     <article>
-      <h2>Hyundai Mogans</h2>
+      <h2>Hyundai Morgans</h2>
       <article className="title_item" ref={titleRef}>
         <h3>
           GEN<span>I</span>S<span>I</span>SU
