@@ -8,17 +8,20 @@ const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 const CLIENT = process.env.NEXT_CLIENT_ID;
 
 // 게시물 등록
-export async function addPost(
-  formData: FormData
-): Promise<ApiRes<SingleItem<Post>>> {
+export async function addPost(formData: FormData): Promise<ApiRes<SingleItem<Post>>> {
   const boardName = formData.get('boardName');
   const postId = formData.get('postId');
   const session = await auth();
   const postData = {
     type: formData.get('type') || 'info',
-    title: formData.get('title'),
+    name: formData.get('name'),
+    phone: formData.get('phone'),
+    model: formData.get('model'),
+    address: formData.get('address'),
     content: formData.get('content'),
   };
+
+  console.log('postData>>', postData);
 
   const res = await fetch(`${SERVER}/posts`, {
     method: 'POST',
@@ -35,9 +38,7 @@ export async function addPost(
 }
 
 // 게시물 수정
-export async function updatePost(
-  formData: FormData
-): Promise<ApiRes<SingleItem<Post>>> {
+export async function updatePost(formData: FormData): Promise<ApiRes<SingleItem<Post>>> {
   const session = await auth();
 
   const postData = {
@@ -74,9 +75,7 @@ export async function deletePost(formData: FormData): Promise<CoreRes> {
   return res.json();
 }
 
-export async function addComment(
-  formData: FormData
-): Promise<SingleItem<PostComment>> {
+export async function addComment(formData: FormData): Promise<SingleItem<PostComment>> {
   const commentData = {
     content: formData.get('comment') || '',
   };
