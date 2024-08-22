@@ -1,0 +1,20 @@
+.custom-select {
+  -webkit-appearance: none; /* Chrome, Safari, Edge */
+  -moz-appearance: none; /* Firefox */
+  appearance: none; /* Standard syntax */
+  background: url('/public/images/detail/btn_drop.png') no-repeat right 10px center;
+  background-size: 30px; /* 화살표 이미지의 크기 조절 */
+  padding-right: 30px; /* 화살표 이미지 크기만큼 패딩 추가 */
+  border: 1px solid #ccc;
+  border-radius: 0.375rem; /* Tailwind의 rounded-md */
+  padding: 0.5rem 1rem; /* Tailwind의 py-2 px-4 */
+  font-size: 1rem; /* Tailwind의 text-base */
+  color: #000;
+  width: full;
+}
+
+.custom-select:focus {
+  outline: none;
+  border-color: #ec4899; /* Tailwind의 focus:border-pink-500 */
+  box-shadow: 0 0 0 2px rgba(244, 114, 182, 0.2); /* Tailwind의 focus:ring-pink-200 */
+}
