@@ -15,10 +15,15 @@ export async function addPost(
   const postId = formData.get('postId');
   const session = await auth();
   const postData = {
-    type: formData.get('type') || 'info',
-    title: formData.get('title'),
+    type: formData.get('type') || '전시시승',
+    name: formData.get('name'),
+    phone: formData.get('phone'),
+    model: formData.get('model'),
+    address: formData.get('address'),
     content: formData.get('content'),
   };
+
+  // console.log('postData', postData);
 
   const res = await fetch(`${SERVER}/posts`, {
     method: 'POST',
