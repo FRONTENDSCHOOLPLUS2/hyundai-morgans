@@ -27,8 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/components/BodyClassCheck.js",
-    "src/app/(web)/models/[model]/ModelGnbtsx"
+    "src/components/BodyClassCheck.js"
   ],
   "exclude": ["node_modules"]
 }

@@ -17,7 +17,7 @@ const ModelColor: React.FC<ModelColorProps> = ({ optionData, modelIndex }) => {
   const modelName = items[Number(modelIndex) - 1];
   // console.log(modelName);
 
-  const exterior = optionData!.extra.exterior;
+  const exterior = optionData!.extra.option.exterior;
   // console.log(exterior);
   const [groupName1, groupName2] = [Object.keys(exterior)[1], Object.keys(exterior)[2]];
 

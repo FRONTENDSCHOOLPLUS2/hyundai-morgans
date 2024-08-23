@@ -1,5 +1,5 @@
-import { ApiRes, MultiItem, SingleItem } from "@/types";
-import { OptionExterior, Product } from "@/types/product";
+import { ApiRes, MultiItem, SingleItem } from '@/types';
+import { OptionEngine, OptionExterior, Product } from '@/types/product';
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 const LIMIT = process.env.NEXT_PUBLIC_LIMIT;
@@ -18,7 +18,7 @@ export async function fetchProducts(): Promise<Product[]> {
       'Content-Type': 'application/json',
       'client-Id': CLIENT,
     },
-    next: { revalidate: 60 } // Revalidate every 60 seconds
+    next: { revalidate: 60 }, // Revalidate every 60 seconds
   });
   const resJson: ApiRes<MultiItem<Product>> = await res.json();
   if (!resJson.ok) {
@@ -29,8 +29,8 @@ export async function fetchProducts(): Promise<Product[]> {
 
 export async function fetchVehicles(): Promise<Product[]> {
   const params = new URLSearchParams();
-  const custom = JSON.stringify({"extra.category": "vehicle"});
-  const sort = JSON.stringify({"_id": 1});
+  const custom = JSON.stringify({ 'extra.category': 'vehicle' });
+  const sort = JSON.stringify({ _id: 1 });
   params.set('custom', custom);
   params.set('sort', sort);
   params.set('limit', LIMIT!);
@@ -43,7 +43,7 @@ export async function fetchVehicles(): Promise<Product[]> {
       'Content-Type': 'application/json',
       'client-Id': CLIENT,
     },
-    next: { revalidate: 60 } // Revalidate every 60 seconds
+    next: { revalidate: 60 }, // Revalidate every 60 seconds
   });
   const resJson: ApiRes<MultiItem<Product>> = await res.json();
   if (!resJson.ok) {
@@ -52,45 +52,69 @@ export async function fetchVehicles(): Promise<Product[]> {
   return resJson.item;
 }
 
-export async function fetchProduct(_id: string){
-    const url = `${SERVER}/products/${_id}`;
-    const res = await fetch(url, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'client-Id': CLIENT,
-        },
-        next: { revalidate: 60 } // Revalidate every 60 seconds
-    });
-    const resJson: ApiRes<SingleItem<Product>> = await res.json();
-    if(!resJson.ok){
-        return null;
-    }
-    return resJson.item;
+export async function fetchProduct(_id: string) {
+  const url = `${SERVER}/products/${_id}`;
+  const res = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'client-Id': CLIENT,
+    },
+    next: { revalidate: 60 }, // Revalidate every 60 seconds
+  });
+  const resJson: ApiRes<SingleItem<Product>> = await res.json();
+  if (!resJson.ok) {
+    return null;
+  }
+  return resJson.item;
 }
 
+export async function fetchOption(category: string) {
+  const params = new URLSearchParams();
+  const custom = JSON.stringify({ 'extra.category': category });
+  const sort = JSON.stringify({ _id: 1 });
+  params.set('custom', custom);
+  params.set('sort', sort);
+  params.set('limit', LIMIT!);
+  params.set('delay', DELAY!);
 
-export async function fetchOption(category: string){
-    const params = new URLSearchParams();
-    const custom = JSON.stringify({"extra.category": category});
-    const sort = JSON.stringify({"_id": 1});
-    params.set('custom', custom);
-    params.set('sort', sort);
-    params.set('limit', LIMIT!);
-    params.set('delay', DELAY!);
+  const url = `${SERVER}/products?${params.toString()}`;
+  const res = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'client-Id': CLIENT,
+    },
+    next: { revalidate: 60 }, // Revalidate every 60 seconds
+  });
+  const resJson: ApiRes<SingleItem<OptionExterior[]>> = await res.json();
+  if (!resJson.ok) {
+    return null;
+  }
+  return resJson.item;
+}
 
-    const url = `${SERVER}/products?${params.toString()}`;
-    const res = await fetch(url, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'client-Id': CLIENT,
-        },
-        next: { revalidate: 60 } // Revalidate every 60 seconds
-    });
-    const resJson: ApiRes<SingleItem<OptionExterior[]>> = await res.json();
-    if(!resJson.ok){
-        return null;
-    }
-    return resJson.item;
+export async function fetchOptionEngine(category: string) {
+  const params = new URLSearchParams();
+  const custom = JSON.stringify({ 'extra.category': category });
+  const sort = JSON.stringify({ _id: 1 });
+  params.set('custom', custom);
+  params.set('sort', sort);
+  params.set('limit', LIMIT!);
+  params.set('delay', DELAY!);
+
+  const url = `${SERVER}/products?${params.toString()}`;
+  const res = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'client-Id': CLIENT,
+    },
+    next: { revalidate: 60 }, // Revalidate every 60 seconds
+  });
+  const resJson: ApiRes<SingleItem<OptionEngine[]>> = await res.json();
+  if (!resJson.ok) {
+    return null;
+  }
+  return resJson.item;
 }
