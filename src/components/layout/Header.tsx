@@ -109,7 +109,7 @@ export default function Header({ isMain }: { isMain: string }) {
               <article>
                 <h3>모델</h3>
                 <div>
-                  <Link href='#' onClick={(e) => handleSitemapClick(e,1)}>G90</Link>
+                  <Link href='#' onClick={(e) => handleSitemapClick(e,1)}>G90 BLACK</Link>
                   <Link href='#' onClick={(e) => handleSitemapClick(e,2)}>G90 LONG WHEEL BASE</Link>
                   <Link href='#' onClick={(e) => handleSitemapClick(e,3)}>G90</Link>
                   <Link href='#' onClick={(e) => handleSitemapClick(e,4)}>G80</Link>
