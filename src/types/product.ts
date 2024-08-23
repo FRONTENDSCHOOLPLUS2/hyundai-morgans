@@ -1,3 +1,5 @@
+import { Mode } from 'fs';
+
 interface Image {
   path: string;
   name: string;
@@ -74,11 +76,13 @@ export interface Product extends Common {
 
 export interface OptionDetail {
   name: string;
-  price: number;
-  images: Image[];
+  image?: Image;
+  images?: Image[];
+  price?: number;
+  description?: string;
 }
 
-interface OptionItem {
+interface OptionColor {
   category: string[];
   topText: string;
   colors: OptionDetail[];
@@ -87,11 +91,56 @@ interface OptionItem {
 export interface OptionExterior extends Common {
   extra: {
     category: string[];
-    exterior: {
-      title: string;
-      glossy: OptionItem;
-      matte: OptionItem;
-      [key: string]: any;
+    option: {
+      exterior: {
+        title: string;
+        glossy: OptionColor;
+        matte: OptionColor;
+        [key: string]: any;
+      };
+    };
+  };
+}
+
+interface ModelEngineDetail {
+  topText: string;
+  price: number;
+  model: string;
+  drivetrain: string;
+  displacement: string;
+  power: string;
+  torque: string;
+  fueltank: string;
+  tire18?: string;
+  tire19?: string;
+  tire20?: string;
+  tire21?: string;
+  image: Image;
+}
+
+interface OptionItem {
+  title: string;
+  topText: string;
+  price?: number;
+  info?: {
+    [key: string]: string;
+  };
+  content?: string;
+  items?: OptionDetail[];
+  image?: Image;
+  bottomText?: string[];
+}
+
+interface ModelOption {
+  [model: string]: OptionItem;
+}
+
+export interface Option extends Common {
+  extra: {
+    category: string[];
+    // engine, drivetrain, passenger, Interior, garnish, wheel, add
+    option: {
+      [item: string]: ModelOption;
     };
   };
 }

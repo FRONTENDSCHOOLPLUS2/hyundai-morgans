@@ -1,5 +1,22 @@
+import Button from '@/components/Button';
+import { fetchOptionEngine } from '@/data/fetch/productFetch';
+
+interface VerticalLayoutProps {
+  model: string;
+  price: string;
+  clickNext: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  clickPrev: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
 // 3번레이아웃_중앙 정렬 옵션
-export default function Layout3Center() {
+export default function VerticalLayout({
+  model,
+  price,
+  clickNext,
+  clickPrev,
+}: VerticalLayoutProps) {
+  const res = fetchOptionEngine('engine');
+  console.log(res);
   return (
     <>
       <section className="h-screen relative flex flex-col-reverse">
@@ -51,14 +68,19 @@ export default function Layout3Center() {
         </article>
         <article className="w-full absolute bottom-[120px] flex items-end z-10 justify-center ">
           <div className="flex gap-x-[20px]">
-            <button className="w-[200px] h-[37px]">이전</button>
-            <button className="w-[200px] h-[37px] bg-white text-black border-none">다음</button>
+            <Button size="custom" onClick={clickPrev}>
+              이전
+            </Button>
+            <Button color="black" bgColor="white" size="custom" onClick={clickNext}>
+              다음
+            </Button>
           </div>
           <div className="absolute right-12">
             <aside className="font-Hyundai-sans border-[1px] border-[#666666] flex flex-col justify-center px-[30px] pt-[10px]">
               <p className="text-[15px] text-[#a4a4a4]">예상가격</p>
               <span className="text-[30px] font-bold mt-[-10px]">
-                12,345,678<span className="text-[20px]">원</span>
+                {price}
+                <span className="text-[20px]">원</span>
               </span>
             </aside>
           </div>

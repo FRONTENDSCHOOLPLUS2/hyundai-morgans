@@ -1,33 +1,15 @@
 'use client';
 
 import Button from '@/components/Button';
-import useLocalStorage from '@/hook/useLocalStorage';
-import { Cart } from '@/types/product';
-import { useModelStore } from '@/zustand/useModel';
-import { useRouter } from 'next/navigation';
+
+interface ColorLayoutProps {
+  price: string;
+  clickNext: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  clickPrev: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
 // 2번레이아웃_컬러칩 옵션
-export default function Layout2COlor({ params }: { params: { model: string; option: string } }) {
-  const router = useRouter();
-  const { steps } = useModelStore();
-  const currentStep = steps.indexOf(params.option);
-  const nextStep = steps[currentStep + 1];
-  const prevStep = steps[currentStep - 1] === 'detail' ? '' : steps[currentStep - 1];
-
-  const [storedValue, setValue] = useLocalStorage<Cart>('cart');
-  const price = storedValue.price.toLocaleString('ko-KR');
-  // console.log(storedValue);
-
-  const clickNext = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    router.push(`/models/${params.model}/${nextStep}`);
-  };
-
-  const clickPrev = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    router.push(`/models/${params.model}/${prevStep}`);
-  };
-
+export default function ColorLayout({ price, clickNext, clickPrev }: ColorLayoutProps) {
   return (
     <>
       <section className="h-screen relative flex flex-col-reverse">
