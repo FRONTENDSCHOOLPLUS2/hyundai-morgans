@@ -20,6 +20,18 @@ button.mainBtn {
   height: 60px;
   font: 500 20px/1 'Hyundai Sans Head Office';
 }
+a.mainBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: 1px solid #777;
+  
+  color: #fff;
+  width: 240px;
+  height: 60px;
+  font: 500 20px/1 'Hyundai Sans Head Office';
+}
 /* 다른페이지가 붙을경우 헤딩 변경 */
 body {
   position: relative;
@@ -338,7 +350,7 @@ main.mainPage section#event2 .ev2_bg {
     rgba(112, 112, 112, 0) 100%
   );
 }
-main.mainPage section#event2 .ev2_bg button {
+main.mainPage section#event2 .ev2_bg a {
   margin-left: 200px;
   margin-top: 40px;
 }
