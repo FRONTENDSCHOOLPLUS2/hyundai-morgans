@@ -32,6 +32,14 @@ a.mainBtn {
   height: 60px;
   font: 500 20px/1 'Hyundai Sans Head Office';
 }
+
+/* swiper 색상 변경 */
+.swiper-button-prev, .swiper-button-next {
+  color:#aaa !important;
+}
+.swiper-pagination-bullet {
+  background:#fff !important;
+}
 /* 다른페이지가 붙을경우 헤딩 변경 */
 body {
   position: relative;
@@ -401,7 +409,7 @@ main.mainPage section#event4 > article {
 }
 main.mainPage section#event4 .ev4_slide {
   display: flex;
-  width: 400%;
+  width: 100%;
   overflow: hidden;
   position: absolute;
   left: 0;
@@ -409,7 +417,8 @@ main.mainPage section#event4 .ev4_slide {
 }
 main.mainPage section#event4 .ev4_wrap {
   display: grid;
-  grid-template-columns: 430px 800px;
+  grid-template-columns: 1fr 2fr;
+  padding: 0 10%;
   z-index: 9000;
   column-gap: 70px;
   align-items: center;
