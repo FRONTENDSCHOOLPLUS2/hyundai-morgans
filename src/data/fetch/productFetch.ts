@@ -1,5 +1,5 @@
 import { ApiRes, MultiItem, SingleItem } from '@/types';
-import { OptionEngine, OptionExterior, Product } from '@/types/product';
+import { Option, OptionExterior, Product } from '@/types/product';
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 const LIMIT = process.env.NEXT_PUBLIC_LIMIT;
@@ -69,7 +69,7 @@ export async function fetchProduct(_id: string) {
   return resJson.item;
 }
 
-export async function fetchOption(category: string) {
+export async function fetchOptionExterior(category: string) {
   const params = new URLSearchParams();
   const custom = JSON.stringify({ 'extra.category': category });
   const sort = JSON.stringify({ _id: 1 });
@@ -94,7 +94,7 @@ export async function fetchOption(category: string) {
   return resJson.item;
 }
 
-export async function fetchOptionEngine(category: string) {
+export async function fetchOption(category: string) {
   const params = new URLSearchParams();
   const custom = JSON.stringify({ 'extra.category': category });
   const sort = JSON.stringify({ _id: 1 });
@@ -110,9 +110,9 @@ export async function fetchOptionEngine(category: string) {
       'Content-Type': 'application/json',
       'client-Id': CLIENT,
     },
-    next: { revalidate: 60 }, // Revalidate every 60 seconds
+    next: { revalidate: 10 }, // Revalidate every 60 seconds
   });
-  const resJson: ApiRes<SingleItem<OptionEngine[]>> = await res.json();
+  const resJson: ApiRes<SingleItem<Option[]>> = await res.json();
   if (!resJson.ok) {
     return null;
   }

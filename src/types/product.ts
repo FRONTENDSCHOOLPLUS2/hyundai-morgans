@@ -76,9 +76,9 @@ export interface Product extends Common {
 
 export interface OptionDetail {
   name: string;
+  price?: number;
   image?: Image;
   images?: Image[];
-  price?: number;
   description?: string;
 }
 
@@ -102,26 +102,10 @@ export interface OptionExterior extends Common {
   };
 }
 
-interface ModelEngineDetail {
-  topText: string;
-  price: number;
-  model: string;
-  drivetrain: string;
-  displacement: string;
-  power: string;
-  torque: string;
-  fueltank: string;
-  tire18?: string;
-  tire19?: string;
-  tire20?: string;
-  tire21?: string;
-  image: Image;
-}
-
-interface OptionItem {
+export interface OptionItem {
   title: string;
   topText: string;
-  price?: number;
+  price: number;
   info?: {
     [key: string]: string;
   };
@@ -132,7 +116,7 @@ interface OptionItem {
 }
 
 interface ModelOption {
-  [model: string]: OptionItem;
+  [model: string]: OptionItem[];
 }
 
 export interface Option extends Common {

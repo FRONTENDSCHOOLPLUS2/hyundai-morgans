@@ -1,4 +1,4 @@
-import { fetchOption, fetchProduct } from '@/data/fetch/productFetch';
+import { fetchOptionExterior, fetchProduct } from '@/data/fetch/productFetch';
 import Section1Index from './(section)/Section1Index';
 import Section2Intro from './(section)/Section2Intro';
 import Section3Color from './(section)/Section3Color';
@@ -18,7 +18,7 @@ export default async function OrderPage({ params }: { params: { model: string } 
   const interior = modelData!.extra.detail.interior;
   const spec = modelData!.extra.detail.spec;
 
-  const res = await fetchOption('exterior');
+  const res = await fetchOptionExterior('exterior');
   const optionData = res && res[0];
 
   return (

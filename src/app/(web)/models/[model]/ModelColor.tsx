@@ -79,10 +79,10 @@ const ModelColor: React.FC<ModelColorProps> = ({ optionData, modelIndex }) => {
     // }
     clickedColorRef.current.clear();
     clickedColorRef.current.add(colorName);
-    const newImage = exterior[groupName].colors[modelName][colorIndex].images[1].path;
+    const newImage = SERVER + exterior[groupName].colors[modelName][colorIndex].images[1].path;
     setColorState(() => ({
       node: generateColorButton(groupName),
-      imageSource: SERVER + newImage,
+      imageSource: newImage,
     }));
   };
 
