@@ -32,11 +32,7 @@ export async function generateStaticParams() {
   ];
 }
 
-export default async function Page({
-  params,
-}: {
-  params: { boards: string; id: string };
-}) {
+export default async function Page({ params }: { params: { boards: string; id: string } }) {
   // const item = await model.post.detail(Number(params.id));
   const session = await auth();
   const item = await fetchPost(params.id);
@@ -46,10 +42,8 @@ export default async function Page({
     <main className="dark:bg-white px-40 py-20">
       <section className="mb-8 p-4">
         <form action={`/${params.boards}`}>
-          <div className="font-semibold text-xl">제목 : {item.title}</div>
-          <div className="text-right text-gray-400 mb-10">
-            작성자 : {item.user?.name}
-          </div>
+          <div className="font-semibold text-xl">시승신청 차량 : {item.title}</div>
+          <div className="text-right text-blck mb-10">신청자 : {item.extra?.name}</div>
           <div className="mb-4">
             <div>
               <pre className="font-roboto w-full p-2 whitespace-pre-wrap  mb-60">
@@ -69,7 +63,7 @@ export default async function Page({
               <>
                 <Link
                   href={`/${params.boards}/${params.id}/edit`}
-                  className="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2"
+                  className="bg-black py-1 px-4 mr-2 text-base text-white font-semibold ml-2"
                 >
                   수정
                 </Link>
