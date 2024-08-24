@@ -16,12 +16,12 @@ export default function Event2 ( {data} : {data:Product[]}) {
   const regex = /gv?\d{2}/g; // 정규표현식
   const [index, setIndex] = useState(0);
   const imageData = data.map((image) => (
-    <SwiperSlide>
-      <figure key={image.name}>
+    <SwiperSlide key={image.name}>
+      <figure>
         <Image src={SERVER + (image.mainImages[2].path)} width={0} height={0} sizes="100%" alt="G70 car" />
       </figure>
     </SwiperSlide>
-   
+
   ))
   const imgLength = imageData.length
   const nameTitData = data.map(modelName => {
