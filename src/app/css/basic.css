@@ -626,9 +626,8 @@ main.mainPage section#event5 .ev5_wrap {
 main.mainPage section#event5 .ev5_wrap h2 {
   font: 500 60px/1 'Hyundai Sans Head Office';
   text-align: center;
-  margin-bottom: 60px;
 }
-main.mainPage section#event5 .ev5_wrap form {
+/* main.mainPage section#event5 .ev5_wrap form {
   display: grid;
   grid-template-columns: 70px 600px 5px 70px 600px;
   grid-auto-rows: minmax(75px, auto);
@@ -707,7 +706,7 @@ main.mainPage section#event5 .ev5_wrap form button {
   grid-row: 4 / 5;
   justify-self: center;
   font-weight: 400;
-}
+} */
 main.mainPage section#event5 .bgImg {
   background: url('/images/ev5_bg.png') center/cover no-repeat;
   position: absolute;
@@ -717,6 +716,15 @@ main.mainPage section#event5 .bgImg {
   height: 100%;
   opacity: 30%;
 }
+
+/* ev5_새로운 퍼블리싱 추가 */
+.ev5_wrap {
+  width:90vw;
+  padding-top:200px;
+}
+
+
+
 
 /* footer */
 footer {
