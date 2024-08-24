@@ -14,6 +14,11 @@ export interface Post {
   _id: number;
   type?: string;
   title: string;
+  name: string;
+  phone: string;
+  model: string;
+  extra?: { name: string };
+  address: string;
   content: string;
   user: Pick<UserData, '_id' | 'name' | 'image'>;
   views: number;

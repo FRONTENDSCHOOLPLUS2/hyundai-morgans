@@ -13,19 +13,17 @@ export async function addPost(formData: FormData): Promise<ApiRes<SingleItem<Pos
   const postId = formData.get('postId');
   const session = await auth();
   const postData = {
-
     type: formData.get('type') || 'info',
-
-    name: formData.get('name'),
+    title: formData.get('title'),
+    extra: {
+      name: formData.get('name'),
+    },
     phone: formData.get('phone'),
-    model: formData.get('model'),
     address: formData.get('address'),
     content: formData.get('content'),
   };
 
-
   // console.log('postData', postData);
-
 
   const res = await fetch(`${SERVER}/posts`, {
     method: 'POST',
@@ -36,8 +34,8 @@ export async function addPost(formData: FormData): Promise<ApiRes<SingleItem<Pos
     },
     body: JSON.stringify(postData),
   });
-
-  redirect(`/${boardName}/${postId}`);
+  console.log('하이루', boardName);
+  redirect(`/${boardName}`);
   return res.json();
 }
 

@@ -24,7 +24,7 @@ export async function fetchPosts(
       'Content-Type': 'application/json',
       'client-Id': CLIENT,
     },
-    next: { revalidate: 60 }, // Revalidate every 60 seconds 캐시가 저장 된 데이타를 돌려주는건데 이거를 저장하지말고 돌려줘! 하는거임
+    next: { revalidate: 0 }, // Revalidate every 60 seconds 캐시가 저장 된 데이타를 돌려주는건데 이거를 저장하지말고 돌려줘! 하는거임
   });
   const resJson: ApiRes<MultiItem<Post>> = await res.json();
   // console.log(resJson);
@@ -47,5 +47,6 @@ export async function fetchPost(_id: string) {
   if (!resJson.ok) {
     return null;
   }
+  console.log(resJson.item);
   return resJson.item;
 }
