@@ -1,17 +1,12 @@
 import Submit from '../Submit';
-import { addPost } from '@/data/actions/postAction';
+import AddBoard from '../drive/AddBoard';
 
-export default function Event5({
-  boardName,
-  postId,
-}: {
-  postId: string;
-  boardName: string;
-}) {
+export default function Event5({ boardName, postId }: { postId: string; boardName: string }) {
   return (
     <section id="event5">
       <div className="ev5_wrap">
         <h2>시승신청</h2>
+        <AddBoard params={{ boards: 'drive' }} />
         <form action="#">
           <label htmlFor="ev5_name">
             <span>NAME</span>
