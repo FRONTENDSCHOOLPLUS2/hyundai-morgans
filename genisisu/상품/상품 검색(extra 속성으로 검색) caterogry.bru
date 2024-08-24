@@ -5,12 +5,13 @@ meta {
 }
 
 get {
-  url: {{URL}}/products?custom={"extra.category": "exterior"}&sort={"_id": 1}
+  url: {{URL}}/products?sort={"_id": 1}&custom={"extra.category": "engine"}
   body: none
   auth: none
 }
 
 params:query {
-  custom: {"extra.category": "exterior"}
   sort: {"_id": 1}
+  custom: {"extra.category": "engine"}
+  ~custom: {"extra.category": "exterior"}
 }

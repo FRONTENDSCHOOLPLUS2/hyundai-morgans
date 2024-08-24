@@ -41,7 +41,7 @@ export default function Section1Index({ modelIndex, modelData, imageArray }: Sec
     <section className="min-h-screen bg-black relative z-10">
       {/* 이미지 영역 */}
       <article className="absolute top-[80px] right-[85px] w-[calc(100vw-300px)] grid grid-cols-1 justify-items-center">
-        <figure className="max-h-[500px] w-[1000px] overflow-hidden">
+        <figure className="max-h-[500px] w-[1000px] h-[500px] overflow-hidden">
           {modelData && <ImageViewer images={imageArray} />}
           {/* <img src="/images/detail/defaultCar.png" className="object-cover h-[100%] scale-150 " alt="" /> */}
         </figure>
