@@ -43,9 +43,17 @@ export async function updatePost(formData: FormData): Promise<ApiRes<SingleItem<
   const session = await auth();
 
   const postData = {
+    // type: formData.get('type') || 'info',
+    // title: formData.get('title') || '',
+    // content: formData.get('content') || '',
     type: formData.get('type') || 'info',
-    title: formData.get('title') || '',
-    content: formData.get('content') || '',
+    title: formData.get('title'),
+    extra: {
+      name: formData.get('name'),
+    },
+    phone: formData.get('phone'),
+    address: formData.get('address'),
+    content: formData.get('content'),
   };
 
   const res = await fetch(`${SERVER}/posts/${formData.get('_id')}`, {
