@@ -30,8 +30,6 @@ export default function VerticalLayout({ params, modelData, optionData }: Vertic
     model: modelName,
     price: initialPrice,
   });
-  // price = storedValue.price.toLocaleString('ko-KR');
-  // console.log(storedValue);
 
   const defaultImage = SERVER + modelOptionData[0].image?.path || '';
   const [optionState, setOptionState] = useState<{
@@ -57,12 +55,7 @@ export default function VerticalLayout({ params, modelData, optionData }: Vertic
     clickedOptionRef.current.clear();
     clickedOptionRef.current.add(optionName);
     const newImage = SERVER + modelOptionData[optionIndex].image?.path;
-    const newPrice =
-      optionPrice !== 0
-        ? optionState.newPrice + optionPrice
-        : optionState.newPrice === storedValue.price
-        ? optionState.newPrice
-        : optionState.newPrice - optionPrice;
+    const newPrice = optionPrice === 0 ? storedValue.price : storedValue.price + optionPrice;
     setOptionState({
       node: generateOptionButton(),
       prevPrice: optionState.newPrice,
