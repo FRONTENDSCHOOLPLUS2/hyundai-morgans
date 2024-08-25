@@ -63,12 +63,12 @@ export default async function Page({ params }: { params: { boards: string } }) {
           </colgroup>
           <thead>
             <tr className="border-b border-solid border-gray-600">
-              <th className="p-2 whitespace-nowrap font-semibold">번호</th>
-              <th className="p-2 whitespace-nowrap font-semibold">시승신청 모델</th>
-              <th className="p-2 whitespace-nowrap font-semibold">신청자</th>
-              <th className="p-2 whitespace-nowrap font-semibold hidden sm:table-cell">조회수</th>
+              <th className="p-2 whitespace-nowrap font-medium">번호</th>
+              <th className="p-2 whitespace-nowrap font-medium">시승신청 모델</th>
+              <th className="p-2 whitespace-nowrap font-medium">신청자</th>
+              <th className="p-2 whitespace-nowrap font-medium hidden sm:table-cell">조회수</th>
               <th className="p-2 whitespace-nowrap font-medium hidden sm:table-cell">댓글수</th>
-              <th className="p-2 whitespace-nowrap font-semibold hidden sm:table-cell">
+              <th className="p-2 whitespace-nowrap font-medium hidden sm:table-cell">
                 시승 신청일
               </th>
             </tr>

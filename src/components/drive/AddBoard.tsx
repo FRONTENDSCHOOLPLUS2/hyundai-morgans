@@ -100,7 +100,7 @@ export default function AddBoard({ params }: { params: { boards: string } }) {
             id="content"
             rows={15}
             placeholder="원하는 상담내용을 입력해주세요"
-            className="w-full p-5 text-sm border border-gray-300 bg-gray-50  dark:bg-gray-100 dark:text-black h-[200px]"
+            className="w-full p-5 resize-none border border-gray-300 bg-gray-50  dark:bg-gray-100 dark:text-black h-[200px]"
             name="content"
           ></textarea>
           {/* <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-500">
@@ -110,7 +110,7 @@ export default function AddBoard({ params }: { params: { boards: string } }) {
           <div className="flex justify-center my-6">
             <Link
               href={`/${params.boards}`}
-              className="border-gray-600 border py-2 px-4 text-md text- font-semibold mr-2"
+              className="border-gray-600 border py-2 px-4 text-md mr-2"
             >
               취소
             </Link>
