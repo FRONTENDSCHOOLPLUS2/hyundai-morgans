@@ -1,22 +1,47 @@
 'use client';
 
 import PortOne from "@portone/browser-sdk/v2";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function PaymentsAction () {
+
+
+
+export default function PaymentsAction (
+  {vehicleInfo, optionData}:{vehicleInfo : {name:string, image:string}},
+) {
   const route = useRouter();
   const [localOption, setLocalOption] = useState({});
 
   useEffect(()=>{
+    // localStorage에 저장된 옵션을 현재 localOption이라는 상태에 저장해둡니다
     setLocalOption(JSON.parse(localStorage.getItem('cart')))
   },[])
- 
-  const title = localOption.model?.split('-').join(' ').toUpperCase();
-  const price = localOption.price?.toLocaleString();
-  // console.log('옵션?',price)
+
+  const optionEngine = optionData[7].engine[`${localOption.model}`]
+  const optionDrivetrain = optionData[6].drivetrain[`${localOption.model}`]
+  const optionPassenger = optionData[5].passenger[`${localOption.model}`]
+  const optionExterior = optionData[4].exterior.glossy.colors[`${localOption.model}`]
+  const optionInterior = optionData[3].interior[`${localOption.model}`]
+  const optionGarnish = optionData[2].garnish[`${localOption.model}`]
+  const optionWheel = optionData[1].wheel[`${localOption.model}`]
+  const optionAdd = optionData[0].add[`${localOption.model}`]
   
 
+
+  // console.log('옵션확인',optionInterior)
+
+
+  const title = localOption.model?.split('-').join(' ').toUpperCase();
+  const price = localOption.price;
+  const SERVER : string = process.env.NEXT_PUBLIC_API_SERVER;
+  const STOREID : string = process.env.NEXT_PUBLIC_API_SERVER;
+  const CHANNELKEY : string = process.env.NEXT_PUBLIC_API_SERVER;
+  const imageMatch = vehicleInfo.filter(item => item.name === localOption.model)[0]
+
+
+  // 결제이벤트 연결결
   const payClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const response = await PortOne.requestPayment({
@@ -25,8 +50,9 @@ export default function PaymentsAction () {
       // 채널 키 설정
       channelKey: "channel-key-8bd7c279-b766-4868-af61-4de2abf530c4",
       paymentId: `payment-${crypto.randomUUID()}`,
-      orderName: "나이키 와플 트레이너 2 SD",
-      totalAmount: 1000,
+      // --- 여기까지 건드리면 안됌
+      orderName: `${title}`,
+      totalAmount: `${price}`,
       currency: "CURRENCY_KRW",
       payMethod: "CARD",
     });
@@ -63,45 +89,88 @@ export default function PaymentsAction () {
         {/* 차량 정보 */}
         <article className="border-t-[1px] border-[#a4a4a4]">
           <h3 className="text-[25px] font-bold mt-[27px]">차량정보</h3>
-          <table className="mt-[27px] text-[20px]">
+          <table className="mt-[27px] text-[15px]">
             <tbody>
-              <tr className="grid grid-cols-[100px_auto] gap-x-[140px] mb-[15px]">
+              <tr className="grid grid-cols-[100px_auto] gap-x-[100px] mb-[15px]">
                 <th className="text-right">모델명</th>
                 <td>{title}</td>
               </tr>
-              <tr className="grid grid-cols-[100px_auto] gap-x-[140px] mb-[15px]">
-                <th className="text-right">선택색상</th>
-                <td className="flex gap-x-[10px]"><div className="w-[200px] h-full bg-white"></div><span>| Cerulian Blue</span></td>
-              </tr>
-              <tr className="grid grid-cols-[100px_auto] gap-x-[140px] mb-[15px]">
-                <th className="text-right">선택옵션</th>
+              
+              <tr className="grid grid-cols-[100px_auto] gap-x-[100px] mb-[15px]">
+                <th className="text-right">색상</th>
                 <td>
-                  <table>
+                  <table className="w-full">
+                    <tbody className="flex flex-col gap-y-[10px] h-full">
+                      <tr className="grid grid-cols-[90px_4fr_minmax(100px,auto)] gap-x-[5px]">
+                        <th className="bg-white text-black mr-[15px] rounded-[10px]">외장 컬러</th>
+                        <td className="flex gap-x-[10px]">
+                          <figure className="w-[200px] h-full relative border-[1px] border-[#fff]">
+                            <Image src={optionExterior && SERVER + optionExterior?.[0].images[0].path} fill 
+                            style={{objectFit:"cover"}} alt="" className="absolute top-0 left-0"
+                            ></Image>
+                          </figure>
+                          <span>| {optionExterior?.[0].name}</span>
+                        </td>
+                        <td className="text-right">{optionExterior?.[0].price.toLocaleString()}원</td>
+                      </tr>
+
+                      <tr className="grid grid-cols-[90px_4fr_minmax(100px,auto)] gap-x-[5px]">
+                        <th className="bg-white text-black mr-[15px] rounded-[10px]">내장 컬러</th>
+                        <td className="flex gap-x-[10px]">
+                          <figure className="w-[200px] h-full bg-white relative border-[1px] border-[#fff]">
+                            <Image src={optionInterior && SERVER + optionInterior?.[0].items[0].images[0].path} fill 
+                              style={{objectFit:"cover"}} alt="" className="absolute top-0 left-0"
+                              ></Image>
+                          </figure>
+                          <span>| {optionInterior?.[0].items[0].name}</span>
+                        </td>
+                        <td className="text-right">{optionInterior?.[0].items[0].price.toLocaleString()}원</td>
+                      </tr>
+  
+                    </tbody>
+                  </table>
+                </td>
+                
+              </tr>
+  
+
+              <tr className="grid grid-cols-[100px_auto] gap-x-[100px] mb-[15px]">
+                <th className="text-right">옵션</th>
+                <td>
+                  <table className="w-full">
                     <tbody className="flex flex-col gap-y-[10px]">
-                      <tr className="grid grid-cols-[1fr_4fr_1fr]">
-                        <th className="bg-white text-black mr-[15px] rounded-[10px]">엔진</th>
-                        <td>4단 자동 변속기</td>
-                        <td>110,232원</td>
+                      <tr className="grid grid-cols-[90px_4fr_minmax(100px,auto)] gap-x-[5px]">
+                        <th className="bg-white text-black mr-[15px] rounded-[10px]">엔진 타입</th>
+                        <td className="text-left"><span className="w-[50px] mr-[20px]">| 기본 |</span>{optionEngine?.[0].topText}</td>
+                        <td className="text-right">{optionEngine?.[0].price.toLocaleString()}원</td>
                       </tr>
-                      <tr className="grid grid-cols-[1fr_4fr_1fr]">
-                        <th className="bg-white text-black mr-[15px] rounded-[10px]">엔진</th>
-                        <td>4단 자동 변속기</td>
-                        <td>110,232원</td>
+
+                      <tr className="grid grid-cols-[90px_4fr_minmax(100px,auto)] gap-x-[5px]">
+                        <th className="bg-white text-black mr-[15px] rounded-[10px]">구동 타입</th>
+                        <td className="text-left"><span className="w-[50px] mr-[20px]">| 기본 |</span>{optionDrivetrain?.[0].topText}</td>
+                        <td className="text-right">{optionDrivetrain?.[0].price.toLocaleString()}원</td>
                       </tr>
-                      <tr className="grid grid-cols-[1fr_4fr_1fr]">
-                        <th className="bg-white text-black mr-[15px] rounded-[10px]">외장옵션</th>
-                        <td>어쩌구저쩌구</td>
-                        <td>110,232원</td>
+
+                      <tr className="grid grid-cols-[90px_4fr_minmax(100px,auto)] gap-x-[5px]">
+                        <th className="bg-white text-black mr-[15px] rounded-[10px]">시트 구성</th>
+                        <td className="text-left"><span className="w-[50px] mr-[20px]">| 기본 |</span>{optionPassenger?.[0].topText}</td>
+                        <td className="text-right">{optionPassenger?.[0].price.toLocaleString()}원</td>
                       </tr>
-                      <tr className="grid grid-cols-[1fr_4fr_1fr]">
-                        <th className="bg-white text-black mr-[15px] rounded-[10px]">엔진</th>
-                        <td>4단 자동 변속기</td>
-                        <td>110,232원</td>
+
+                      <tr className="grid grid-cols-[90px_4fr_minmax(100px,auto)] gap-x-[5px]">
+                        <th className="bg-white text-black mr-[15px] rounded-[10px]">내장 가니쉬</th>
+                        <td className="text-left"><span className="w-[50px] mr-[20px]">| 기본 |</span>{optionGarnish?.[0].topText}</td>
+                        <td className="text-right">{optionGarnish?.[0].price.toLocaleString()}원</td>
                       </tr>
-                      <tr className="flex gap-x-[10px] justify-end mt-[30px]">
-                        <td>옵션총합</td>
-                        <td>110,232원</td>
+
+                      <tr className="grid grid-cols-[90px_4fr_minmax(100px,auto)] gap-x-[5px]">
+                        <th className="bg-white text-black mr-[15px] rounded-[10px]">휠 & 타이어</th>
+                        <td className="text-left"><span className="w-[50px] mr-[20px]">| 기본 |</span>{optionWheel?.[0].topText}</td>
+                        <td className="text-right">{optionWheel?.[0].price.toLocaleString()}원</td>
                       </tr>
+
+                   
+
                     </tbody>
                   </table>
                 </td>
@@ -202,7 +271,7 @@ export default function PaymentsAction () {
             <h3 className="text-[25px] font-bold">결제금액</h3>
             <div className="flex gap-x-[10px] items-center">
               <span className="text-right">총 차량 구매금액(a + b)</span>
-              <div className="text-[30px]"><span>12,345,431</span>원</div>
+              <div className="text-[30px]"><span>{price && price.toLocaleString()}</span>원</div>
             </div>
           </div>
           
@@ -220,11 +289,14 @@ export default function PaymentsAction () {
 
 
 
-
+{/* image 660 330 */}
       {/* 결제 요약 */}
       <div>
-        <article className="w-[660px] py-[80px] bg-[#333] rounded-[5px]">
-          <img src="/images/detail/defaultCar.png" alt="" />
+        <article className="w-[660px] py-[50px] bg-[#333] rounded-[5px]">
+          <figure className="w-full pt-[250px] relative top-0 left-[50%] translate-x-[-50%]">
+            {/* <Image src="/images/detail/defaultCar.png" fill alt="" className="absolute top-0 left-0"/> */}
+            <Image src={imageMatch && SERVER + imageMatch.image} fill sizes="100%" alt="" className="absolute top-0 left-0 aspect-auto" style={{objectFit: "contain"}}/>
+          </figure>
           <div className="px-[60px] flex flex-col items-center">
 
             <section className="border-b-[1px] border-[#a4a4a4] w-full py-[20px]">
@@ -247,7 +319,7 @@ export default function PaymentsAction () {
                   <tbody className="text-[15px] flex flex-col gap-y-[12px]">
                     <tr className="flex w-full">
                       <th className="font-light basis-1/4">차량 금액</th>
-                      <td className="basis-3/4 text-right"><span>{price}</span>원</td>
+                      <td className="basis-3/4 text-right"><span>{price && price.toLocaleString()}</span>원</td>
                     </tr>
                     <tr className="flex w-full">
                       <th className="font-light basis-1/4">배송비</th>
@@ -266,7 +338,7 @@ export default function PaymentsAction () {
   
               <div className="flex justify-between w-full">
                 <h3 className="font-Hyundai-sans font-light text-[20px]">총 견적합계</h3>
-                <span><span className="text-[30px]">{price}</span>원</span>
+                <span><span className="text-[30px]">{price && price.toLocaleString()}</span>원</span>
               </div>
               <div className="flex justify-between w-full">
                 <h3 className="font-Hyundai-sans font-light text-[20px]">등록비용</h3>
