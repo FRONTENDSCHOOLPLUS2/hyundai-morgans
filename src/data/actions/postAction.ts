@@ -10,7 +10,6 @@ const CLIENT = process.env.NEXT_CLIENT_ID;
 // 게시물 등록
 export async function addPost(formData: FormData): Promise<ApiRes<SingleItem<Post>>> {
   const boardName = formData.get('boardName');
-  const postId = formData.get('postId');
   const session = await auth();
   const postData = {
     type: formData.get('type') || 'info',
