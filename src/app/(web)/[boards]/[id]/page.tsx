@@ -53,7 +53,7 @@ export default async function Page({ params }: { params: { boards: string; id: s
           <div className="flex justify-end my-4">
             <Link
               href={`/${params.boards}`}
-              className="bg-black py-1 px-4 text-base text-white font-semibold ml-2"
+              className="bg-black py-1 px-4 text-base text-white ml-2"
             >
               목록
             </Link>
@@ -61,11 +61,13 @@ export default async function Page({ params }: { params: { boards: string; id: s
               <>
                 <Link
                   href={`/${params.boards}/${params.id}/edit`}
-                  className="bg-red-500 py-1 px-4 mr-2 text-base text-white font-semibold ml-2"
+                  className="bg-black py-1 px-4 mr-2 text-base text-white ml-2"
                 >
                   수정
                 </Link>
-                <Submit bgColor="black">삭제</Submit>
+                <Submit bgColor="black" id={params.id}>
+                  삭제
+                </Submit>
               </>
             )}
           </div>
