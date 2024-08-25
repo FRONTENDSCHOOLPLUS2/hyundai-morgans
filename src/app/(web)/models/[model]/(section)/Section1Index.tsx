@@ -30,11 +30,11 @@ export default function Section1Index({ modelIndex, modelData, imageArray }: Sec
   const clickNext = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const nextStep = `/models/${modelIndex}/${steps[1]}`; // 'engine'
-    router.push(nextStep);
     setValue({
       model: modelName,
       price: modelPrice,
     });
+    router.push(nextStep);
   };
 
   return (
