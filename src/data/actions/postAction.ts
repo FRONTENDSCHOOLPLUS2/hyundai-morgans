@@ -72,18 +72,20 @@ export async function updatePost(formData: FormData): Promise<ApiRes<SingleItem<
 // 게시물 삭제
 export async function deletePost(formData: FormData): Promise<CoreRes> {
   const session = await auth();
-
+  const boardName = formData.get('boardName');
   const res = await fetch(`${SERVER}/posts/${formData.get('_id')}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${session?.accessToken}`,
+      'client-Id': CLIENT,
     },
   });
-
+  redirect(`/${boardName}`);
   return res.json();
 }
 
+// 여기서부터 댓글 영역
 export async function addComment(formData: FormData): Promise<SingleItem<PostComment>> {
   const commentData = {
     content: formData.get('comment') || '',
