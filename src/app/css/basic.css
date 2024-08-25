@@ -126,9 +126,9 @@ header .modal {
   height: 100vh;
   background:#000;
   position:fixed;
-  top:-100%;
+  top:-500%;
   opacity:0%;
-  transition: 0.2s ease-in-out;
+  transition: 0.3s ease-in-out;
   z-index: -1;
 }
 header .modal.on {
