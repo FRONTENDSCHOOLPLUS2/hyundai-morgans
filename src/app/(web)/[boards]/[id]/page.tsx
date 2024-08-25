@@ -43,12 +43,10 @@ export default async function Page({ params }: { params: { boards: string; id: s
       <section className="mb-8 p-4">
         <form action={`/${params.boards}`}>
           <div className="font-semibold text-xl">시승신청 차량 : {item.title}</div>
-          <div className="text-right text-blck mb-10">신청자 : {item.extra?.name}</div>
+          <div className="text-left text-blck mb-10">신청자 : {item.extra?.name}</div>
           <div className="mb-4">
             <div>
-              <pre className="font-roboto w-full p-2 whitespace-pre-wrap  mb-60">
-                {item.content}
-              </pre>
+              <pre className="w-full p-2 whitespace-pre-wrap mb-60">{item.content}</pre>
             </div>
             <hr />
           </div>
@@ -63,11 +61,11 @@ export default async function Page({ params }: { params: { boards: string; id: s
               <>
                 <Link
                   href={`/${params.boards}/${params.id}/edit`}
-                  className="bg-black py-1 px-4 mr-2 text-base text-white font-semibold ml-2"
+                  className="bg-red-500 py-1 px-4 mr-2 text-base text-white font-semibold ml-2"
                 >
                   수정
                 </Link>
-                <Submit bgColor="red">삭제</Submit>
+                <Submit bgColor="black">삭제</Submit>
               </>
             )}
           </div>
