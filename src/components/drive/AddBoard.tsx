@@ -100,12 +100,9 @@ export default function AddBoard({ params }: { params: { boards: string } }) {
             id="content"
             rows={15}
             placeholder="원하는 상담내용을 입력해주세요"
-            className="w-full p-5 text-sm border border-gray-300 bg-gray-50  dark:bg-gray-100 dark:text-black h-[200px]"
+            className="w-full p-5 border resize-none border-gray-300 bg-gray-50  dark:bg-gray-100 dark:text-black h-[200px]"
             name="content"
           ></textarea>
-          {/* <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-500">
-                내용은 필수입니다.
-              </p> */}
 
           <div className="flex justify-center my-6">
             <Link

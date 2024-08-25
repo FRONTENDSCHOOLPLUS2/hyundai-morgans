@@ -116,7 +116,7 @@ export default function Page({ params }: { params: { boards: string; id: string 
               id="content"
               rows={15}
               placeholder="원하는 상담내용을 입력해주세요"
-              className="w-full p-5 text-sm border border-gray-300 bg-gray-50  dark:bg-gray-100 dark:text-black"
+              className="w-full p-5 resize-none border border-gray-300 bg-gray-50  dark:bg-gray-100 dark:text-black"
               name="content"
             ></textarea>
             {/* <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-500">
@@ -127,7 +127,7 @@ export default function Page({ params }: { params: { boards: string; id: string 
               <Submit>수정</Submit>
               <Link
                 href={`/${params.boards}/${params.id}`}
-                className="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400"
+                className="bg-gray-900 py-1 px-4 text-base text-white font-semibold ml-2"
               >
                 취소
               </Link>
