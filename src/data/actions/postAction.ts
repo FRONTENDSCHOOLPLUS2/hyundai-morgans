@@ -40,8 +40,8 @@ export async function addPost(formData: FormData): Promise<ApiRes<SingleItem<Pos
 
 // 게시물 수정
 export async function updatePost(formData: FormData): Promise<ApiRes<SingleItem<Post>>> {
+  const boardName = formData.get('boardName');
   const session = await auth();
-
   const postData = {
     // type: formData.get('type') || 'info',
     // title: formData.get('title') || '',
@@ -65,7 +65,7 @@ export async function updatePost(formData: FormData): Promise<ApiRes<SingleItem<
     },
     body: JSON.stringify(postData),
   });
-
+  redirect(`/${boardName}`);
   return res.json();
 }
 
