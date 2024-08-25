@@ -1,5 +1,6 @@
 'use client';
 
+import { useModelStore } from '@/zustand/useModel';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -25,11 +26,14 @@ type OptionKey = keyof typeof optionList;
 
 export default function ModelLnb({ params }: { params: { model: string } }) {
   const pathname = usePathname();
+  const { items: modelList } = useModelStore();
+  const modelName = modelList[Number(params.model) - 1];
   const isActive = (path: string) => (pathname === path ? 'text-white' : '');
 
   const items = Object.keys(optionList).map((item) => {
     const key = item as OptionKey;
-    const content = optionList[item];
+    const content =
+      modelName === 'g80' && item === 'passenger' ? '스포츠 패키지' : optionList[item];
     const path = item !== 'detail' ? '/' + item : '';
     return (
       <li key={key} className={isActive(`/models/${params.model}${path}`)}>

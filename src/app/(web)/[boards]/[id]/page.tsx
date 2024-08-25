@@ -42,26 +42,24 @@ export default async function Page({ params }: { params: { boards: string; id: s
     <main className="dark:bg-white px-40 py-20">
       <section className="mb-8 p-4">
         <form action={`/${params.boards}`}>
-          <div className="font-semibold text-xl">시승신청 차량 : {item.title}</div>
-          <div className="text-left text-blck mb-10">신청자 : {item.extra?.name}</div>
-          <div className="mb-4">
-            <div>
-              <pre className="w-full p-2 whitespace-pre-wrap mb-60">{item.content}</pre>
-            </div>
-            <hr />
-          </div>
+          <div className="font-medium text-2xl mb-12">시승신청 차량 : {item.title}</div>
+          <div className="text-black text-lg mb-2 font-medium">신청자 : {item.extra?.name}</div>
+          <div className="text-black text-lg mb-2 font-light">연락처 : {item.phone}</div>
+          <div className="text-black text-lg mb-12 font-light">희망 플레이스 : {item.address}</div>
+          <div className="text-black text-base mb-20 font-light"> {item.content}</div>
+
           <div className="flex justify-end my-4">
             <Link
               href={`/${params.boards}`}
-              className="bg-black py-1 px-4 text-base text-white font-semibold ml-2"
+              className="bg-black py-1 px-4 text-base text-white ml-2"
             >
               목록
             </Link>
             {session?.user?.id === String(item.user?._id) && (
               <>
                 <Link
-                  href={`/${params.boards}/${params.id}/edit`}
-                  className="bg-red-500 py-1 px-4 mr-2 text-base text-white font-semibold ml-2"
+                  href={`/${params.boards}/${params.id}/editDrive`}
+                  className="py-1 px-4 mr-2 text-base text-black border-gray-600 border ml-2"
                 >
                   수정
                 </Link>

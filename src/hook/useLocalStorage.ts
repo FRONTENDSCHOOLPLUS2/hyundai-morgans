@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 
 export default function useLocalStorage<T>(key: string, initialValue?: T) {
@@ -14,7 +16,7 @@ export default function useLocalStorage<T>(key: string, initialValue?: T) {
   const setValue = (value: T) => {
     try {
       setStoredValue(value);
-      window.localStorage.setItem(key, JSON.stringify(value));
+      localStorage.setItem(key, JSON.stringify(value));
     } catch (error) {
       console.error(error);
     }

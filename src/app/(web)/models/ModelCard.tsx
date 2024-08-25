@@ -12,6 +12,7 @@ import extractTitle from '@/data/extractTitle';
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 
 export default function ModelCard({ model }: { model: Product }) {
+  window.localStorage.removeItem('cart');
   const { items } = useModelStore();
   const modelName = model.name;
   const [title, subtitle] = extractTitle(modelName);

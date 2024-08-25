@@ -23,7 +23,7 @@ export default async function ListPage() {
   const productCard = data.map((model, index) => <ModelCard key={index} model={model} />);
   return (
     <main className="bg-black pt-40 pl-28 pr-28">
-      <ul className="grid grid-cols-4 gap-6 text-white">{data && productCard}</ul>
+      <ul className="grid grid-cols-4 gap-6 text-white">{productCard}</ul>
     </main>
   );
 }
