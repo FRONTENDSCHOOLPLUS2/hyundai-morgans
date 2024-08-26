@@ -15,6 +15,8 @@ export async function fetchPosts(
   type && params.set('type', type);
   page && params.set('page', page);
   keyword && params.set('keyword', keyword);
+  const sort = JSON.stringify({ _id: -1 });
+  params.set('sort', sort);
   params.set('limit', LIMIT!);
   params.set('delay', DELAY!);
   const url = `${SERVER}/posts?${params.toString()}`;
