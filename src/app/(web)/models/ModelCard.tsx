@@ -23,7 +23,7 @@ export default function ModelCard({ model }: { model: Product }) {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push('/info');
+    router.push('/info/drive');
   };
 
   return (
