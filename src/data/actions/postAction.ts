@@ -34,7 +34,9 @@ export async function addPost(formData: FormData): Promise<ApiRes<SingleItem<Pos
     body: JSON.stringify(postData),
   });
   console.log('하이루', boardName);
-  redirect(`/${boardName}`);
+  // redirect(`/${boardName}`);
+  redirect(`/info`);
+
   return res.json();
 }
 
