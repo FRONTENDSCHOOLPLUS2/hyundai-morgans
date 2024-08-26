@@ -31,7 +31,6 @@ export const useModelStore = create<ModelStore>((set) => ({
     'interior',
     'garnish',
     'wheel',
-    'package',
     'add',
     'payments',
   ],

@@ -4,10 +4,11 @@ import Link from 'next/link';
 import { ImageViewer } from '../ImageViewer';
 import { Cart, Product } from '@/types/product';
 import { useModelStore } from '@/zustand/useModel';
-import { usePathname, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import useLocalStorage from '@/hook/useLocalStorage';
 import extractTitle from '@/data/extractTitle';
 import Button from '@/components/Button';
+import { useEffect } from 'react';
 
 interface Section1IndexProps {
   modelIndex: string;
@@ -15,11 +16,18 @@ interface Section1IndexProps {
   imageArray: string[];
 }
 
-const initialValue = { model: '', price: 0 };
-
 export default function Section1Index({ modelIndex, modelData, imageArray }: Section1IndexProps) {
   const { steps } = useModelStore();
-  const [storedValue, setValue] = useLocalStorage<Cart>('cart', initialValue);
+  const initialValue = {
+    model: modelData?.name || '',
+    price: modelData?.price || 0
+  }
+  const [storedValue, setValue] = useLocalStorage<Cart>('cart', 
+    initialValue
+  );
+  useEffect(() => {
+    window.localStorage.setItem('cart', JSON.stringify(initialValue));
+  }, []);
   const router = useRouter();
   const modelName = modelData ? modelData.name : storedValue.model;
   const modelPrice = modelData ? Number(modelData.price) : storedValue.price;
