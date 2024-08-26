@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer>
@@ -29,7 +31,7 @@ export default function Footer() {
           <span>© COPYRIGHT 2024 HYUNDAI MOGANS GENISISUYEON.  ALL RIGHTS RESERVED.</span>
         </li>
       </ul>
-      <button>READ ME</button>
+      <button><Link href={'https://github.com/FRONTENDSCHOOLPLUS2/hyundai-morgans'}>READ ME</Link></button>
     </footer>
   );
 }

@@ -41,7 +41,7 @@ export default function ColorLayout({ params, modelData, optionData }: ColorLayo
   const defaultItemName = defaultItems[0].name;
   const defaultItemImage = defaultItems[0].images ? SERVER + defaultItems[0].images[1].path : '';
 
-  const clickedOptionRef = useRef<Set<string>>(new Set([defaultGroupName, defaultItemName]));
+  const clickedOptionRef = useRef<Set<string>>(new Set([defaultGroupName, defaultGroupName + defaultItemName]));
   const textOptionRef = useRef<Map<string, string>>(
     new Map([
       ['group', defaultGroupName],
@@ -63,11 +63,6 @@ export default function ColorLayout({ params, modelData, optionData }: ColorLayo
     optionText: defaultItemName,
   });
 
-  const { steps } = useModelStore();
-  const currentStep = steps.indexOf(optionName);
-  const nextStep = steps[currentStep + 1];
-  const prevStep = steps[currentStep - 1] === 'detail' ? '' : steps[currentStep - 1];
-
   const handleOptionClick = (
     optionGroup: string,
     optionItem: string,
@@ -76,7 +71,7 @@ export default function ColorLayout({ params, modelData, optionData }: ColorLayo
   ) => {
     clickedOptionRef.current.clear();
     clickedOptionRef.current.add(optionGroup);
-    clickedOptionRef.current.add(optionItem);
+    clickedOptionRef.current.add(optionGroup + optionItem);
     const newImage = optionImage;
     // 로컬스토리지 기준값: storedValue.price
     const newPrice = optionPrice === 0 ? storedValue.price : storedValue.price + optionPrice;
@@ -91,6 +86,8 @@ export default function ColorLayout({ params, modelData, optionData }: ColorLayo
       optionText: textOptionRef.current.get('item') || '',
     });
   };
+
+  const isClicked = (item: string) => clickedOptionRef.current.has(item) ? 'border-[3px] border-slate-300' : '';
 
   const generateOptionButton = (data: OptionItem): ReactNode => {
     const groupName = data.topText;
@@ -108,7 +105,7 @@ export default function ColorLayout({ params, modelData, optionData }: ColorLayo
           onClick={() => handleOptionClick(groupName, name, price, vehicleImage)}
           className="w-[95px] h-[50px]"
         >
-          <figure className="w-[95px] h-[50px] relative">
+          <figure className={`w-[95px] h-[50px] relative ${isClicked(groupName + name)}`}>
             <Image src={colorChipImage} fill sizes="100%" alt={`${name}`} />
           </figure>
         </li>
@@ -133,7 +130,7 @@ export default function ColorLayout({ params, modelData, optionData }: ColorLayo
           </tr>
           {/* 옵션 텍스트 */}
           <tr className="flex items-center text-[30px] gap-x-[86px] border-t-[1px] border-[#a4a4a4] pt-[30px] pl-[15px]">
-            <td className={`font-Hyundai-sans ${isOptionActive(itemName)}`}>{itemName}</td>
+            <td className={`font-Hyundai-sans ${isOptionActive(groupName + itemName)}`}>{itemName}</td>
             <td>
               {/* 옵션 버튼 생성 */}
               <ul className="flex gap-x-[20px]">{optionData}</ul>
@@ -143,6 +140,11 @@ export default function ColorLayout({ params, modelData, optionData }: ColorLayo
       </table>
     );
   });
+
+  const { steps } = useModelStore();
+  const currentStep = steps.indexOf(optionName);
+  const nextStep = steps[currentStep + 1];
+  const prevStep = steps[currentStep - 1] === 'detail' ? '' : steps[currentStep - 1];
 
   const clickButton = (e: React.MouseEvent<HTMLButtonElement>, direction?: string) => {
     e.preventDefault();
