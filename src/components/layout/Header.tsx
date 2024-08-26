@@ -38,6 +38,9 @@ export default function Header({ isMain }: { isMain: string }) {
         case 16:
           route.push('/notice')
           break;
+        case 17:
+          route.push('/info/drive')
+          break;
         default:
           route.push('#')
       }
@@ -143,6 +146,8 @@ export default function Header({ isMain }: { isMain: string }) {
                 <Link href='#' onClick={(e) => handleSitemapClick(e,14)}>전시시승</Link>
                 <Link href='#' onClick={(e) => handleSitemapClick(e,15)}>고객지원</Link>
                 <Link href='#' onClick={(e) => handleSitemapClick(e,16)}>공지사항</Link>
+                <Link href='#' onClick={(e) => handleSitemapClick(e,17)}>전시시승 신청</Link>
+                
               </div>
             </article>
 
