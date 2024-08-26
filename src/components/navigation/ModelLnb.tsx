@@ -17,7 +17,6 @@ const optionList: OptionList = {
   interior: '내장디자인 & 컬러',
   garnish: '내장가니쉬',
   wheel: '휠 & 타이어',
-  package: '패키지',
   add: '선택 품목',
   payments: '결제',
 };

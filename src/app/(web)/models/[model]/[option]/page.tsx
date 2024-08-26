@@ -31,9 +31,9 @@ export default async function OptionPage({
         <ColorLayout params={params} modelData={modelData} optionData={optionData} />
       )}
 
-      {/* {horizontalArray.includes(params.option) && (
-        <HorizontalLayout price={price} clickNext={clickNext} clickPrev={clickPrev} />
-      )} */}
+      {horizontalArray.includes(params.option) && (
+        <HorizontalLayout params={params} modelData={modelData} optionData={optionData} />
+      )}
     </>
   );
 }

@@ -18,7 +18,7 @@ interface VerticalLayoutProps {
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 
-// 3번레이아웃_중앙 정렬 옵션
+// 1번레이아웃_중앙 정렬 옵션
 export default function VerticalLayout({ params, modelData, optionData }: VerticalLayoutProps) {
   const router = useRouter();
   const optionName = params.option;
