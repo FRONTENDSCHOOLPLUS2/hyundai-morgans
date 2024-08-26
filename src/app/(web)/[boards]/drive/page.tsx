@@ -1,6 +1,6 @@
 import AddBoard from '../../../../components/drive/AddBoard';
 
-export default function drive() {
+export default function drive({ params }: { params: { boards: string } }) {
   return (
     <main id="drivePage" className="min-w-80 py-32 px-40 dark:bg-white">
       <div className="drive">
@@ -9,7 +9,7 @@ export default function drive() {
             전시시승 체험신청
           </h2>
         </div>
-        <AddBoard params={{ boards: 'drive' }} />
+        <AddBoard params={{ boards: params.boards }} />
 
         <div className="text-center py-4">
           <h2 className="pb-12 text-5xl font-medium text-black">재니시수연 플레이스</h2>
