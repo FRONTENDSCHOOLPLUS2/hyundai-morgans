@@ -8,11 +8,11 @@ import { useModelStore } from '@/zustand/useModel';
 import { useRouter } from 'next/navigation';
 import Button from '@/components/Button';
 import extractTitle from '@/data/extractTitle';
+import { useEffect } from 'react';
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 
 export default function ModelCard({ model }: { model: Product }) {
-  window.localStorage.removeItem('cart');
   const { items } = useModelStore();
   const modelName = model.name;
   const [title, subtitle] = extractTitle(modelName);
@@ -25,6 +25,10 @@ export default function ModelCard({ model }: { model: Product }) {
   const handleClick = () => {
     router.push('/info/drive');
   };
+
+  useEffect(() => {
+    window.localStorage.removeItem('cart');
+  }, [])
 
   return (
     <li className="grid grid-cols-2 gap-y-1 justify-center px-6 py-8 bg-item-background">

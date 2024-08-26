@@ -27,16 +27,16 @@ export default async function Page({ params }: { params: { boards: string } }) {
   const list = data.map((item) => <ListItem key={item._id} item={item} />); // 요소를 반복문으로 생성해줄 때 key값 필수
   // const list = [<ListItem key={1} />, <ListItem key={2} />];
   return (
-    <main className="min-w-80 py-32 px-40 dark:bg-white">
+    <main className="min-w-80 py-32 px-40 bg-white">
       <ScrollToTop />
       <div className="text-center py-4">
-        <h2 className="pb-20 text-5xl font-medium text-black dark:black">전시시승</h2>
+        <h2 className="pb-20 text-5xl font-medium text-black">전시시승</h2>
       </div>
       <div className="flex justify-end mr-4 mb-8">
         {/* <Search /> */}
         <Link
           href={`/${params.boards}/drive`}
-          className="bg-black py-1 px-4 text-base text-white ml-2"
+          className="btnBasic"
         >
           신청하기
         </Link>
