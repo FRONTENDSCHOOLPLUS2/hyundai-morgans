@@ -82,10 +82,6 @@ header.mainHd::after {
 
 header .gnb_logo {
   width: 200px;
-  position: absolute;
-  top: 50%;
-  left: 100px;
-  transform: translateY(-50%);
 }
 header .gnb_logo a img {
   width: 100%;
@@ -95,12 +91,12 @@ header .gnb {
   position: absolute;
   transform: translateY(-50%);
   top: 50%;
-  right: 160px;
-  display: flex;
-  justify-content: space-between;
-  gap: 12rem;
-  width: 100%;
-  max-width: 70%;
+  /* right: 160px; */
+  left: 80px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  width: 100vw;
+  /* max-width: 70%; */
 }
 header .gnb > li > ul {
   display: flex;
@@ -108,7 +104,14 @@ header .gnb > li > ul {
   height: 100%;
   gap: 80px;
 }
+header .gnb > li > ul > li {
+  
+}
+header .gnb > li > ul li a {
+  /* text-wrap:nowrap; */
+}
 header .gnb > li:nth-child(2) {
+  align-content: end;
   font-size: 16px;
 }
 header .gnb > li:nth-child(2) ul {
@@ -122,14 +125,19 @@ header .gnb > li:nth-child(2) > ul > li:first-child::after {
 header .gnb > li:nth-child(2) > ul > li:last-child {
   padding-left: 80px;
 }
+header .smBtn {
+  justify-self: center;
+  min-width:30px;
+}
+
 header .modal {
   width: 100vw;
   height: 100vh;
   background: #000;
   position: fixed;
-  top: -100%;
+  top: -500%;
   opacity: 0%;
-  transition: 0.2s ease-in-out;
+  transition: 0.3s ease-in-out;
   z-index: -1;
 }
 header .modal.on {
