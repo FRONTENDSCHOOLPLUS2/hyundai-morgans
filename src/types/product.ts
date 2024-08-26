@@ -85,20 +85,25 @@ export interface OptionDetail {
 interface OptionColor {
   category: string[];
   topText: string;
-  colors: OptionDetail[];
+  colors: {
+    [model:string]:OptionDetail[]    
+  };
+
 }
+
+export interface ExteriorData {
+  exterior: {
+    title: string;
+    glossy: OptionColor;
+    matte: OptionColor;
+    [key: string]: any;
+  };
+};
 
 export interface OptionExterior extends Common {
   extra: {
     category: string[];
-    option: {
-      exterior: {
-        title: string;
-        glossy: OptionColor;
-        matte: OptionColor;
-        [key: string]: any;
-      };
-    };
+    option: ExteriorData
   };
 }
 
@@ -115,7 +120,7 @@ export interface OptionItem {
   bottomText?: string[];
 }
 
-interface ModelOption {
+export interface ModelOption {
   [model: string]: OptionItem[];
 }
 
