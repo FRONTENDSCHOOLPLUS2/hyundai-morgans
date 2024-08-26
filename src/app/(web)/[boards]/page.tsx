@@ -1,9 +1,10 @@
 import Pagination from '@/components/Pagination';
-import Search from '@/components/Search';
+// import Search from '@/components/Search';
 import { Metadata } from 'next';
 import ListItem from './ListItem';
 import { fetchPosts } from '@/data/fetch/postFetch';
 import Link from 'next/link';
+import ScrollToTop from './ScrollToTop';
 
 export function generateMetadata({ params }: { params: { boards: string } }): Metadata {
   const boardName = params.boards;
@@ -19,18 +20,6 @@ export function generateMetadata({ params }: { params: { boards: string } }): Me
       },
     },
   };
-  // return {
-  //   title: `${boardName} - 전시시승`,
-  //   description: `${boardName} 게시판입니다.`,
-  //   openGraph: {
-  //     title: `${boardName} - 전시시승`,
-  //     description: `${boardName} 게시판입니다.`,
-  //     url: `/${params.boards}`,
-  //     images: {
-  //       url: '/images/fesp.webp',
-  //     },
-  //   },
-  // };
 }
 
 export default async function Page({ params }: { params: { boards: string } }) {
@@ -39,11 +28,12 @@ export default async function Page({ params }: { params: { boards: string } }) {
   // const list = [<ListItem key={1} />, <ListItem key={2} />];
   return (
     <main className="min-w-80 py-32 px-40 dark:bg-white">
+      <ScrollToTop />
       <div className="text-center py-4">
         <h2 className="pb-20 text-5xl font-medium text-black dark:black">전시시승</h2>
       </div>
       <div className="flex justify-end mr-4 mb-8">
-        <Search />
+        {/* <Search /> */}
         <Link
           href={`/${params.boards}/drive`}
           className="bg-black py-1 px-4 text-base text-white ml-2"
