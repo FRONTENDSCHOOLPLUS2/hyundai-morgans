@@ -39,7 +39,7 @@ export default async function Page({ params }: { params: { boards: string; id: s
   if (item === null) notFound();
 
   return (
-    <main className="dark:bg-white px-40 py-20">
+    <main className="bg-white dark:bg-white px-40 py-20">
       <section className="mb-8 p-4">
         <form action={`/${params.boards}`}>
           <div className="font-medium text-2xl mb-12">시승신청 차량 : {item.title}</div>

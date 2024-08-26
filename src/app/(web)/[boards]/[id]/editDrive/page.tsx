@@ -18,7 +18,7 @@ export function generateMetadata({ params }: { params: { boards: string; id: str
 
 export default function Page({ params }: { params: { boards: string; id: string } }) {
   return (
-    <main className="min-w-80 py-32 px-40 dark:bg-white">
+    <main className="min-w-80 py-32 px-40 bg-white dark:bg-white">
       <div className="drive">
         <div className="text-center py-4">
           <h2 className="pb-8 text-5xl font-medium text-black dark:text-black">시승신청 수정</h2>
