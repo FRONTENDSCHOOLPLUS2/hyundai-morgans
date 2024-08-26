@@ -1,47 +1,63 @@
 'use client';
 
+import useLocalStorage from "@/hook/useLocalStorage";
+import { ModelOption, OptionExterior } from "@/types/product";
 import PortOne from "@portone/browser-sdk/v2";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
-
-
+interface PaymentsActionProps {
+  vehicleInfo : {name:string, image:string}[],
+  optionData : {[item: string]: ModelOption;}[],
+  exteriorData : OptionExterior;
+}
 
 export default function PaymentsAction (
-  {vehicleInfo, optionData}:{vehicleInfo : {name:string, image:string}},
-) {
+
+  {vehicleInfo, optionData, exteriorData}: PaymentsActionProps) {
+
+  const [storedValue, setValue] = useLocalStorage('cart', {
+    model:'',
+    price:0,
+    engine:'',
+    drivetrain:'',
+    passenger:'',
+    exterior:'',
+    interior:'',
+    garnish:'',
+    wheel:'',
+    add:'',
+  })
+
   const route = useRouter();
-  const [localOption, setLocalOption] = useState({});
+  const tbodyRef = useRef<HTMLTableSectionElement>(null)
+  const tbodyLengthRef = useRef(0)
 
   useEffect(()=>{
-    // localStorage에 저장된 옵션을 현재 localOption이라는 상태에 저장해둡니다
-    setLocalOption(JSON.parse(localStorage.getItem('cart')))
+    if (tbodyRef.current) {
+      tbodyLengthRef.current = tbodyRef.current.querySelectorAll('tr').length -1;
+    }
   },[])
 
-  const optionEngine = optionData[7].engine[`${localOption.model}`]
-  const optionDrivetrain = optionData[6].drivetrain[`${localOption.model}`]
-  const optionPassenger = optionData[5].passenger[`${localOption.model}`]
-  const optionExterior = optionData[4].exterior.glossy.colors[`${localOption.model}`]
-  const optionInterior = optionData[3].interior[`${localOption.model}`]
-  const optionGarnish = optionData[2].garnish[`${localOption.model}`]
-  const optionWheel = optionData[1].wheel[`${localOption.model}`]
-  const optionAdd = optionData[0].add[`${localOption.model}`]
-  
 
+  const optionExterior = exteriorData.extra.option.exterior.glossy.colors[`${storedValue.model}`]
+  const optionEngine = optionData[0].engine[`${storedValue.model}`]
+  const optionDrivetrain = optionData[1].drivetrain[`${storedValue.model}`]
+  const optionPassenger = optionData[2].passenger[`${storedValue.model}`]
+  const optionInterior = optionData[3].interior[`${storedValue.model}`]
+  const optionGarnish = optionData[4].garnish[`${storedValue.model}`]
+  const optionWheel = optionData[5].wheel[`${storedValue.model}`]
+  // const optionAdd = optionData[0].add[`${storedValue.model}`]
 
-  // console.log('옵션확인',optionInterior)
-
-
-  const title = localOption.model?.split('-').join(' ').toUpperCase();
-  const price = localOption.price;
+  const title = storedValue.model && storedValue.model?.split('-').join(' ').toUpperCase();
+  const price = Number(storedValue.price);
   const SERVER : string = process.env.NEXT_PUBLIC_API_SERVER;
   const STOREID : string = process.env.NEXT_PUBLIC_API_SERVER;
   const CHANNELKEY : string = process.env.NEXT_PUBLIC_API_SERVER;
-  const imageMatch = vehicleInfo.filter(item => item.name === localOption.model)[0]
+  const imageMatch = vehicleInfo.filter(item => item.name === storedValue.model)[0]
 
-
-  // 결제이벤트 연결결
+  // 결제이벤트 연결
   const payClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const response = await PortOne.requestPayment({
@@ -52,7 +68,7 @@ export default function PaymentsAction (
       paymentId: `payment-${crypto.randomUUID()}`,
       // --- 여기까지 건드리면 안됌
       orderName: `${title}`,
-      totalAmount: `${price}`,
+      totalAmount: Number(`${price}`),
       currency: "CURRENCY_KRW",
       payMethod: "CARD",
     });
@@ -72,7 +88,7 @@ export default function PaymentsAction (
         });
         route.push('/models/2/payments/paymentsComplete')
         return (
-          alert('결제완료~!')
+          alert('결제가 완료되었습니다')
         )
       }
   }
@@ -105,26 +121,26 @@ export default function PaymentsAction (
                         <th className="bg-white text-black mr-[15px] rounded-[10px]">외장 컬러</th>
                         <td className="flex gap-x-[10px]">
                           <figure className="w-[200px] h-full relative border-[1px] border-[#fff]">
-                            <Image src={optionExterior && SERVER + optionExterior?.[0].images[0].path} fill 
+                            <Image src={optionExterior && SERVER + optionExterior?.[0].images?.[0].path} fill 
                             style={{objectFit:"cover"}} alt="" className="absolute top-0 left-0"
                             ></Image>
                           </figure>
                           <span>| {optionExterior?.[0].name}</span>
                         </td>
-                        <td className="text-right">{optionExterior?.[0].price.toLocaleString()}원</td>
+                        <td className="text-right">{optionExterior && optionExterior?.[0].price?.toLocaleString()}원</td>
                       </tr>
 
                       <tr className="grid grid-cols-[90px_4fr_minmax(100px,auto)] gap-x-[5px]">
                         <th className="bg-white text-black mr-[15px] rounded-[10px]">내장 컬러</th>
                         <td className="flex gap-x-[10px]">
                           <figure className="w-[200px] h-full bg-white relative border-[1px] border-[#fff]">
-                            <Image src={optionInterior && SERVER + optionInterior?.[0].items[0].images[0].path} fill 
+                            <Image src={optionInterior && SERVER + optionInterior?.[0].items?.[0].images?.[0].path} fill 
                               style={{objectFit:"cover"}} alt="" className="absolute top-0 left-0"
                               ></Image>
                           </figure>
-                          <span>| {optionInterior?.[0].items[0].name}</span>
+                          <span>| {optionInterior?.[0].items?.[0].name}</span>
                         </td>
-                        <td className="text-right">{optionInterior?.[0].items[0].price.toLocaleString()}원</td>
+                        <td className="text-right">{optionInterior?.[0].items?.[0].price?.toLocaleString()}원</td>
                       </tr>
   
                     </tbody>
@@ -138,7 +154,7 @@ export default function PaymentsAction (
                 <th className="text-right">옵션</th>
                 <td>
                   <table className="w-full">
-                    <tbody className="flex flex-col gap-y-[10px]">
+                    <tbody className="flex flex-col gap-y-[10px]" ref={tbodyRef}>
                       <tr className="grid grid-cols-[90px_4fr_minmax(100px,auto)] gap-x-[5px]">
                         <th className="bg-white text-black mr-[15px] rounded-[10px]">엔진 타입</th>
                         <td className="text-left"><span className="w-[50px] mr-[20px]">| 기본 |</span>{optionEngine?.[0].topText}</td>
@@ -168,8 +184,6 @@ export default function PaymentsAction (
                         <td className="text-left"><span className="w-[50px] mr-[20px]">| 기본 |</span>{optionWheel?.[0].topText}</td>
                         <td className="text-right">{optionWheel?.[0].price.toLocaleString()}원</td>
                       </tr>
-
-                   
 
                     </tbody>
                   </table>
@@ -211,13 +225,11 @@ export default function PaymentsAction (
                 <th className="text-right">예상출고일</th>
                 <td>즉시출고가능</td>
               </tr>
-
-              
             </tbody>
           </table>
           <div className="flex gap-x-[10px] justify-end mt-[30px] text-[20px]">
               <span>옵션총합</span>
-              <span>110,232원</span>
+              <span>70,000원</span>
           </div>
         </article>
 
@@ -278,18 +290,16 @@ export default function PaymentsAction (
           
           <div className="flex gap-x-[10px] justify-end mt-[30px] text-[20px]">
               <span>차량 구매 금액 (a)</span>
-              <span>110,232원</span>
+              <span>{price && price.toLocaleString()}원</span>
           </div>
           <div className="flex gap-x-[10px] justify-end text-[20px]">
               <span>임시 운행 의무보험료 (b)</span>
-              <span>110,232원</span>
+              <span>0원</span>
           </div>
         </article>
       </div>
 
 
-
-{/* image 660 330 */}
       {/* 결제 요약 */}
       <div>
         <article className="w-[660px] py-[50px] bg-[#333] rounded-[5px]">
@@ -298,12 +308,14 @@ export default function PaymentsAction (
             <Image src={imageMatch && SERVER + imageMatch.image} fill sizes="100%" alt="" className="absolute top-0 left-0 aspect-auto" style={{objectFit: "contain"}}/>
           </figure>
           <div className="px-[60px] flex flex-col items-center">
-
             <section className="border-b-[1px] border-[#a4a4a4] w-full py-[20px]">
               <h3 className="font-Hyundai-sans font-light text-[20px]">{title}</h3>
               <ul className="ml-[20px]">
-                <li>Cerulian Blue</li>
-                <li>4단 변속기 외 <span>00</span>건</li>
+                <li className="flex gap-x-[10px]">
+                  <span>{optionExterior?.[0].name}</span><span>|</span>
+                  <span>{optionInterior?.[0].items?.[0].name}</span>
+                </li>
+                <li>{optionEngine?.[0].topText} 외 <span>{tbodyLengthRef.current}</span>건</li>
               </ul>
             </section>
 
@@ -311,7 +323,7 @@ export default function PaymentsAction (
               <div className="flex justify-between">
                 <h3 className="font-Hyundai-sans font-light text-[20px]">총 차량 구매 금액</h3>
                 <span>
-                  <span className="text-[20px]">0</span>원
+                  <span className="text-[20px]">{price && price.toLocaleString()}</span>원
                 </span>
               </div>
               <div className="ml-[20px] border-[1px] border-[#bbb]  mt-[12px] py-[20px]">
@@ -344,7 +356,7 @@ export default function PaymentsAction (
                 <h3 className="font-Hyundai-sans font-light text-[20px]">등록비용</h3>
                 <span><span className="text-[20px]">75,000</span>원</span>
               </div>
- 
+
             </section>
 
             <section className="text-[20px] grid grid-cols-2 grid-rows-[60px] gap-x-[30px] gap-y-[15px]">
@@ -361,6 +373,7 @@ export default function PaymentsAction (
       </div>
     </div>
   </section>
+
 
   )
 }
