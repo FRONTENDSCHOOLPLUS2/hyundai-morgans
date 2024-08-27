@@ -3,12 +3,10 @@ import Submit from '../Submit';
 import { addPost } from '@/data/actions/postAction';
 
 export default function AddBoard({ params }: { params: { boards: string } }) {
-  console.log(params);
-
   return (
     <section className="mb-24 p-4">
       <form action={addPost}>
-        <input type="hidden" name="boardName" value={params.boards}/>
+        <input type="hidden" name="boardName" value={params.boards} />
 
         <div className="ev5_new_wrap">
           {params.boards === 'qna' && (
