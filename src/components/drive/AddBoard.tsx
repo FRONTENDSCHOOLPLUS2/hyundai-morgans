@@ -123,9 +123,6 @@ export default function AddBoard({ params }: { params: { boards: string } }) {
             className="w-full p-5 resize-none border border-gray-300 bg-gray-50  dark:bg-gray-100 dark:text-black h-[200px]"
             name="content"
           ></textarea>
-          {/* <p className="ml-2 mt-1 text-sm text-red-500 dark:text-red-500">
-                내용은 필수입니다.
-              </p> */}
 
           <div className="flex justify-center my-6">
             <Link
