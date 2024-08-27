@@ -24,7 +24,7 @@ export default function Event1 () {
         </h3>
         <h3 className="suyeon">YEON</h3>
       </article>
-      <button className="mainBtn">VIEW MORE</button>
+      <button className="mainBtn" onClick={() => alert('준비 중입니다.')}>VIEW MORE</button>
     </article>
 
     <figure>
