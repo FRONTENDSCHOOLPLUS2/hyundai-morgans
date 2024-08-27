@@ -32,6 +32,20 @@ export default function OptionReadyLayout ({ params, modelData, optionData }: Op
     price: initialPrice,
   });
 
+  const [optionState, setOptionState] = useState<{
+    // node: ReactNode;
+    // prevPrice: number;
+    newPrice: number;
+    // imageSource: string;
+    // optionText: string;
+  }>({
+    // node: null,
+    // prevPrice: storedValue.price,
+    newPrice: storedValue.price,
+    // imageSource: defaultItemImage,
+    // optionText: defaultItemName,
+  });
+
   const { steps } = useModelStore();
   const currentStep = steps.indexOf(optionName);
   const nextStep = steps[currentStep + 1];
@@ -79,7 +93,7 @@ export default function OptionReadyLayout ({ params, modelData, optionData }: Op
             <aside className="font-Hyundai-sans border-[1px] border-[#666666] flex flex-col justify-center px-[30px] pt-[10px]">
               <p className="text-[15px] text-[#a4a4a4]">예상 가격</p>
               <span className="text-[30px] font-bold mt-[-10px]">
-                {/* {optionState.newPrice.toLocaleString('ko-KR')} */}
+                {optionState.newPrice.toLocaleString('ko-KR')}
                 <span className="text-[20px]">원</span>
               </span>
             </aside>

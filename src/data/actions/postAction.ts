@@ -37,9 +37,7 @@ export async function addPost(formData: FormData): Promise<ApiRes<SingleItem<Pos
     }
 
     const response = await res.json();
-    setTimeout(() => {
-      redirect(`/${boardName}`);
-    }, 100);
+    redirect(`/${boardName}`);
     return response;
   } catch (err) {
     console.error('Error adding post:', err);
