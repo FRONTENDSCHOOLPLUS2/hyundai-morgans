@@ -47,6 +47,7 @@ export default function Event4 () {
                   e.preventDefault();
                   alert('준비중 입니다.')
                 }} >VIEW MORE</button>
+
             </article>
             <figure>
               <img src="" alt=""/>
@@ -62,6 +63,7 @@ export default function Event4 () {
                   e.preventDefault();
                   alert('준비중 입니다.')
                 }} >VIEW MORE</button>
+
             </article>
             <figure>
               <img src="" alt=""/>
@@ -90,6 +92,7 @@ export default function Event4 () {
               e.preventDefault();
               alert('준비중 입니다.')
             }} >VIEW MORE</button>
+
             </article>
             <figure>
               <img src="" alt=""/>

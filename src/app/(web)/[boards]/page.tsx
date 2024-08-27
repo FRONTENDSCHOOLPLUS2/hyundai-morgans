@@ -35,26 +35,9 @@ export default async function Page({ params }: { params: { boards: string } }) {
     title = '공지사항';
   }
 
-  let tableTitle01 = '';
-  if ('info' === params.boards) {
-    tableTitle01 = '시승신청 모델';
-  } else {
-    tableTitle01 = '제목';
-  }
-
-  let tableTitle02 = '';
-  if ('info' === params.boards) {
-    tableTitle02 = '신청자';
-  } else {
-    tableTitle02 = '작성자';
-  }
-
-  let tableTitle03 = '';
-  if ('info' === params.boards) {
-    tableTitle03 = '시승 신청일';
-  } else {
-    tableTitle03 = '작성일';
-  }
+  const tableTitle01 = 'info' === params.boards ? '시승신청 모델' : '제목';
+  let tableTitle02 = 'info' === params.boards ? '신청자' : '작성자';
+  let tableTitle03 = 'info' === params.boards ? '시승 신청일' : '작성일';
 
   return (
     <main className="min-w-80 py-32 px-40 bg-white">

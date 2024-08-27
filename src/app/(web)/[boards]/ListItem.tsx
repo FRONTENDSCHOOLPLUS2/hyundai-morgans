@@ -2,7 +2,6 @@ import { Post } from '@/types';
 import Link from 'next/link';
 
 export default function ListItem({ item, params }: { item: Post; params: { boards: string } }) {
-  console.log('item', item);
   return (
     // hover 이전색상 : bg-pink-100
     <tr className="border-b border-gray-200 hover:bg-slate-100 transition duration-300 ease-in-out">

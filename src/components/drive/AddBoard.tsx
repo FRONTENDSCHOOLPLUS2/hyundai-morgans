@@ -2,13 +2,15 @@ import Link from 'next/link';
 import Submit from '../Submit';
 import { addPost } from '@/data/actions/postAction';
 
+
 export default function AddBoard({ params, isMain }: { params: { boards: string }, isMain: boolean }) {
   const setIsmain = (isMain:boolean) => isMain ? 'text-white' : 'text-black'
+
 
   return (
     <section className="mb-24 p-4">
       <form action={addPost}>
-        <input type="hidden" name="boardName" value={params.boards}/>
+        <input type="hidden" name="boardName" value={params.boards} />
 
         <div className="ev5_new_wrap">
           {params.boards === 'qna' && (
