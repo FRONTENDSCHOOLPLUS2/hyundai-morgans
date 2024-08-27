@@ -2,10 +2,8 @@ import Link from 'next/link';
 import Submit from '../Submit';
 import { addPost } from '@/data/actions/postAction';
 
-export default function AddBoard({ params, isMain=false}: { params: { boards: string }, isMain: boolean }) {
-  const setIsmain = (isMain:boolean) => {
-    isMain ? 'text-white' : 'text-black'
-  }
+export default function AddBoard({ params, isMain }: { params: { boards: string }, isMain: boolean }) {
+  const setIsmain = (isMain:boolean) => isMain ? 'text-white' : 'text-black'
 
   return (
     <section className="mb-24 p-4">
@@ -127,13 +125,20 @@ export default function AddBoard({ params, isMain=false}: { params: { boards: st
           ></textarea>
 
           <div className="flex justify-center my-6 gap-x-[30px]">
-            <Link
-              href={`/${params.boards}`}
-              className={`mainBtn kr ${setIsmain(isMain)} border-[#aaa]`}
-            >
-              취소
-            </Link>
-            <Submit className={`mainBtn kr ${setIsmain(isMain)} border-[#aaa]`}>등록</Submit>
+            {isMain 
+            ? <Submit className={`mainBtn kr ${setIsmain(isMain)} border-[#aaa]`}>등록</Submit>
+            : 
+            <>
+              <Link
+                href={`/${params.boards}`}
+                className={`mainBtn kr text-black border-[#aaa] hover:text-white hover:bg-black`}>취소
+              </Link>
+              <Submit className={`mainBtn kr ${setIsmain(isMain)} border-[#aaa] hover:border-[transparent] hover:bg-black hover:text-white`}>등록</Submit>
+            </>
+            }
+            
+           
+            
           </div>
         </div>
       </form>
