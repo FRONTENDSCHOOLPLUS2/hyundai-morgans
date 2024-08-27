@@ -4,8 +4,8 @@ import { useRouter } from 'next/navigation';
 
 export default function Footer() {
 
-  const route = useRouter(null)
-  const btnClick = (e) => {
+  const route = useRouter()
+  const btnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     route.push('https://github.com/FRONTENDSCHOOLPLUS2/hyundai-morgans')
   }
