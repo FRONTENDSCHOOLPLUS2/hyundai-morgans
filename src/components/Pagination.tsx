@@ -5,7 +5,6 @@ import { useParams } from 'next/navigation';
 
 export default function Pagination() {
   const params = useParams();
-  console.log(params);
   return (
     <div>
       <ul className="flex justify-center gap-3 m-4">

@@ -41,6 +41,15 @@ export default function Header({ isMain }: { isMain: string }) {
         case 17:
           route.push('/info/drive')
           break;
+        case 18:
+          route.push('https://github.com/redcontroller')
+          break;
+        case 19:
+          route.push('https://github.com/sylee0102')
+          break;
+        case 20:
+        route.push('https://github.com/ryungom')
+        break;
         default:
           route.push('#')
       }
@@ -93,7 +102,7 @@ export default function Header({ isMain }: { isMain: string }) {
               <Link href="/notice">공지사항</Link>
             </li>
             <li>
-              <Link href="#none">재니시수연</Link>
+              <Link href="#none">제니시수</Link>
             </li>
           </ul>
         </li>
@@ -146,13 +155,13 @@ export default function Header({ isMain }: { isMain: string }) {
                 <Link href='#' onClick={(e) => handleSitemapClick(e,14)}>전시시승</Link>
                 <Link href='#' onClick={(e) => handleSitemapClick(e,15)}>고객지원</Link>
                 <Link href='#' onClick={(e) => handleSitemapClick(e,16)}>공지사항</Link>
-                <Link href='#' onClick={(e) => handleSitemapClick(e,17)}>전시시승 신청</Link>
+                <Link href='#' onClick={(e) => handleSitemapClick(e,17)} className="row-start-2">전시시승 신청</Link>
                 
               </div>
             </article>
 
             <article>
-              <h3>재니시수연</h3>
+              <h3>제니시수</h3>
               <div>
                 <Link href='#' onClick={(e) => handleSitemapClick(e,18)}>김모건</Link>
                 <Link href='#' onClick={(e) => handleSitemapClick(e,19)}>이수연</Link>

@@ -43,7 +43,11 @@ export default function Event4 () {
               <h2>GENISISUYEON <span>AWARDS</span></h2>
               <h3>재니시수연의 고유한 감각을 반영한 현대적 공간으로 여러분을 초대합니다.<br/>
                 제네시스에 관한 다양한 체험으로 당신만의 제네시스를 찾는 여정을 지원합니다.</h3>
-              <button className="mainBtn" onClick={() => alert('준비 중입니다.')}>VIEW MORE</button>
+              <button className="mainBtn" onClick={(e: React.MouseEvent<HTMLButtonElement>)=>{
+                  e.preventDefault();
+                  alert('준비중 입니다.')
+                }} >VIEW MORE</button>
+
             </article>
             <figure>
               <img src="" alt=""/>
@@ -55,7 +59,11 @@ export default function Event4 () {
               <h2>SECONDS <span>AWARDS</span></h2>
               <h3>전기차, 그 이상의 시작<br/>
                 제네시스에 관한 다양한 체험으로 당신만의 제네시스를 찾는 여정을 지원합니다.</h3>
-              <button className="mainBtn" onClick={() => alert('준비 중입니다.')}>VIEW MORE</button>
+              <button className="mainBtn" onClick={(e: React.MouseEvent<HTMLButtonElement>)=>{
+                  e.preventDefault();
+                  alert('준비중 입니다.')
+                }} >VIEW MORE</button>
+
             </article>
             <figure>
               <img src="" alt=""/>
@@ -66,7 +74,10 @@ export default function Event4 () {
               <h2>THIRD <span>AWARDS</span></h2>
               <h3>당신과의 교감을 위해<br/>
               미래를 위한 선택과 감성적 가치의 공존을 추구하는 GV60</h3>
-              <button className="mainBtn" onClick={() => alert('준비 중입니다.')}>VIEW MORE</button>
+              <button className="mainBtn" onClick={(e: React.MouseEvent<HTMLButtonElement>)=>{
+                  e.preventDefault();
+                  alert('준비중 입니다.')
+                }} >VIEW MORE</button>
             </article>
             <figure>
               <img src="" alt=""/>
@@ -77,7 +88,11 @@ export default function Event4 () {
               <h2>LAST <span>AWARDS</span></h2>
               <h3>전기차, 그 이상의 시작<br/>
                 제네시스에 관한 다양한 체험으로 당신만의 제네시스를 찾는 여정을 지원합니다.</h3>
-              <button className="mainBtn" onClick={() => alert('준비 중입니다.')}>VIEW MORE</button>
+              <button className="mainBtn" onClick={(e: React.MouseEvent<HTMLButtonElement>)=>{
+              e.preventDefault();
+              alert('준비중 입니다.')
+            }} >VIEW MORE</button>
+
             </article>
             <figure>
               <img src="" alt=""/>

@@ -44,7 +44,7 @@ a.mainBtn {
 }
 .mainBtn:hover {
   background:#fff;
-  border-color:#000;
+  border-color:transparent;
   color:#000;
 }
 .btnBasic {
@@ -162,7 +162,7 @@ header .modal {
   z-index: -1;
 }
 header .modal.on {
-  opacity: 90%;
+  opacity: 95%;
   top: 0;
   z-index: 9999;
 }
@@ -179,6 +179,7 @@ header .modal section {
   width: 80vw;
   height: 90vh;
   margin: 40px auto;
+  position:relative;
 }
 header .modal section .siteItemWrap {
   display: flex;
@@ -222,7 +223,7 @@ header .modal section .siteItemWrap article:nth-child(1) div {
 }
 header .modal section .siteItemWrap article:nth-child(2)>div {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-auto-rows: 50px;
 }
 header .modal section .siteItemWrap article:nth-child(3) div {
@@ -262,8 +263,8 @@ header .modal .closeBtn .cl-line:last-child {
   justify-content: center;
 }
 .main_pagenation li a {
-  width: 8px;
-  height: 8px;
+  width: 13px;
+  height: 13px;
   display: block;
   border: 1px solid #bbb;
   border-radius: 50%;

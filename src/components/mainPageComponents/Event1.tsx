@@ -24,7 +24,10 @@ export default function Event1 () {
         </h3>
         <h3 className="suyeon">YEON</h3>
       </article>
-      <button className="mainBtn" onClick={() => alert('준비 중입니다.')}>VIEW MORE</button>
+      <button onClick={(e: React.MouseEvent<HTMLButtonElement>)=>{
+        e.preventDefault();
+        alert('준비중 입니다.')
+      }} className="mainBtn">VIEW MORE</button>
     </article>
 
     <figure>

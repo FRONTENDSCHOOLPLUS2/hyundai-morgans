@@ -14,7 +14,7 @@ export default function drive({ params }: { params: { boards: string } }) {
         <div className="text-center py-4">
           <h2 className="pb-8 text-5xl font-medium text-black">{title}</h2>
         </div>
-        <AddBoard params={{ boards: params.boards }} />
+        <AddBoard isMain={false} params={{ boards: params.boards }} />
 
         <div className="text-center py-4">
           <h2 className="pb-12 text-5xl font-medium text-black">제니시수연 플레이스</h2>

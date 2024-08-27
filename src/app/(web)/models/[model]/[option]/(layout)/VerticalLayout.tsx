@@ -111,9 +111,9 @@ export default function VerticalLayout({ params, modelData, optionData }: Vertic
 
   return (
     <>
-      <section className="h-screen grid grid-cols-[500px_auto] ">
+      <section className="h-screen grid grid-cols-[500px_auto] gap-x-[4rem]">
         <div></div>
-        <article className="w-[80%] grid grid-cols-1 items-center right-[50px] top-[100px]">
+        <article className="w-full grid grid-cols-[auto] items-center ">
           <figure className="w-[80%] max-h-[500px] min-h-[300px] aspect-[2/1]">
             <img src={optionState.imageSource} className="w-full" alt="" />
           </figure>

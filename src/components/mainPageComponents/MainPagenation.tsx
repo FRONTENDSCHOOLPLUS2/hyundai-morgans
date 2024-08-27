@@ -35,43 +35,43 @@ export default function MainPagenation (){
 
     
     // 첫마운트시 li 전체 갯수와 두번째 section의 높이값 지정
-    useEffect(()=>{
-      const liLen = document.querySelectorAll('.main_pagenation li')
-      setLiLength(liLen.length);
-      const ev2 : HTMLSelectElement | null  = document.querySelector('#event2')
-      let ev2H = ev2!.offsetTop;
+    // useEffect(()=>{
+    //   const liLen = document.querySelectorAll('.main_pagenation li')
+    //   setLiLength(liLen.length);
+    //   const ev2 : HTMLSelectElement | null  = document.querySelector('#event2')
+    //   let ev2H = ev2!.offsetTop;
     
 
-      // 마우스 휠에 따른 함수
-      const handleWheel = (e:WheelEvent) => {
-        e.preventDefault();
-        let wheelTimer;
-        if (e.deltaY > 0) {
-          clearTimeout(wheelTimer);
-          wheelTimer = setTimeout(()=>{
-            window.scrollTo({
-              top:ev2H,
-              left:0,
-              behavior:'smooth'
-            });
+    //   // 마우스 휠에 따른 함수
+    //   const handleWheel = (e:WheelEvent) => {
+    //     e.preventDefault();
+    //     let wheelTimer;
+    //     if (e.deltaY > 0) {
+    //       clearTimeout(wheelTimer);
+    //       wheelTimer = setTimeout(()=>{
+    //         window.scrollTo({
+    //           top:ev2H,
+    //           left:0,
+    //           behavior:'smooth'
+    //         });
 
-            // 마우스 휠이 다 멈추고 이동한 뒤에 scroll rock을 풀어주는(scrollTf를 false로 변경) 콜백
-            setTimeout(()=>{
-              setScrollTf(false)
-            },1000)
-          },300)
-        }
-      }
+    //         // 마우스 휠이 다 멈추고 이동한 뒤에 scroll rock을 풀어주는(scrollTf를 false로 변경) 콜백
+    //         setTimeout(()=>{
+    //           setScrollTf(false)
+    //         },1000)
+    //       },300)
+    //     }
+    //   }
 
-      // 현재 스크롤값과 2번째 section까지의 height값을 비교하여 true이면 마우스 휠 이벤트 실행, 조건을 벗어나면 이벤트 remove
-      if (scrollTf) {
-        window.addEventListener('wheel',handleWheel, {passive:false})
-      } 
-      return() => {
-        window.removeEventListener('wheel',handleWheel)
-      };
+    //   // 현재 스크롤값과 2번째 section까지의 height값을 비교하여 true이면 마우스 휠 이벤트 실행, 조건을 벗어나면 이벤트 remove
+    //   if (scrollTf) {
+    //     window.addEventListener('wheel',handleWheel, {passive:false})
+    //   } 
+    //   return() => {
+    //     window.removeEventListener('wheel',handleWheel)
+    //   };
 
-    },[scrollTf])
+    // },[scrollTf])
 
 
 
