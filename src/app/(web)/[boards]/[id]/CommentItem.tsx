@@ -34,7 +34,7 @@ export default function CommentItem({
   return (
     <div className="border-b-[1px] border-gray-400 border-solid p-2 mb-4">
       <div className="flex justify-between items-center mb-2">
-        <img className="w-8 h-4 mr-2" src={image} alt="후로필 이미지" />
+        <img className="w-8 h-4 mr-2" src={image} alt="프로필 이미지" />
         <Link href="" className="font-medium text-lg">
           {item.user?.name}
         </Link>
@@ -47,12 +47,19 @@ export default function CommentItem({
           <input type="hidden" name="boardName" value={boardName} />
           <input type="hidden" name="postId" value={postId} />
           <input type="hidden" name="commentId" value={item._id} />
-          <pre className="whitespace-pre-wrap text-base ml-2 mb-4">
+          <pre
+            className="whitespace-pre-wrap font-light ml-2 mb-4"
+            style={{ fontFamily: 'Pretendard' }}
+          >
             {item.content}
           </pre>
-          <Submit bgColor="black" size="medium">
-            삭제
-          </Submit>
+          {boardName !== 'qna' ? (
+            <Submit bgColor="black" size="medium">
+              삭제
+            </Submit>
+          ) : (
+            ''
+          )}
         </form>
       </div>
     </div>

@@ -2,11 +2,7 @@ import CommentNew from './CommentNew';
 import CommentItem from './CommentItem';
 import { fetchPost } from '@/data/fetch/postFetch';
 
-export default async function CommentList({
-  params,
-}: {
-  params: { boards: string; id: string };
-}) {
+export default async function CommentList({ params }: { params: { boards: string; id: string } }) {
   const id = params.id;
   const boards = params.boards;
 
@@ -23,7 +19,7 @@ export default async function CommentList({
       </h4>
 
       {list}
-      <CommentNew postId={id} boardName={boards} />
+      {params.boards !== 'qna' ? <CommentNew postId={id} boardName={boards} /> : ''}
     </section>
   );
 }

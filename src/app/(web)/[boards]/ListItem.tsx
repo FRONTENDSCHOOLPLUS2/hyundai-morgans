@@ -16,8 +16,10 @@ export default function ListItem({ item, params }: { item: Post; params: { board
       {/* <td className="p-2 text-center truncate">{item.user.name}</td> */}
       <td className="p-2 text-center truncate">{item.extra?.name}</td>
       <td className="p-2 text-center hidden sm:table-cell">{item.views}</td>
-      <td className="p-2 text-center hidden sm:table-cell">{item.replies?.length || 0}</td>
-      <td className="p-2 truncate text-center hidden sm:table-cell">{item.updatedAt}</td>
+      <td className="p-2 text-center hidden sm:table-cell">{item.repliesCount}</td>
+      <td className="p-2 truncate text-center hidden sm:table-cell">
+        {item.updatedAt.slice(0, 10)}
+      </td>
     </tr>
   );
 }
