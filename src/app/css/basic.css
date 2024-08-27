@@ -1,3 +1,16 @@
+body::-webkit-scrollbar,
+article::-webkit-scrollbar {
+  width:5px;
+}
+body::-webkit-scrollbar-thumb,
+article::-webkit-scrollbar-thumb {
+  background:#555;
+  border-radius:3px;
+}
+article::-webkit-scrollbar-corner {
+  background:transparent;
+}
+
 .subGnb::-webkit-scrollbar {
   display: none;
   -ms-overflow-style: none;
@@ -59,7 +72,9 @@ body {
   font-family: 'Pretendard';
   background: #000;
   max-width: 1920px;
+  width: 100vw;
   margin: 0px auto;
+  overflow-x:hidden;
 }
 body.otherPage header::after {
   opacity: 100%;

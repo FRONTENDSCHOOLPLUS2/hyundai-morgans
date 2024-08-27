@@ -1,5 +1,5 @@
 import { fetchOptionExterior, fetchOptions, fetchProducts } from "@/data/fetch/productFetch";
-import PaymentsAction from "./paymentsComplete/PaymentsAction";
+import PaymentsAction from "../../paymentsComplete/PaymentsAction";
 import { ModelOption } from "@/types/product";
 
 interface VehicleInfo {

@@ -88,7 +88,7 @@ export default function PaymentsAction (
             // 주문 정보...
           }),
         });
-        route.push('/models/2/payments/paymentsComplete')
+        route.push('/models/paymentsComplete')
         return (
           alert('결제가 완료되었습니다')
         )
