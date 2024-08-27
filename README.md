@@ -82,7 +82,7 @@
 </br>
 
 <div align="center">
-<img src="https://github.com/user-attachments/assets/f6ca2a85-d106-4b5a-9862-7187fa5ac8a6" width="600" />
+<img src="https://github.com/user-attachments/assets/f6ca2a85-d106-4b5a-9862-7187fa5ac8a6" width="450" />
 </div>
 </br>
 
