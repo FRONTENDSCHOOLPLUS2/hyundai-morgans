@@ -26,7 +26,7 @@
 
 ## 3. 기술 스택, 뱃지
 ### Development
-**Frontend**
+#### Frontend
 <div align="left">
   <img height="25" src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white"/>
   <img height="25" src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white"/>
@@ -35,7 +35,7 @@
   <img height="25" src="https://img.shields.io/badge/Zustand-000000?style=for-the-badge&logo=Zustand&logoColor=white">
 </div>
 
-### Backend
+#### Backend
 <div align="left">
   <img height="25" src="https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=Node.js&logoColor=white">
   <img height="25" src="https://img.shields.io/badge/express.js-000000.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB" />
@@ -43,19 +43,19 @@
   <img height="25" src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
 </div>
 
-### Config
+#### Config
 <div align="left">
   <img height="25" src="https://img.shields.io/badge/NPM-CB3837.svg?style=for-the-badge&logo=npm&logoColor=white" />
 </div>
 
-### Environment
-  <img height="25" src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" />
+#### Environment
 <div align="left">
+  <img height="25" src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" />
   <img height="25" src="https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white" />
   <img height="25" src="https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white"/>
 </div>
 
-### Communication
+#### Communication
 <div align="left">
 <img height="25" src="https://img.shields.io/badge/Notion-000000.svg?style=for-the-badge&logo=notion&logoColor=white" />
 <img height="25" src="https://img.shields.io/badge/figma-F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white" />
