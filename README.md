@@ -13,7 +13,7 @@
 
 ## 1. 프로젝트 개요
 <p>🗒️ <strong>주제</strong> : 현대자동차 온라인 쇼핑몰</p>
-<p>🎯 <strong>목적</strong> : 제네시스 공식 사이트 보다 빠른 국내 온라인 차량 판매 사이트 개발</p>
+<p>🎯 <strong>목적</strong> : 제네시스 공식 사이트 보다 빠른 국내 오토커머스 웹사이트 개발</p>
 <p>👥 <strong>팀명</strong> : Hyundai-morgans Genisisuyeon (현대모건스 제니시수연)</p>
 <p>🗓️ <strong>개발기간</strong> : 7/29 ~ 08/28</p>
 </br>
@@ -25,14 +25,35 @@
 </br>
 
 ## 3. 기술 스택, 뱃지
-<div align="center">
-  <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=Next.js&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Typescript-3178C6?style=flat-square&logo=Typescript&logoColor=white"/>
-  <img src="https://img.shields.io/badge/tailwindcss-06B6D4?style=flat-square&logo=Tailwind CSS&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=Vercel&logoColor=white"/>
-  <img src="https://img.shields.io/badge/mongodb-47A248?style=flat-square&logo=MongoDB&logoColor=white"/>
-  <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
-  <img src="https://img.shields.io/badge/zotero-000000?style=for-the-badge&logo=Zustand&logoColor=white">
+### Development
+<div align="left">
+  <img height="25" src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white"/>
+  <img height="25" src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white"/>
+  <img height="25" src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white">
+  <img height="25" src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
+  <img height="25" src="https://img.shields.io/badge/Zustand-000000?style=for-the-badge&logo=Zustand&logoColor=white">
+  <img height="25" src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white"/>
+  <img height="25" src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
+  <img height="25" src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white">
+</div>
+
+### Config
+<div align="left">
+  <img height="25" src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" />
+  <img height="25" src="https://img.shields.io/badge/NPM-23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white" />
+</div>
+
+### Environment
+<div align="left">
+  <img height="25" src="https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white" />
+  <img height="25" src="https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white"/>
+</div>
+
+### Communication
+<div align="left">
+<img height="25" src="https://img.shields.io/badge/Notion-23000000.svg?style=for-the-badge&logo=notion&logoColor=white" />
+<img height="25" src="https://img.shields.io/badge/figma-23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white" />
+<img height="25" src="https://img.shields.io/badge/Discord-235865F2.svg?style=for-the-badge&logo=Discord&logoColor=white" />
 </div>
 </br>
 
