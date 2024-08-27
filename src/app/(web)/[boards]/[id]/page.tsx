@@ -38,14 +38,44 @@ export default async function Page({ params }: { params: { boards: string; id: s
   const item = await fetchPost(params.id);
   if (item === null) notFound();
 
+  let car = '';
+  if ('info' === params.boards) {
+    car = '시승신청 차량 : ';
+  } else {
+    car = '';
+  }
+
+  let person = '';
+  if ('info' === params.boards) {
+    person = '신청자 : ';
+  } else {
+    person = '작성자 : ';
+  }
+
+  let place = '';
+  if ('info' === params.boards) {
+    place = '희망 플레이스 : ';
+  } else {
+    place = '';
+  }
+
   return (
     <main className="bg-white dark:bg-white px-40 py-20">
       <section className="mb-8 p-4">
         <form action={`/${params.boards}`}>
-          <div className="font-medium text-2xl mb-12">시승신청 차량 : {item.title}</div>
-          <div className="text-black text-lg mb-2 font-medium">신청자 : {item.extra?.name}</div>
-          <div className="text-black text-lg mb-2 font-light">연락처 : {item.phone}</div>
-          <div className="text-black text-lg mb-12 font-light">희망 플레이스 : {item.address}</div>
+          <div className="font-medium text-2xl mb-12">
+            {car}
+            {item.title}
+          </div>
+          <div className="text-black text-lg mb-2 font-medium">
+            {person}
+            {item.extra?.name}
+          </div>
+          <div className="text-black text-lg mb-2 font-light">연락처 :{item.phone}</div>
+          <div className="text-black text-lg mb-12 font-light">
+            {place}
+            {item.address}
+          </div>
           <div className="text-black text-base mb-20 font-light"> {item.content}</div>
 
           <div className="flex justify-end my-4">

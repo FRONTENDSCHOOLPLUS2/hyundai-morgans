@@ -4,12 +4,29 @@ import { addPost } from '@/data/actions/postAction';
 
 export default function AddBoard({ params }: { params: { boards: string } }) {
   console.log(params);
+
   return (
     <section className="mb-24 p-4">
       <form action={addPost}>
         <input type="hidden" name="boardName" value={params.boards} />
 
         <div className="ev5_new_wrap">
+          {params.boards === 'qna' && (
+            <div className="flex gap-16">
+              <div className="flex-1 my-4 mb-10">
+                <label className="block text-xl mb-2" htmlFor="title">
+                  TITLE
+                </label>
+                <input
+                  id="title"
+                  type="text"
+                  placeholder="제목을 남겨주세요"
+                  className="w-full p-5 border dark:border-gray-300 border-gray-300  dark:bg-gray-100"
+                  name="title"
+                />
+              </div>
+            </div>
+          )}
           <div className="flex gap-16">
             <div className="flex-1 my-4 mb-10">
               <label className="block text-xl mb-2" htmlFor="name">
