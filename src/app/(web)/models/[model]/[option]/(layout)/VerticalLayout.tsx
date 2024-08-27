@@ -4,6 +4,7 @@ import Button from '@/components/Button';
 import useLocalStorage from '@/hook/useLocalStorage';
 import { Cart, Option, OptionItem, Product } from '@/types/product';
 import { useModelStore } from '@/zustand/useModel';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { ReactNode, useEffect, useRef, useState } from 'react';
 
@@ -110,9 +111,10 @@ export default function VerticalLayout({ params, modelData, optionData }: Vertic
 
   return (
     <>
-      <section className="h-screen relative flex flex-col-reverse">
-        <article className="flex flex-col absolute items-center w-[1440px] right-[50px] top-[50px]">
-          <figure className="w-[650px]">
+      <section className="h-screen grid grid-cols-[500px_auto] ">
+        <div></div>
+        <article className="w-[80%] grid grid-cols-1 items-center right-[50px] top-[100px]">
+          <figure className="w-[80%] max-h-[500px] min-h-[300px] aspect-[2/1]">
             <img src={optionState.imageSource} className="w-full" alt="" />
           </figure>
           <h4 className="mb-[20px]">상기 이미지는 차량의 대표 이미지로 적용되어 있습니다.</h4>
@@ -126,15 +128,34 @@ export default function VerticalLayout({ params, modelData, optionData }: Vertic
             </table>
           </article>
         </article>
+        <div className="grid grid-cols-[60px_60px] grid-rows-[50px] gap-x-[20px] absolute top-[620px] left-[80px]">
+          {/* <Button size="custom" onClick={(e) => clickButton(e, 'prev')}>
+            이전
+          </Button>
+          <Button color="black" bgColor="white" size="custom" onClick={clickButton}>
+            다음
+          </Button> */}
+          <button className='bg-black border-[0.5px] border-white w-full h-full' onClick={(e) => clickButton(e, 'prev')}>
+            <figure className='relative w-full h-[75%]'>
+              <Image className='absolute top-0 left-0' src="/images/btn_prev.png" alt="버튼 좌측 이미지" fill style={{objectFit:"contain"}}/>
+            </figure>
+          </button>
+          <button className='bg-white w-full h-full' onClick={clickButton}>
+            <figure className='relative w-full h-[75%]'>
+              <Image className='absolute top-0 left-0' src="/images/btn_next_b.png" alt="버튼 좌측 이미지" fill style={{objectFit:"contain"}}/>
+            </figure>
+          </button>
+      </div>
+
         <article className="w-full absolute bottom-[120px] flex items-end z-10 justify-center ">
-          <div className="flex gap-x-[20px]">
+          {/* <div className="flex gap-x-[20px]">
             <Button size="custom" onClick={(e) => clickButton(e, 'prev')}>
               이전
             </Button>
             <Button color="black" bgColor="white" size="custom" onClick={clickButton}>
               다음
             </Button>
-          </div>
+          </div> */}
           <div className="absolute right-12">
             <aside className="font-Hyundai-sans border-[1px] border-[#666666] flex flex-col justify-center px-[30px] pt-[10px]">
               <p className="text-[15px] text-[#a4a4a4]">예상가격</p>

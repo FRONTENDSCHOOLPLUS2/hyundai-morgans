@@ -83,10 +83,12 @@ export default function PaymentsAction (
           // paymentId와 주문 정보를 서버에 전달합니다
           body: JSON.stringify({
             paymentId: response?.paymentId,
+            model:`${title}`,
+            price: Number(`${price}`)
             // 주문 정보...
           }),
         });
-        route.push('/models/2/payments/paymentsComplete')
+        route.push('/models/paymentsComplete')
         return (
           alert('결제가 완료되었습니다')
         )

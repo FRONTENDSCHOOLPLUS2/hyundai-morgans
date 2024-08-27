@@ -8,7 +8,7 @@ export default function AddBoard({ params }: { params: { boards: string } }) {
   return (
     <section className="mb-24 p-4">
       <form action={addPost}>
-        <input type="hidden" name="boardName" value={params.boards} />
+        <input type="hidden" name="boardName" value={params.boards}/>
 
         <div className="ev5_new_wrap">
           {params.boards === 'qna' && (
@@ -36,7 +36,7 @@ export default function AddBoard({ params }: { params: { boards: string } }) {
                 id="name"
                 type="text"
                 placeholder="성함을 남겨주세요"
-                className="w-full p-5 border dark:border-gray-300 border-gray-300  dark:bg-gray-100"
+                className="w-full p-5 border border-gray-300 bg-transparent"
                 name="name"
               />
             </div>
@@ -49,7 +49,7 @@ export default function AddBoard({ params }: { params: { boards: string } }) {
                 id="phone"
                 type="text"
                 placeholder="연락처를 남겨주세요"
-                className="w-full p-5 border dark:border-gray-300 border-gray-300  dark:bg-gray-100"
+                className="w-full p-5 border border-gray-300 bg-transparent"
                 name="phone"
               />
             </div>
@@ -120,18 +120,18 @@ export default function AddBoard({ params }: { params: { boards: string } }) {
             id="content"
             rows={15}
             placeholder="원하는 상담내용을 입력해주세요"
-            className="w-full p-5 resize-none border border-gray-300 bg-gray-50  dark:bg-gray-100 dark:text-black h-[200px]"
+            className="w-full p-5 resize-none border border-gray-300 bg-transparent text-white h-[200px]"
             name="content"
           ></textarea>
 
-          <div className="flex justify-center my-6">
+          <div className="flex justify-center my-6 gap-x-[30px]">
             <Link
               href={`/${params.boards}`}
-              className="border-gray-600 border py-2 px-4 text-md mr-2"
+              className="mainBtn kr"
             >
               취소
             </Link>
-            <Submit>등록</Submit>
+            <Submit className='mainBtn kr'>등록</Submit>
           </div>
         </div>
       </form>
