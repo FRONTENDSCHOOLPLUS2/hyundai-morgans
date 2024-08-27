@@ -9,12 +9,12 @@ export default function Pagination() {
   return (
     <div>
       <ul className="flex justify-center gap-3 m-4">
-        <li className="font-bold text-blue-700">
+        <li className="font-bold text-black">
           <Link href={`/${params.boards}?page=1`}>1</Link>
         </li>
-        <li>
+        {/* <li>
           <Link href={`/${params.boards}?page=2`}>2</Link>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

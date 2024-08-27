@@ -9,36 +9,76 @@ const CLIENT = process.env.NEXT_CLIENT_ID;
 
 // 게시물 등록
 export async function addPost(formData: FormData): Promise<ApiRes<SingleItem<Post>>> {
-  const boardName = formData.get('boardName');
+  const boardName = formData.get('boardName') as string;
   const session = await auth();
   const postData = {
-    type: formData.get('type') || 'info',
+    type: boardName,
     title: formData.get('title'),
     extra: {
-      name: formData.get('name'),
+      name: formData.get('name') as string,
     },
-    phone: formData.get('phone'),
-    address: formData.get('address'),
-    content: formData.get('content'),
+    phone: formData.get('phone') as string,
+    content: formData.get('content') as string,
   };
 
-  // console.log('postData', postData);
+  try {
+    const res = await fetch(`${SERVER}/posts`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${session?.accessToken}`,
+        'client-Id': CLIENT,
+      },
+      body: JSON.stringify(postData),
+    });
 
-  const res = await fetch(`${SERVER}/posts`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${session?.accessToken}`,
-      'client-Id': CLIENT,
-    },
-    body: JSON.stringify(postData),
-  });
-  console.log('하이루', boardName);
-  // redirect(`/${boardName}`);
-  redirect(`/info`);
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
 
-  return res.json();
+    const response = await res.json();
+    redirect(`/${boardName}`);
+
+    return response;
+  } catch (err) {
+    console.error('Error adding post:', err);
+    throw err;
+  }
 }
+// export async function addPost(formData: FormData): Promise<ApiRes<SingleItem<Post>>> {
+//   const boardName = formData.get('boardName');
+//   const session = await auth();
+//   const postData = {
+//     type: boardName,
+//     // title: formData.get('title'),
+//     extra: {
+//       name: formData.get('name'),
+//     },
+//     phone: formData.get('phone'),
+//     // address: formData.get('address'),
+//     content: formData.get('content'),
+//   };
+
+//   try {
+//     const res = await fetch(`${SERVER}/posts`, {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//         Authorization: `Bearer ${session?.accessToken}`,
+//         'client-Id': CLIENT,
+//       },
+//       body: JSON.stringify(postData),
+//     });
+//     const response = res.json();
+//     console.log('res@@@@@@@@@@', response);
+//   } catch (err) {
+//     console.error(err);
+//   }
+//   return response;
+//   // console.log('하이루', boardName);
+//   // redirect(`/${boardName}`);
+//   // redirect(`/${boards}`);
+// }
 
 // 게시물 수정
 export async function updatePost(formData: FormData): Promise<ApiRes<SingleItem<Post>>> {

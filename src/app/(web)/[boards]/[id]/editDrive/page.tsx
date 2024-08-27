@@ -116,7 +116,7 @@ export default function Page({ params }: { params: { boards: string; id: string 
               id="content"
               rows={15}
               placeholder="원하는 상담내용을 입력해주세요"
-              className="w-full p-5 border border-gray-300 bg-gray-50  dark:bg-gray-100 dark:text-black"
+              className="w-full p-5 resize-none border border-gray-300 bg-gray-50  dark:bg-gray-100 dark:text-black"
               name="content"
             ></textarea>
 
