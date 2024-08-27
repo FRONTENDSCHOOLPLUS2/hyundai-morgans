@@ -46,31 +46,38 @@ export default function Section1Index({ modelIndex, modelData, imageArray }: Sec
   };
 
   return (
-    <section className="min-h-screen bg-black relative z-10">
+    <section className="w-screen h-screen grid grid-cols-[500px_auto] gap-x-[4rem] bg-black z-10">
       {/* 이미지 영역 */}
-      <article className="absolute top-[80px] right-[85px] w-[calc(100vw-300px)] grid grid-cols-1 justify-items-center">
-        <figure className="max-h-[500px] w-[1000px] h-[500px] overflow-hidden">
+      <div></div>
+      <article className="w-[80%] grid grid-cols-1 grid-rows-[minmax(300px,_500px)_80px] justify-items-center mt-[80px] gap-y-[20px]">
+        <figure className="w-full max-h-[500px] min-h-[300px] aspect-[2/1] overflow-hidden col-span-3 self-center">
           {modelData && <ImageViewer images={imageArray} />}
           {/* <img src="/images/detail/defaultCar.png" className="object-cover h-[100%] scale-150 " alt="" /> */}
         </figure>
-        <h2 className="text-[40px] font-Hyundai-sans">{modelName && uppercaseName}</h2>
-        <h3 className="text-[30px] text-[#a4a4a4]">
-          시작가격{' '}
-          <span className="text-white font-Hyundai-sans">{modelPrice.toLocaleString('ko-KR')}</span>
-          <span className="text-[25px] text-white">원</span>
-        </h3>
-        <div className="flex gap-x-[20px] mt-[20px]">
-          {/* <button className="w-[320px] h-[70px]">시승신청</button> */}
-          <Link
-            href={{ pathname: '/info', query: { model: modelName } }}
-            className="w-[200px] h-[37px] font-thin border-2 border-white flex items-center justify-center"
-          >
-            시승신청
-          </Link>
-          <Button color="black" bgColor="white" size="custom" onClick={clickNext}>
-            다음
-          </Button>
+        <div className='grid grid-cols-[auto_1fr_1fr] grid-rows-[1fr_2fr] gap-y-[10px] gap-x-[3rem]'>
+          <h2 className="text-[50px] font-Hyundai-sans row-span-2 self-center justify-self-center px-[10px] font-black">{modelName && uppercaseName}</h2>
+          <h3 className="text-[30px] text-[#a4a4a4] col-span-2 justify-self-start">
+            시작가격{' '}
+            <span className="text-white font-Hyundai-sans">{modelPrice.toLocaleString('ko-KR')}</span>
+            <span className="text-[20px] text-white"> 원</span>
+          </h3>
+          <div className="flex gap-x-[20px] mt-[0px] col-span-2">
+            {/* <button className="w-[320px] h-[70px]">시승신청</button> */}
+            <Link
+              href={{ pathname: '/info', query: { model: modelName } }}
+              className="w-[150px] h-[37px] font-thin border-2 border-white flex items-center justify-center"
+            >
+              시승신청
+            </Link>
+            <button className='mainBtn w-[150px] h-[37px] font-thin border-2 border-white bg-white text-black text-[16px]' style={{fontFamily:"Pretendard"}} onClick={clickNext}>
+              다음
+            </button>
+            {/* <Button color="black" bgColor="white" size="custom" onClick={clickNext}>
+              다음
+            </Button> */}
+          </div>
         </div>
+        
       </article>
     </section>
   );

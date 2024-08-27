@@ -42,8 +42,15 @@ export default function ModelLnb({ params }: { params: { model: string } }) {
   });
 
   return (
-    <ul className="absolute top-[220px] left-[80px] text-[#666666] flex flex-col gap-y-2.5 font-light text-xl z-20">
-      {items}
-    </ul>
+    <div className="flex flex-col absolute top-[220px] left-[80px]">
+      <ul className=" text-[#666666] flex flex-col gap-y-2.5 font-light text-xl z-20">
+        {items}
+      </ul>
+      {/* <ul className='grid grid-cols-[50px_50px] grid-rows-[50px] gap-x-[5px] mt-[20px]'>
+        <li className='bg-white text-black'>1</li>
+        <li className='bg-white text-black'>2</li>
+      </ul> */}
+    </div>
+
   );
 }
