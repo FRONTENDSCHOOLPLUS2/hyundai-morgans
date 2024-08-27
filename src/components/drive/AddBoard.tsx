@@ -21,7 +21,7 @@ export default function AddBoard({ params }: { params: { boards: string } }) {
                   id="title"
                   type="text"
                   placeholder="제목을 남겨주세요"
-                  className="w-full p-5 border dark:border-gray-300 border-gray-300  dark:bg-gray-100"
+                  className="w-full p-5 border border-gray-300  dark:bg-gray-100"
                   name="title"
                 />
               </div>
@@ -65,7 +65,7 @@ export default function AddBoard({ params }: { params: { boards: string } }) {
                 <select
                   id="title"
                   name="title"
-                  className="w-full p-5 border dark:border-gray-300 border-gray-300 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-200 dark:bg-gray-100"
+                  className="w-full p-5 border bg-transparent text-[#aaa] border-gray-300 focus:outline-none"
                   defaultValue="model"
                 >
                   <option value="model" disabled hidden>
@@ -95,7 +95,7 @@ export default function AddBoard({ params }: { params: { boards: string } }) {
                 <select
                   id="address"
                   name="address"
-                  className="w-full p-5 border dark:border-gray-300 border-gray-300 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-200 dark:bg-gray-100"
+                  className="w-full p-5 border bg-transparent text-[#aaa] border-gray-300 focus:outline-none"
                   defaultValue="address"
                 >
                   <option value="address" disabled hidden>
@@ -127,11 +127,11 @@ export default function AddBoard({ params }: { params: { boards: string } }) {
           <div className="flex justify-center my-6 gap-x-[30px]">
             <Link
               href={`/${params.boards}`}
-              className="mainBtn kr"
+              className="mainBtn kr text-[#aaa] border-[#aaa]"
             >
               취소
             </Link>
-            <Submit className='mainBtn kr'>등록</Submit>
+            <Submit className='mainBtn kr text-[#aaa] border-[#aaa]'>등록</Submit>
           </div>
         </div>
       </form>
