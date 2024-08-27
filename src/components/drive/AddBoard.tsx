@@ -113,11 +113,11 @@ export default function AddBoard({ params }: { params: { boards: string } }) {
           <div className="flex justify-center my-6 gap-x-[30px]">
             <Link
               href={`/${params.boards}`}
-              className="mainBtn"
+              className="mainBtn kr"
             >
               취소
             </Link>
-            <Submit className='mainBtn'>등록</Submit>
+            <Submit className='mainBtn kr'>등록</Submit>
           </div>
         </div>
       </form>

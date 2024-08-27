@@ -11,27 +11,29 @@ button {
   font: 500 14px/1 'Hyundai Sans Head Office';
   cursor: pointer;
 }
-button.mainBtn {
+.mainBtn {
   background: transparent;
   border: 1px solid #fff;
   color: #fff;
   width: 240px;
   height: 60px;
   font: 500 20px/1 'Hyundai Sans Head Office';
+  transition: all 0.2s;
+}
+.mainBtn.kr {
+  font:500 20px/1 'Pretendard'
 }
 a.mainBtn {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: transparent;
-  border: 1px solid #fff;
-
-  color: #fff;
-  width: 240px;
-  height: 60px;
-  font: 500 20px/1 'Hyundai Sans Head Office';
+  
 }
-
+.mainBtn:hover {
+  background:#fff;
+  border-color:#000;
+  color:#000;
+}
 .btnBasic {
   border: 1px solid #000;
   color:#fff;
@@ -338,13 +340,6 @@ main.mainPage > section#event1 > article .title_item .suyeon.on {
   -webkit-text-stroke: 1px #fff;
   left: 100%;
   transition: cubic-bezier(0.17, 0.67, 0.83, 0.67), 0.5s;
-}
-main.mainPage > section#event1 > article button {
-  width: 240px;
-  height: 60px;
-  font: 500 20px/1 'Hyundai Sans Head Office';
-  color: #fff;
-  border-color: #fff;
 }
 main.mainPage > section#event1 figure {
   width: 100%;

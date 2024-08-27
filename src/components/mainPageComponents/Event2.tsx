@@ -17,8 +17,8 @@ export default function Event2 ( {data} : {data:Product[]}) {
   const [index, setIndex] = useState(0);
   const imageData = data.map((image) => (
     <SwiperSlide key={image.name}>
-      <figure>
-        <Image src={SERVER + (image.mainImages[2].path)} width={0} height={0} sizes="100%" alt="G70 car" />
+      <figure className="relative max-w-[1200px] h-[500px]">
+        <Image src={SERVER + (image.mainImages[2].path)} fill alt="G70 car" style={{objectFit:'contain'}} className="absolute top-0 left-0" />
       </figure>
     </SwiperSlide>
 
