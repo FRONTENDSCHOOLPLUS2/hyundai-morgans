@@ -44,7 +44,7 @@ a.mainBtn {
 }
 .mainBtn:hover {
   background:#fff;
-  border-color:#000;
+  border-color:transparent;
   color:#000;
 }
 .btnBasic {
@@ -263,8 +263,8 @@ header .modal .closeBtn .cl-line:last-child {
   justify-content: center;
 }
 .main_pagenation li a {
-  width: 8px;
-  height: 8px;
+  width: 13px;
+  height: 13px;
   display: block;
   border: 1px solid #bbb;
   border-radius: 50%;
