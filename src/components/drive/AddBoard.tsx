@@ -2,8 +2,10 @@ import Link from 'next/link';
 import Submit from '../Submit';
 import { addPost } from '@/data/actions/postAction';
 
-export default function AddBoard({ params }: { params: { boards: string } }) {
-  console.log(params);
+export default function AddBoard({ params, isMain=false}: { params: { boards: string }, isMain: boolean }) {
+  const setIsmain = (isMain:boolean) => {
+    isMain ? 'text-white' : 'text-black'
+  }
 
   return (
     <section className="mb-24 p-4">
@@ -65,7 +67,7 @@ export default function AddBoard({ params }: { params: { boards: string } }) {
                 <select
                   id="title"
                   name="title"
-                  className="w-full p-5 border bg-transparent text-[#aaa] border-gray-300 focus:outline-none"
+                  className={`w-full p-5 border bg-transparent ${setIsmain(isMain)} border-gray-300 focus:outline-none`}
                   defaultValue="model"
                 >
                   <option value="model" disabled hidden>
@@ -95,7 +97,7 @@ export default function AddBoard({ params }: { params: { boards: string } }) {
                 <select
                   id="address"
                   name="address"
-                  className="w-full p-5 border bg-transparent text-[#aaa] border-gray-300 focus:outline-none"
+                  className={`w-full p-5 border bg-transparent ${setIsmain(isMain)} border-gray-300 focus:outline-none`}
                   defaultValue="address"
                 >
                   <option value="address" disabled hidden>
@@ -120,18 +122,18 @@ export default function AddBoard({ params }: { params: { boards: string } }) {
             id="content"
             rows={15}
             placeholder="원하는 상담내용을 입력해주세요"
-            className="w-full p-5 resize-none border border-gray-300 bg-transparent text-white h-[200px]"
+            className={`w-full p-5 resize-none border border-gray-300 bg-transparent ${setIsmain(isMain)} h-[200px]`}
             name="content"
           ></textarea>
 
           <div className="flex justify-center my-6 gap-x-[30px]">
             <Link
               href={`/${params.boards}`}
-              className="mainBtn kr text-[#aaa] border-[#aaa]"
+              className={`mainBtn kr ${setIsmain(isMain)} border-[#aaa]`}
             >
               취소
             </Link>
-            <Submit className='mainBtn kr text-[#aaa] border-[#aaa]'>등록</Submit>
+            <Submit className={`mainBtn kr ${setIsmain(isMain)} border-[#aaa]`}>등록</Submit>
           </div>
         </div>
       </form>
