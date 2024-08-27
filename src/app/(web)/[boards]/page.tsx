@@ -77,11 +77,11 @@ export default async function Page({ params }: { params: { boards: string } }) {
         <table className="border-collapse w-full table-fixed">
           <colgroup>
             {/* <col className="w-[10%] sm:w-[10%]" /> */}
-            <col className="w-[60%] sm:w-[40%]" />
+            <col className="w-[60%] sm:w-[49%]" />
             <col className="w-[30%] sm:w-[25%]" />
-            <col className="w-0 sm:w-[10%]" />
-            <col className="w-0 sm:w-[10%]" />
-            <col className="w-0 sm:w-[20%]" />
+            <col className="w-0 sm:w-[8%]" />
+            <col className="w-0 sm:w-[8%]" />
+            <col className="w-0 sm:w-[15%]" />
           </colgroup>
           <thead>
             <tr className="border-b border-solid border-gray-600">

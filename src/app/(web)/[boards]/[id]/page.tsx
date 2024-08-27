@@ -71,12 +71,12 @@ export default async function Page({ params }: { params: { boards: string; id: s
             {person}
             {item.extra?.name}
           </div>
-          <div className="text-black text-lg mb-2 font-light">연락처 :{item.phone}</div>
+          <div className="text-black text-lg mb-2 font-light">연락처 : {item.phone}</div>
           <div className="text-black text-lg mb-12 font-light">
             {place}
             {item.address}
           </div>
-          <div className="text-black text-base mb-20 font-light"> {item.content}</div>
+          <div className="text-black text-lg mb-20 font-light"> {item.content}</div>
 
           <div className="flex justify-end my-4">
             <Link
