@@ -19,7 +19,7 @@ const Pagination: React.FC<PaginationProps> = ({ page, totalPages }) => {
     newSearchParams.set('page', String(i));
     const search = newSearchParams.toString();
 
-    console.log(page, i, page === i);
+    // console.log(page, i, page === i);
     pageList.push(
       <li key={i} className={page === i ? 'font-bold text-blue-700' : ''}>
         <Link href={`/${params.boards}?${search}`}>{i}</Link>
