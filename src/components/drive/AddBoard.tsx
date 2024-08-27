@@ -110,14 +110,14 @@ export default function AddBoard({ params }: { params: { boards: string } }) {
                 내용은 필수입니다.
               </p> */}
 
-          <div className="flex justify-center my-6">
+          <div className="flex justify-center my-6 gap-x-[30px]">
             <Link
               href={`/${params.boards}`}
-              className="border-gray-600 border py-2 px-4 text-md mr-2"
+              className="mainBtn"
             >
               취소
             </Link>
-            <Submit>등록</Submit>
+            <Submit className='mainBtn'>등록</Submit>
           </div>
         </div>
       </form>
