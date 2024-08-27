@@ -1,4 +1,3 @@
-import Submit from '../Submit';
 import AddBoard from '../drive/AddBoard';
 
 // export default function Event5({ boardName, postId }: { postId: string; boardName: string }) {
@@ -53,12 +52,12 @@ import AddBoard from '../drive/AddBoard';
 //   );
 // }
 
-export default function Event5({ boardName, postId }: { postId: string; boardName: string }) {
+export default function Event5({ boardName }: { boardName: string }) {
   return (
     <section id="event5">
       <div className="ev5_wrap">
         <h2>시승신청</h2>
-        <AddBoard params={{ boards: 'drive' }} />
+        <AddBoard params={{ boards: boardName }} />
       </div>
       <div className="bgImg"></div>
     </section>
