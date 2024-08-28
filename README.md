@@ -124,7 +124,7 @@
 
 | 로그인 | 회원가입 |
 | :------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: |
-| ![main](https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/56462409/77795068-a8a8-4598-aa3e-a15ded3965dc) | ![like](https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/56462409/e8f9f79a-9374-49be-a665-3dd7872039b4) |
+| ![로그인](https://github.com/user-attachments/assets/94fccc5c-69ad-4dfd-b5c0-a258281c55bd) | ![회원가입](https://github.com/user-attachments/assets/cbcf4839-a504-433f-83b3-c9182f702833) |
 
 
 | 사이트 맵 | 에러 |
