@@ -113,13 +113,12 @@ export default function VerticalLayout({ params, modelData, optionData }: Vertic
     <>
       <section className="h-screen grid grid-cols-[500px_auto] gap-x-[4rem]">
         <div></div>
-        <article className="w-full grid grid-cols-[auto] items-center ">
-          <figure className="w-[80%] max-h-[500px] min-h-[300px] aspect-[2/1]">
-            <img src={optionState.imageSource} className="w-full" alt="" />
+        <article className="w-[80%] grid grid-cols-[auto] grid-rows-[minmax(auto,_500px)_50px_200px] items-center ">
+          <figure className="max-h-[500px] aspect-[2/1] relative ">
+            <Image src={optionState.imageSource} fill className='absolute top-0 left-[0%]' style={{objectFit:"contain"}} alt="" />
           </figure>
-          <h4 className="mb-[20px]">상기 이미지는 차량의 대표 이미지로 적용되어 있습니다.</h4>
-
-          <article className="w-[1200px] h-[165px] overflow-scroll">
+          <h4 className="justify-self-center">상기 이미지는 차량의 대표 이미지로 적용되어 있습니다.</h4>
+          <article className="h-full overflow-scroll">
             <table className="w-full">
               <tbody>
                 {/* 옵션 항목 렌더링 */}
