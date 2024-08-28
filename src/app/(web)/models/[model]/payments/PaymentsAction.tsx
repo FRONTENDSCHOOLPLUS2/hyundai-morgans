@@ -97,11 +97,11 @@ export default function PaymentsAction (
 
   return(
     <section>
-    <div className="ml-[300px] pt-[250px] flex gap-x-[80px]">
+    <div className="ml-[300px] pt-[250px] grid grid-cols-2 gap-x-[80px]">
       {/* 옵션 선택 정보 */}
-      <div className="flex flex-col gap-y-[70px]">
-        <article className="flex items-end gap-x-[20px]">
-          <h2 className="text-[40px]">김모건</h2><h3 className="text-[30px]">님께서 선택하신 옵션</h3>
+      <div className="flex flex-col gap-y-[20px]">
+        <article className="flex items-end gap-x-[8px]">
+          <h2 className="text-[40px] mb-[-3px]">김모건</h2><h3 className="text-[30px]">님께서 선택하신 옵션</h3>
         </article>
 
         {/* 차량 정보 */}
@@ -109,18 +109,18 @@ export default function PaymentsAction (
           <h3 className="text-[25px] font-bold mt-[27px]">차량정보</h3>
           <table className="mt-[27px] text-[15px]">
             <tbody>
-              <tr className="grid grid-cols-[100px_auto] gap-x-[100px] mb-[15px]">
+              <tr className="grid grid-cols-[80px_auto] gap-x-[60px] mb-[15px]">
                 <th className="text-right">모델명</th>
                 <td>{title}</td>
               </tr>
               
-              <tr className="grid grid-cols-[100px_auto] gap-x-[100px] mb-[15px]">
+              <tr className="grid grid-cols-[80px_auto] gap-x-[60px] mb-[15px]">
                 <th className="text-right">색상</th>
                 <td>
                   <table className="w-full">
                     <tbody className="flex flex-col gap-y-[10px] h-full">
-                      <tr className="grid grid-cols-[90px_4fr_minmax(100px,auto)] gap-x-[5px]">
-                        <th className="bg-white text-black mr-[15px] rounded-[10px]">외장 컬러</th>
+                      <tr className="grid grid-cols-[90px_4fr_minmax(100px,auto)] gap-x-[5px] text-nowrap">
+                        <th className="bg-white text-black mr-[15px] rounded-[10px] font-normal">외장 컬러</th>
                         <td className="flex gap-x-[10px]">
                           <figure className="w-[200px] h-full relative border-[1px] border-[#fff]">
                             <Image src={optionExterior && SERVER + optionExterior?.[0].images?.[0].path} fill 
@@ -132,8 +132,8 @@ export default function PaymentsAction (
                         <td className="text-right">{optionExterior && optionExterior?.[0].price?.toLocaleString()}원</td>
                       </tr>
 
-                      <tr className="grid grid-cols-[90px_4fr_minmax(100px,auto)] gap-x-[5px]">
-                        <th className="bg-white text-black mr-[15px] rounded-[10px]">내장 컬러</th>
+                      <tr className="grid grid-cols-[90px_4fr_minmax(100px,auto)] gap-x-[5px] text-nowrap">
+                        <th className="bg-white text-black mr-[15px] rounded-[10px] font-normal">내장 컬러</th>
                         <td className="flex gap-x-[10px]">
                           <figure className="w-[200px] h-full bg-white relative border-[1px] border-[#fff]">
                             <Image src={optionInterior && SERVER + optionInterior?.[0].items?.[0].images?.[0].path} fill 
@@ -152,37 +152,37 @@ export default function PaymentsAction (
               </tr>
   
 
-              <tr className="grid grid-cols-[100px_auto] gap-x-[100px] mb-[15px]">
+              <tr className="grid grid-cols-[80px_auto] gap-x-[60px] mb-[15px]">
                 <th className="text-right">옵션</th>
                 <td>
                   <table className="w-full">
                     <tbody className="flex flex-col gap-y-[10px]" ref={tbodyRef}>
                       <tr className="grid grid-cols-[90px_4fr_minmax(100px,auto)] gap-x-[5px]">
-                        <th className="bg-white text-black mr-[15px] rounded-[10px]">엔진 타입</th>
-                        <td className="text-left"><span className="w-[50px] mr-[20px]">| 기본 |</span>{optionEngine?.[0].topText}</td>
+                        <th className="bg-white text-black mr-[15px] rounded-[10px] font-normal">엔진 타입</th>
+                        <td className="text-left"><span className="w-[50px] mr-[20px] ">| 기본 |</span>{optionEngine?.[0].topText}</td>
                         <td className="text-right">{optionEngine?.[0].price.toLocaleString()}원</td>
                       </tr>
 
                       <tr className="grid grid-cols-[90px_4fr_minmax(100px,auto)] gap-x-[5px]">
-                        <th className="bg-white text-black mr-[15px] rounded-[10px]">구동 타입</th>
+                        <th className="bg-white text-black mr-[15px] rounded-[10px] font-normal">구동 타입</th>
                         <td className="text-left"><span className="w-[50px] mr-[20px]">| 기본 |</span>{optionDrivetrain?.[0].topText}</td>
                         <td className="text-right">{optionDrivetrain?.[0].price.toLocaleString()}원</td>
                       </tr>
 
                       <tr className="grid grid-cols-[90px_4fr_minmax(100px,auto)] gap-x-[5px]">
-                        <th className="bg-white text-black mr-[15px] rounded-[10px]">시트 구성</th>
+                        <th className="bg-white text-black mr-[15px] rounded-[10px] font-normal">시트 구성</th>
                         <td className="text-left"><span className="w-[50px] mr-[20px]">| 기본 |</span>{optionPassenger?.[0].topText}</td>
                         <td className="text-right">{optionPassenger?.[0].price.toLocaleString()}원</td>
                       </tr>
 
                       <tr className="grid grid-cols-[90px_4fr_minmax(100px,auto)] gap-x-[5px]">
-                        <th className="bg-white text-black mr-[15px] rounded-[10px]">내장 가니쉬</th>
+                        <th className="bg-white text-black mr-[15px] rounded-[10px] font-normal">내장 가니쉬</th>
                         <td className="text-left"><span className="w-[50px] mr-[20px]">| 기본 |</span>{optionGarnish?.[0].topText}</td>
                         <td className="text-right">{optionGarnish?.[0].price.toLocaleString()}원</td>
                       </tr>
 
                       <tr className="grid grid-cols-[90px_4fr_minmax(100px,auto)] gap-x-[5px]">
-                        <th className="bg-white text-black mr-[15px] rounded-[10px]">휠 & 타이어</th>
+                        <th className="bg-white text-black mr-[15px] rounded-[10px] font-normal">휠 & 타이어</th>
                         <td className="text-left"><span className="w-[50px] mr-[20px]">| 기본 |</span>{optionWheel?.[0].topText}</td>
                         <td className="text-right">{optionWheel?.[0].price.toLocaleString()}원</td>
                       </tr>
@@ -196,7 +196,7 @@ export default function PaymentsAction (
         </article>
 
         {/* 배송 정보 */}
-        <article className="border-t-[1px] border-[#a4a4a4]">
+        {/* <article className="border-t-[1px] border-[#a4a4a4] font-thin">
           <h3 className="text-[25px] font-bold mt-[27px]">배송정보</h3>
           <table className="mt-[27px] text-[20px]">
             <tbody>
@@ -233,10 +233,10 @@ export default function PaymentsAction (
               <span>옵션총합</span>
               <span>70,000원</span>
           </div>
-        </article>
+        </article> */}
 
         {/* 등록비용 */}
-        <article className="border-t-[1px] border-[#a4a4a4]">
+        {/* <article className="border-t-[1px] border-[#a4a4a4]">
           <div className="flex justify-between items-center mt-[20px]">
             <h3 className="text-[25px] font-bold">등록비용</h3>
             <select name="" id="" className="text-black w-[80px] h-[50px]">
@@ -276,7 +276,7 @@ export default function PaymentsAction (
               <span>등록비용 총합</span>
               <span>110,232원</span>
           </div>
-        </article>
+        </article> */}
 
 
         {/* 총 결제금액 */}
@@ -307,7 +307,7 @@ export default function PaymentsAction (
         <article className="w-[660px] py-[50px] bg-[#333] rounded-[5px]">
           <figure className="w-full pt-[250px] relative top-0 left-[50%] translate-x-[-50%]">
             {/* <Image src="/images/detail/defaultCar.png" fill alt="" className="absolute top-0 left-0"/> */}
-            <Image src={imageMatch && SERVER + imageMatch.image} fill sizes="100%" alt="" className="absolute top-0 left-0 aspect-auto" style={{objectFit: "contain"}}/>
+            <Image src={imageMatch && SERVER + imageMatch.image} fill alt="선택한 자동차 이미지입니다" className="absolute top-0 left-0" style={{objectFit: "contain"}}/>
           </figure>
           <div className="px-[60px] flex flex-col items-center">
             <section className="border-b-[1px] border-[#a4a4a4] w-full py-[20px]">
@@ -361,9 +361,9 @@ export default function PaymentsAction (
 
             </section>
 
-            <section className="text-[20px] grid grid-cols-2 grid-rows-[60px] gap-x-[30px] gap-y-[15px]">
-              <button className="px-[20px]">커스텀 저장</button>
-              <button className="px-[20px]">뒤로가기</button>
+            <section className="text-[20px] grid grid-cols-[300px] grid-rows-[60px] gap-y-[15px]">
+              {/* <button className="px-[20px]">커스텀 저장</button> */}
+              <button className="px-[20px] w-full">뒤로가기</button>
               <button 
                 className="bg-white text-black px-[20px] py-[15px] col-start-1 row-start-2 col-span-2" 
                 onClick={(e) => payClick(e)}>결제하기

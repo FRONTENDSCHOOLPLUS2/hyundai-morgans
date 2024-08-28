@@ -34,7 +34,8 @@ export default async function OptionPage({
     )}
 
     {horizontalArray.includes(params.option) && (
-      <HorizontalLayout params={params} modelData={modelData} optionData={optionData} />
+      // <HorizontalLayout params={params} modelData={modelData} optionData={optionData} />
+      <OptionReadyLayout params={params} modelData={modelData} optionData={optionData}/>
     )}
 
     {!verticalArray.includes(params.option) &&
