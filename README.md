@@ -1,4 +1,4 @@
-# 제니시수 (GENISISU)
+![결제페이지_토스](https://github.com/user-attachments/assets/cd241b4e-75f2-4c34-bde2-09aee1353541)# 제니시수 (GENISISU)
 </br>
 <div align="center">
   <img src="https://github.com/user-attachments/assets/65cbc531-12bd-442d-bd6c-5e1e8aad4ef9" width="500" />
@@ -95,25 +95,31 @@
 </br>
 
 ## 6. 화면구성
-|                                                메인                                                 |                                                상품 목록                                                 |                                                상품 상세                                                |
+|                                                메인                                                 |                                                메인_캐러셀                                                 |                                                상품 목록                                                |
 | :-----------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: |
-|  ![welcome_splash](https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/56462409/6883a96d-76df-4503-80d8-ca5dd7a74f39)| ![login](https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/56462409/b71c41ed-6819-4a4d-b185-2d3297e4de9a) |  ![signup](https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/56462409/a1be3347-3a6f-4cca-bd7c-1fe9542e77fe) |
+|  ![메인페이지](https://github.com/user-attachments/assets/1ac9aff4-547a-4a5f-b3f7-7718b97e0b28) | ![메인페이지_캐로셀](https://github.com/user-attachments/assets/28a8147b-3ef4-4891-b740-1bb93412924d)
+ |  ![상품목록](https://github.com/user-attachments/assets/62ea59c1-cba1-4c5e-bdeb-7b1796c99ec4) |
 
 
 
-|                                                     옵션 선택                                                      |                                                       결제                                                       |                                                      전시시승 신청                                                      |
+|                                                     상품 상세_360View                                                      |                                                       옵션 선택                                                       |                                                      결제                                                      |
 | :---------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------: |
-| ![profilesetting](https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/56462409/7b6768d3-b51b-432f-96b6-b04868edc073) |  ![search](https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/56462409/75af2333-7171-40de-a2b7-fcdc8dd6e8f0) |  ![following follower](https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/56462409/b205778f-977a-40bb-b17e-54e2b35eeae6)|
+| ![상품상세](https://github.com/user-attachments/assets/144e5c0c-1d87-4ae9-9aa9-0f5f66aa666d)
+| ![옵션선택](https://github.com/user-attachments/assets/c1b4a4f4-ef0c-430e-bd97-358a662f08dc)
+| ![결제페이지_토스](https://github.com/user-attachments/assets/2b8859cb-65c0-4af2-a15a-cce42ff358a7) |
 
 
 
-|                                                 QnA 작성                                                 |                                                               공지사항                                                               |                                                             로그인                                                              |
+|                                                 전시시승 신청                                                 |                                                               고객지원 게시판                                                               |                                                             공지사항 상세                                                              |
 | :--------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------: |
-| ![main](https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/56462409/77795068-a8a8-4598-aa3e-a15ded3965dc)| ![like](https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/56462409/e8f9f79a-9374-49be-a665-3dd7872039b4) | ![comment_create_delete](https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/56462409/aad2959d-0278-4aab-850d-d27d05a15266)|
+| ![image](https://github.com/user-attachments/assets/27472e7b-e4b6-4a34-a67a-83de36d63499)
+| ![고객지원_게시판](https://github.com/user-attachments/assets/3372aa9f-d776-402e-a810-103dd32a093c)
+| ![공지사항_상세](https://github.com/user-attachments/assets/955349f4-2162-427f-8d2f-bbd972f71c0a)
+|
 
 
 
-|                                                 회원가입                                                 |                                                               에러                                                               |                                                             페이지 Not Found                                                              |
+|                                                 로그인                                                 |                                                               회원가입                                                               |                                                             에러                                                              |
 | :--------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------: |
 | ![main](https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/56462409/77795068-a8a8-4598-aa3e-a15ded3965dc)| ![like](https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/56462409/e8f9f79a-9374-49be-a665-3dd7872039b4) | ![comment_create_delete](https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/56462409/aad2959d-0278-4aab-850d-d27d05a15266)|
 
