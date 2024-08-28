@@ -63,20 +63,7 @@
 </div>
 </br>
 
-## 4. 팀 소개
-**안녕하세요. 끈질기게 도전하는 3명의 프론트엔드 개발자로 이루어진 “현대모건스 - 제니시수연”팀입니다.**
-
-<div align="center">
-  
-|김모건|이수연|류재준
-| :--------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: |
-| <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/839c52db-0bb1-409b-99bc-319eb47d6624" width="150" /> | <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/02ab20ed-ea95-4c51-9a56-7fafcd1f738b" width="150" /> | <img src="https://github.com/user-attachments/assets/c170fb45-737d-4ac6-a52f-bd1c7bebc3a7" width="150" /> |
-|                          <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/8294521e-329a-45eb-a093-3836733640c4" width="30" height="30"/><br>[GitHub](https://github.com/redcontroller)                         |                          <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/8294521e-329a-45eb-a093-3836733640c4" width="30" height="30"/><br>[GitHub](https://github.com/sylee0102)                           |                           <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/8294521e-329a-45eb-a093-3836733640c4" width="30" height="30"/><br>[GitHub](https://github.com/ryungom)                      |
-|                                               팀장                                       |                                               팀원                                       |                                               팀원                                         | 
-
-</div>
-
-## 5. 프로젝트 설명
+## 4. 프로젝트 설명
 ### 📜 서론
 제니시수 프로젝트는 국내 유일 프리미엄 자동차 브랜드 GENESIS 데이터를 기반으로 제공되는 오토커머스(auto-commerce) 웹 서비스입니다.
 </br>
@@ -94,8 +81,20 @@
 핵심 개발 기능으로는 **자동차 구매**와 **다양한 옵션 선택** 그리고 **전시시승 신청 및 게시판** 기능입니다. 현대모건스 제니시수연은 Next.js 프레임워크를 사용하여 웹 사이트의 로딩 시간을 최소화하여 사용자 경험 향상에 주력했습니다.
 </br>
 
-## 6. 화면구성
+## 5. 화면구성
+### 📂 페이지 플로우
+| 페이지 플로우 |
+| ------------------------------------------------------------------------------------------------|
+|  ![page flow](https://github.com/user-attachments/assets/11b1575f-c87a-4416-b3cb-1b84d2f8a8c6) |
+와이어 프레임을 만들기 전 기초단계 수립을 위하여 개발 전 GNB 기준으로 페이지 구성을 나누어 전체 페이지 이동 환경을 구축했습니다. 한 눈에 페이지 흐름을 보기 위하여 선택한 방법입니다.
 
+### 🪅 피그마 환경 구성
+https://weniv.link/C_rKwn
+![image](https://github.com/user-attachments/assets/c320f773-7648-439c-9ab0-4306cc867771)
+페이지플로우, 와이어프레임, 디자인 시안작업을 위한 협업UI툴로 Figma를 선택하여 쉽고 빠르게 화면 관련 작업을 진행할 수 있도록 진행하였습니다. 
+
+
+### 🕶️ 세부 화면 구성
 | 메인 | 메인_캐러셀 |
 | :------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: |
 | ![메인페이지](https://github.com/user-attachments/assets/1ac9aff4-547a-4a5f-b3f7-7718b97e0b28) | ![메인페이지_캐로셀](https://github.com/user-attachments/assets/28a8147b-3ef4-4891-b740-1bb93412924d) |
@@ -132,7 +131,7 @@
 | ![사이트맵](https://github.com/user-attachments/assets/8d7e51c3-4abf-489c-a148-7fafea6abd72) | ![에레](https://github.com/user-attachments/assets/a751be5c-e932-436e-9035-e23b7c0a382e) |
 
 
-## 7. 주요 기능
+## 6. 주요 기능
 <p>⭐ <strong>메인 페이지</strong></p>
 
 - 프로모션 영상, 판매 모델, 공지시항 등을 보여주는 캐러셀 기능
@@ -153,7 +152,7 @@
 
 </br>
 
-## 8. 향후 기능 개발 및 리팩터링
+## 7. 향후 기능 개발 및 리팩터링
 - 메인 페이지 Data Fetching 개선
 - 옵션 선택 기능 추가 개발
 - 게시판 개선
@@ -163,3 +162,16 @@
 - 로그인/회원가입
   - 기능 개선, 현대맵버스 로그인 기능
   - 계정 권한별 기능 제한
+ 
+## 8. 팀 소개
+**안녕하세요. 끈질기게 도전하는 3명의 프론트엔드 개발자로 이루어진 “현대모건스 - 제니시수연”팀입니다.**
+
+<div align="center">
+  
+|김모건|이수연|류재준
+| :--------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: |
+| <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/839c52db-0bb1-409b-99bc-319eb47d6624" width="150" /> | <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/02ab20ed-ea95-4c51-9a56-7fafcd1f738b" width="150" /> | <img src="https://github.com/user-attachments/assets/c170fb45-737d-4ac6-a52f-bd1c7bebc3a7" width="150" /> |
+|                          <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/8294521e-329a-45eb-a093-3836733640c4" width="30" height="30"/><br>[GitHub](https://github.com/redcontroller)                         |                          <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/8294521e-329a-45eb-a093-3836733640c4" width="30" height="30"/><br>[GitHub](https://github.com/sylee0102)                           |                           <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/8294521e-329a-45eb-a093-3836733640c4" width="30" height="30"/><br>[GitHub](https://github.com/ryungom)                      |
+|                                               팀장                                       |                                               팀원                                       |                                               팀원                                         | 
+
+</div>
