@@ -26,40 +26,19 @@
 
 ## 3. 기술 스택, 뱃지
 ### Development
-#### Frontend
-<div align="left">
-  <img height="25" src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white"/>
-  <img height="25" src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white"/>
-  <img height="25" src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white">
-  <img height="25" src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
-  <img height="25" src="https://img.shields.io/badge/Zustand-000000?style=for-the-badge&logo=Zustand&logoColor=white">
-</div>
+| Frontend | Backend | Config | Environment | Communication |
+|---|---|---|---|---|
+|<img height="25" src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white"/>|<img height="25" src="https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=Node.js&logoColor=white"> |<img height="25" src="https://img.shields.io/badge/NPM-CB3837.svg?style=for-the-badge&logo=npm&logoColor=white" /> |<img height="25" src="https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white" /> |<img height="25" src="https://img.shields.io/badge/Notion-000000.svg?style=for-the-badge&logo=notion&logoColor=white" /> |
+|<img height="25" src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white"/>|<img height="25" src="https://img.shields.io/badge/express.js-000000.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB" /> | | <img height="25" src="https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white"/> |<img height="25" src="https://img.shields.io/badge/figma-F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white" />
+|<img height="25" src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white">|<img height="25" src="https://img.shields.io/badge/mongodb-47A248.svg?style=for-the-badge&logo=mongodb&logoColor=white"/> |||<img height="25" src="https://img.shields.io/badge/Discord-5865F2.svg?style=for-the-badge&logo=Discord&logoColor=white" />
+|<img height="25" src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white"/>|  <img height="25" src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=Python&logoColor=white"> |
+| <img height="25" src="https://img.shields.io/badge/Zustand-000000?style=for-the-badge&logo=Zustand&logoColor=white">|
 
-#### Backend
-<div align="left">
-  <img height="25" src="https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=Node.js&logoColor=white">
-  <img height="25" src="https://img.shields.io/badge/express.js-000000.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB" />
-  <img height="25" src="https://img.shields.io/badge/mongodb-47A248.svg?style=for-the-badge&logo=mongodb&logoColor=white"/>
-  <img height="25" src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
-</div>
 
-#### Config
-<div align="left">
-  <img height="25" src="https://img.shields.io/badge/NPM-CB3837.svg?style=for-the-badge&logo=npm&logoColor=white" />
-</div>
 
-#### Environment
-<div align="left">
-  <img height="25" src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" />
-  <img height="25" src="https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white" />
-  <img height="25" src="https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white"/>
-</div>
 
-#### Communication
-<div align="left">
-<img height="25" src="https://img.shields.io/badge/Notion-000000.svg?style=for-the-badge&logo=notion&logoColor=white" />
-<img height="25" src="https://img.shields.io/badge/figma-F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white" />
-<img height="25" src="https://img.shields.io/badge/Discord-5865F2.svg?style=for-the-badge&logo=Discord&logoColor=white" />
+
+
 </div>
 </br>
 
@@ -86,7 +65,7 @@
 
 **2주차** | 메인 페이지 퍼블리싱, 핵심 페이지 퍼블리싱, 데이터 DB화, 상품 목록
 
-**3주차** | **기술면접**, **연휴**, 메인 페이지 인터렉션, 결제, 주문(견적내기),
+**3주차** | **기술면접**, **연휴**, 메인 페이지 인터렉션, 결제, 주문,
             전시시승 게시판, 상세 및 댓글, 게시판, 게시글 작성
 
 **4주차** | 404, 페이지별 스타일 통일,
@@ -193,7 +172,9 @@
 - 로그인/회원가입
   - 기능 개선, 현대맵버스 로그인 기능
   - 계정 권한별 기능 제한
- 
+- 애니메이션 인터렉션 추가
+- 데이터 시각화
+  
 ## 10. 팀 소개
 **끈질기게 도전하는 3명의 프론트엔드 개발자로 이루어진 “현대모건스 - 제니시수연”팀입니다.**
 
@@ -209,6 +190,29 @@
 | <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/839c52db-0bb1-409b-99bc-319eb47d6624" width="150" /> | <img src="https://github.com/user-attachments/assets/d0c329bf-004b-485d-b5f9-2be967a086cf" width="150" /> | <img src="https://github.com/user-attachments/assets/c170fb45-737d-4ac6-a52f-bd1c7bebc3a7" width="150" /> |
 |                          <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/8294521e-329a-45eb-a093-3836733640c4" width="30" height="30"/><br>[GitHub](https://github.com/redcontroller)                         |                          <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/8294521e-329a-45eb-a093-3836733640c4" width="30" height="30"/><br>[GitHub](https://github.com/sylee0102)                           |                           <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/8294521e-329a-45eb-a093-3836733640c4" width="30" height="30"/><br>[GitHub](https://github.com/ryungom)                      |
 |                                               팀장                                       |                                               팀원                                       |                                               팀원                                         | 
-
 </div>
+
+## 11. 소감
+<details align="left">
+<summary>김모건</summary>
+<div markdown="1">
+오늘 지하철에서 해준 방송을 인용하고 싶어요. 자신이 목표로 하는 길을 꾸준히 걷는 우리들이 이 도시의 영웅이라고 생각해요. 오늘 맑고 푸른 하늘도 바라보며 아쉬운 마음과 스트레스 푸시고, 우리 팀원들의 앞길 또한 창창하길 바랍니다!
+</div>
+</details>
+
+<details align="left">
+<summary>이수연</summary>
+<div markdown="1">
+윤호 매니저님의 걱정에도 불구하고 빠득빠득 들어와서 수업시간에 git pull도 못하고 얼타고 있었는데,(모간님 꼽도 많이 받음,,) 이번 프로젝트 덕에 멋사 정규 수업때보다 더 많이 성장할 수 있게 된 것 같아서 (다른분들과 비교했을 때는 아직 많이 부족한 실력이지만,) 개인적으로는 뿌듯하고, 리팩토링 때 더 성장할 수 있을 것 같다는 생각이듭니다.
+
+자기소개 때 꼴지로 들어왔지만 가장 많은 폭의 성장을 해서 나가겠다고 다짐한 것을 지키고 나가는 것 같아서 뿌듯합니다.
+</div>
+</details>
+
+<details align="left">
+<summary>류재준</summary>
+<div markdown="1">
+함께해서 행복했습니다. 여러분 모두 왕사랑!! 모두 블랙기업가지말고 건강하게 개발하시길
+</div>
+</details>
 
