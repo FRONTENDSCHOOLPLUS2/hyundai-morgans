@@ -81,7 +81,22 @@
 핵심 개발 기능으로는 **자동차 구매**와 **다양한 옵션 선택** 그리고 **전시시승 신청 및 게시판** 기능입니다. 현대모건스 제니시수연은 Next.js 프레임워크를 사용하여 웹 사이트의 로딩 시간을 최소화하여 사용자 경험 향상에 주력했습니다.
 </br>
 
-## 5. 화면구성
+## 5. 개발계획
+**1주차** | 메인 페이지 퍼블리싱, 메인 페이지 디자인, 기획 및 개발환경 세팅, 데이터 DB화
+
+**2주차** | 메인 페이지 퍼블리싱, 핵심 페이지 퍼블리싱, 데이터 DB화, 상품 목록
+
+**3주차** | **기술면접**, **연휴**, 메인 페이지 인터렉션, 결제, 주문(견적내기),
+            전시시승 게시판, 상세 및 댓글, 게시판, 게시글 작성
+
+**4주차** | 404, 페이지별 스타일 통일,
+            QnA 게시판 상세 및 댓글, 게시판, 게시글 작성,
+            이벤트 게시판 상세 및 댓글, 게시판, 게시글 작성,
+            각 페이지 최적화 작업
+
+**5주차** | README 작성하고 꾸미기, 발표 자료 만들기, 발표
+
+## 6. 화면구성
 ### 📂 페이지 플로우
 | 페이지 플로우 |
 | ------------------------------------------------------------------------------------------------|
@@ -133,7 +148,7 @@
 | :------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: |
 | ![사이트맵](https://github.com/user-attachments/assets/8d7e51c3-4abf-489c-a148-7fafea6abd72) | ![에레](https://github.com/user-attachments/assets/a751be5c-e932-436e-9035-e23b7c0a382e) |
 
-## 6. 이슈 관리
+## 7. 이슈 관리
 - feature / dev / main 세가지 이슈를 이용한 Github-Flow 전략을 이용한 이슈관리를 진행했습니다. 세부적으로 Label로 해시태그를 생성하여 이슈 및 PR 가독성을 살리게 되었고 Milestone, Project 단계로 이어지는 큰 단위의 프로젝트 관리를 진행했습니다.
 - Github-Flow의 기본적인 흐름을 소개드리자면 다음과 같습니다
    1. 원본 레포지토리를 Fork 해서 가져오거나 Clone해서 각자의 로컬 레포지토리로 가져옵니다.
@@ -147,7 +162,7 @@
 </div>
 
 
-## 7. 주요 기능
+## 8. 주요 기능
 <p>⭐ <strong>메인 페이지</strong></p>
 
 - 프로모션 영상, 판매 모델, 공지시항 등을 보여주는 캐러셀 기능
@@ -168,7 +183,7 @@
 
 </br>
 
-## 8. 향후 기능 개발 및 리팩터링
+## 9. 향후 기능 개발 및 리팩터링
 - 메인 페이지 Data Fetching 개선
 - 옵션 선택 기능 추가 개발
 - 게시판 개선
@@ -179,15 +194,21 @@
   - 기능 개선, 현대맵버스 로그인 기능
   - 계정 권한별 기능 제한
  
-## 9. 팀 소개
-**안녕하세요. 끈질기게 도전하는 3명의 프론트엔드 개발자로 이루어진 “현대모건스 - 제니시수연”팀입니다.**
+## 10. 팀 소개
+**끈질기게 도전하는 3명의 프론트엔드 개발자로 이루어진 “현대모건스 - 제니시수연”팀입니다.**
 
+모건 - 상품 목록 및 옵션 선택
+
+수연 - 전시시승 신청, 고객지원, 공지사항 게시판
+
+재준 - 메인 페이지, 주문 결제, 퍼블리싱
 <div align="center">
   
 |김모건|이수연|류재준
 | :--------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: |
-| <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/839c52db-0bb1-409b-99bc-319eb47d6624" width="150" /> | <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/02ab20ed-ea95-4c51-9a56-7fafcd1f738b" width="150" /> | <img src="https://github.com/user-attachments/assets/c170fb45-737d-4ac6-a52f-bd1c7bebc3a7" width="150" /> |
+| <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/839c52db-0bb1-409b-99bc-319eb47d6624" width="150" /> | <img src="https://github.com/user-attachments/assets/d0c329bf-004b-485d-b5f9-2be967a086cf" width="150" /> | <img src="https://github.com/user-attachments/assets/c170fb45-737d-4ac6-a52f-bd1c7bebc3a7" width="150" /> |
 |                          <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/8294521e-329a-45eb-a093-3836733640c4" width="30" height="30"/><br>[GitHub](https://github.com/redcontroller)                         |                          <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/8294521e-329a-45eb-a093-3836733640c4" width="30" height="30"/><br>[GitHub](https://github.com/sylee0102)                           |                           <img src="https://github.com/FRONTENDSCHOOL7/final-12-HoloNyamNyam/assets/138554423/8294521e-329a-45eb-a093-3836733640c4" width="30" height="30"/><br>[GitHub](https://github.com/ryungom)                      |
 |                                               팀장                                       |                                               팀원                                       |                                               팀원                                         | 
 
 </div>
+
