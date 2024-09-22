@@ -4,7 +4,7 @@ import Submit from '@/components/Submit';
 import { deleteComment } from '@/data/actions/postAction';
 import { PostComment } from '@/types';
 import Link from 'next/link';
-const CLIENT = process.env.NEXT_CLIENT_ID;
+const CLIENT = process.env.NEXT_PUBLIC_CLIENT_ID;
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 
 // deletePost

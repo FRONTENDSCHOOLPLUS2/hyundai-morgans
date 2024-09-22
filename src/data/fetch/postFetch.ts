@@ -3,7 +3,7 @@ import { ApiRes, MultiItem, Post, SingleItem } from '@/types';
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
 const LIMIT = process.env.NEXT_PUBLIC_LIMIT;
 const DELAY = process.env.NEXT_PUBLIC_DELAY;
-const CLIENT = process.env.NEXT_CLIENT_ID;
+const CLIENT = process.env.NEXT_PUBLIC_CLIENT_ID;
 
 // 게시물 목록 전체 조회
 export async function fetchPosts(

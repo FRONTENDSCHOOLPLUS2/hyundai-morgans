@@ -57,7 +57,7 @@ export default function AddBoard({ params, isMain }: { params: { boards: string 
             </div>
           </div>
 
-          {params.boards === 'info' && (
+          {params.boards === 'drive' && (
             <div className="flex gap-16">
               <div className="flex-1 my-4 mb-10">
                 <label className="block text-xl mb-2" htmlFor="model">
@@ -77,7 +77,7 @@ export default function AddBoard({ params, isMain }: { params: { boards: string 
                   <option value="G90 Long Wheel Base">G90 Long Wheel Base</option>
                   <option value="G90">G90</option>
                   <option value="G80">G80</option>
-                  <option value="G80 Electrrified">G80 Electrrified</option>
+                  <option value="G80 Electrrified">G80 Electrified</option>
                   <option value="G70">G70</option>
                   <option value="G70 Shooting Brake">G70 Shooting Brake</option>
                   <option value="GV80">GV80</option>
@@ -138,9 +138,6 @@ export default function AddBoard({ params, isMain }: { params: { boards: string 
               <Submit className={`mainBtn kr ${setIsmain(isMain)} border-[#aaa] hover:border-[transparent] hover:bg-black hover:text-white`}>등록</Submit>
             </>
             }
-            
-           
-            
           </div>
         </div>
       </form>

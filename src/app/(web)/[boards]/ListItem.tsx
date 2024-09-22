@@ -9,7 +9,6 @@ export default function ListItem({ item, params }: { item: Post; params: { board
       <td className="p-2 truncate indent-4">
         <Link href={`/${item.type}/${item._id}`} className="cursor-pointer">
           {item.title}
-          {params.boards === 'info' ? ' 차량 시승 신청 합니다.' : ''}
         </Link>
       </td>
       {/* <td className="p-2 text-center truncate">{item.user.name}</td> */}

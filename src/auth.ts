@@ -4,10 +4,11 @@ import github from 'next-auth/providers/github';
 import google from 'next-auth/providers/google';
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
-const CLIENT = process.env.NEXT_CLIENT_ID;
+const CLIENT = process.env.NEXT_PUBLIC_CLIENT_ID;
 
 // OAuth2.0
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  trustHost: true, // 배포 시 필요
   providers: [
     CredentialsProvider({
       // email/password 로그인
