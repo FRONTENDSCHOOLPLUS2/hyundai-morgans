@@ -20,7 +20,7 @@ export default async function RootPage() {
         <Event2 data={modelData} />
         <Event3 />
         <Event4 />
-        <Event5 boardName={'info'} />
+        <Event5 boardName={'drive'} />
       </main>
     </>
   );
