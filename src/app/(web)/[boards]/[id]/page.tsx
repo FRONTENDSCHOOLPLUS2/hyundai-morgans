@@ -39,21 +39,21 @@ export default async function Page({ params }: { params: { boards: string; id: s
   if (item === null) notFound();
 
   let car = '';
-  if ('info' === params.boards) {
+  if ('drive' === params.boards) {
     car = '시승신청 차량 : ';
   } else {
     car = '';
   }
 
   let person = '';
-  if ('info' === params.boards) {
+  if ('drive' === params.boards) {
     person = '신청자 : ';
   } else {
     person = '작성자 : ';
   }
 
   let place = '';
-  if ('info' === params.boards) {
+  if ('drive' === params.boards) {
     place = '희망 플레이스 : ';
   } else {
     place = '';
@@ -88,7 +88,7 @@ export default async function Page({ params }: { params: { boards: string; id: s
             {session?.user?.id === String(item.user?._id) && (
               <>
                 <Link
-                  href={`/${params.boards}/${params.id}/editDrive`}
+                  href={`/${params.boards}/${params.id}/edit`}
                   className="py-1 px-4 mr-2 text-base text-black border-gray-600 border ml-2"
                 >
                   수정

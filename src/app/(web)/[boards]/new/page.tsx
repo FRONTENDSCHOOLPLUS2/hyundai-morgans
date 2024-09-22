@@ -4,8 +4,10 @@ export default function drive({ params }: { params: { boards: string } }) {
   let title = '';
   if ('qna' === params.boards) {
     title = 'QnA 신청';
-  } else {
+  } else if ('drive' === params.boards) {
     title = '전시시승 신청';
+  } else {
+    title = '공지사항 작성';
   }
 
   return (

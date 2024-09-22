@@ -29,15 +29,15 @@ export default async function Page({ params }: { params: { boards: string } }) {
   let title = '';
   if ('qna' === params.boards) {
     title = '고객지원';
-  } else if ('info' === params.boards) {
+  } else if ('drive' === params.boards) {
     title = '전시시승';
   } else {
     title = '공지사항';
   }
 
-  const tableTitle01 = 'info' === params.boards ? '시승신청 모델' : '제목';
-  let tableTitle02 = 'info' === params.boards ? '신청자' : '작성자';
-  let tableTitle03 = 'info' === params.boards ? '시승 신청일' : '작성일';
+  const tableTitle01 = 'drive' === params.boards ? '시승신청 모델' : '제목';
+  let tableTitle02 = 'drive' === params.boards ? '신청자' : '작성자';
+  let tableTitle03 = 'drive' === params.boards ? '시승 신청일' : '작성일';
 
   return (
     <main className="min-w-80 py-32 px-40 bg-white">
@@ -49,7 +49,7 @@ export default async function Page({ params }: { params: { boards: string } }) {
       {params.boards !== 'notice' ? (
         <div className="flex justify-end mr-4 mb-8">
           {/* <Search /> */}
-          <Link href={`/${params.boards}/drive`} className="btnBasic">
+          <Link href={`/${params.boards}/new`} className="btnBasic">
             신청하기
           </Link>
         </div>

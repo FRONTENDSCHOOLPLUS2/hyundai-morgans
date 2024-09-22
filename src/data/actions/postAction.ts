@@ -3,9 +3,10 @@
 import { ApiRes, CoreRes, SingleItem, Post, PostComment } from '@/types/index';
 import { auth } from '@/auth';
 import { redirect } from 'next/navigation';
+import { title } from 'process';
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
-const CLIENT = process.env.NEXT_CLIENT_ID;
+const CLIENT = process.env.NEXT_PUBLIC_CLIENT_ID;
 
 // 게시물 등록
 export async function addPost(formData: FormData): Promise<ApiRes<SingleItem<Post>>> {
@@ -13,7 +14,8 @@ export async function addPost(formData: FormData): Promise<ApiRes<SingleItem<Pos
   const session = await auth();
   const postData = {
     type: boardName,
-    title: formData.get('title'),
+    title:
+      boardName === 'drive' ? formData.get('title') + '차량 시승 신청합니다.' : formData.get(title),
     extra: {
       name: formData.get('name') as string,
     },
