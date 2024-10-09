@@ -36,7 +36,7 @@ export default function CommentItem({
       <div className="flex justify-between items-center mb-2">
         <img className="w-8 h-4 mr-2" src={image} alt="프로필 이미지" />
         <Link href="" className="font-medium text-lg">
-          {item.user?.name}
+          {item.user?.name || '익명'}
         </Link>
         <time className="ml-auto text-gray-400" dateTime={item.updatedAt}>
           {item.updatedAt}

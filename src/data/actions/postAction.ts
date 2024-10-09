@@ -16,9 +16,7 @@ export async function addPost(formData: FormData): Promise<ApiRes<SingleItem<Pos
     type: boardName,
     title:
       boardName === 'drive' ? formData.get('title') + '차량 시승 신청합니다.' : formData.get(title),
-    extra: {
-      name: formData.get('name') as string,
-    },
+    name: formData.get('name') as string,
     phone: formData.get('phone') as string,
     content: formData.get('content') as string,
   };
