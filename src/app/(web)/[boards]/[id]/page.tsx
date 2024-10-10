@@ -69,7 +69,7 @@ export default async function Page({ params }: { params: { boards: string; id: s
           </div>
           <div className="text-black text-lg mb-2 font-medium">
             {person}
-            {item.extra?.name}
+            {item.name || '익명'}
           </div>
           <div className="text-black text-lg mb-2 font-light">연락처 : {item.phone}</div>
           <div className="text-black text-lg mb-12 font-light">
